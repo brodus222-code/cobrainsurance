@@ -1,0 +1,97 @@
+{
+  "tasks": [
+    {
+      "title": "Make a Premium Payment",
+      "desc": "Pay your monthly COBRA premium online, by phone, or by mail. Payments are due monthly with a 30-day grace period.",
+      "steps": [
+        "Log in to your plan administrator's online portal (link on your election notice)",
+        "Select \"Make a Payment\" and enter your payment method",
+        "Keep your confirmation number — it's proof of payment",
+        "Alternatively, call your plan administrator or mail a check to the address on your coupon book"
+      ],
+      "warning": "Missing a payment beyond the 30-day grace period permanently terminates your COBRA coverage. There is no reinstatement.",
+      "accent": true,
+      "id": "oVVAR5Z__j-HWGGUbp19m"
+    },
+    {
+      "title": "Set Up Automatic Payments",
+      "desc": "Avoid accidental lapses by enrolling in autopay through your plan administrator's portal or setting up a recurring bank transfer.",
+      "steps": [
+        "Log in to your plan administrator's portal",
+        "Navigate to \"Payment Settings\" or \"AutoPay\"",
+        "Enter your bank account or credit card details",
+        "Confirm the monthly draft date — typically the 1st of each month"
+      ],
+      "warning": null,
+      "accent": false,
+      "id": "xecmDoijM_K8kiQZ83g1R"
+    },
+    {
+      "title": "Update Personal Information",
+      "desc": "Keep your address, phone number, and email current so you receive premium notices, coverage letters, and important plan communications.",
+      "steps": [
+        "Contact your plan administrator directly — most updates require a written request or a form",
+        "For address changes, submit in writing and request written confirmation",
+        "Update your email with both your plan administrator and HealthLink Insurance Agency LLC",
+        "Call us at 877-262-7241 if you need help locating your plan administrator"
+      ],
+      "warning": null,
+      "accent": false,
+      "id": "gdxEeedHLu7mr_fyC6ym4"
+    },
+    {
+      "title": "Add or Remove Dependents",
+      "desc": "COBRA continuation must mirror the coverage you had on your qualifying event date. Rules for changing dependents mid-coverage are strict.",
+      "steps": [
+        "You generally cannot add new dependents unless they also experienced a qualifying event",
+        "A dependent who has their own qualifying event (e.g., divorce, aging off) may elect COBRA separately",
+        "To remove a dependent, contact your plan administrator in writing",
+        "Call us at 877-262-7241 to discuss your specific situation"
+      ],
+      "warning": "You cannot add a newborn or newly adopted child to COBRA mid-coverage unless your original plan allowed it. Consult your plan administrator.",
+      "accent": false,
+      "id": "2a4vOgtXXlZK_sAEkzla7"
+    },
+    {
+      "title": "Verify Your Coverage Status",
+      "desc": "Confirm your COBRA is active, check your effective dates, or request a written confirmation letter for a provider or employer.",
+      "steps": [
+        "Call your plan administrator — their number is on your election notice and ID card",
+        "Ask for a \"Certificate of Creditable Coverage\" or a coverage verification letter",
+        "Confirm your coverage effective date and the date through which premiums are paid",
+        "Call us at 877-262-7241 if you need help navigating your plan administrator"
+      ],
+      "warning": null,
+      "accent": false,
+      "id": "p-6ghhOcbzE6IjB3a7LcQ"
+    },
+    {
+      "title": "Cancel COBRA Coverage",
+      "desc": "You can cancel COBRA at any time. Common reasons include enrolling in a new employer plan, an ACA marketplace plan, or Medicare.",
+      "steps": [
+        "Submit a written cancellation request to your plan administrator",
+        "Specify the date you want coverage to end — cancellations are typically prospective",
+        "Request written confirmation of your cancellation",
+        "If you're switching to new coverage, confirm the new plan's start date before cancelling"
+      ],
+      "warning": "Once you cancel COBRA, you cannot re-elect it. Make sure your new coverage is confirmed and active before cancelling.",
+      "accent": false,
+      "id": "0HK5_9_1ajP9pGn0xBy1K"
+    }
+  ],
+  "gracePeriodFacts": [
+    { "label": "Grace period length", "value": "30 days after each due date", "id": "KlK2t7zwTMJVb4OXr5GHo" },
+    { "label": "What happens if you miss it", "value": "Coverage terminated — permanently", "id": "QDqdMM9FlLIx-tYwMnTFK" },
+    { "label": "Can you reinstate after termination?", "value": "No — there is no reinstatement", "id": "0uc3Zo0zsLXJRthxFpFaN" },
+    { "label": "Claims during grace period", "value": "Covered if payment is received before termination", "id": "bXcLRyulV4rqDUQAYleMa" },
+    { "label": "Best practice", "value": "Pay 10+ days early or set up autopay", "id": "p08V0FI75p-vQXT2rckPa" }
+  ],
+  "faqs": [
+    { "question": "Where do I send my COBRA premium payment?", "answer": "Payment instructions are on your election notice and in your coupon book. Payments go to your plan administrator — not to your former employer and not to HealthLink Insurance Agency LLC. If you've lost your notice, call us at 877-262-7241 and we'll help you locate your administrator.", "id": "1ytZ6a3xfCPCa4vcNGMny" },
+    { "question": "My COBRA payment was returned. What do I do?", "answer": "Contact your plan administrator immediately. A returned payment does not automatically terminate coverage, but you must resolve it before the grace period expires. Resubmit payment as soon as possible and request written confirmation that your coverage remains active.", "id": "H3-zTi1xldbAJFk_LcSuA" },
+    { "question": "How do I get a new insurance ID card?", "answer": "Contact your plan administrator or the insurance carrier directly — their number is on your existing ID card or election notice. Most carriers allow you to print a temporary ID card from their member portal while a physical card is mailed.", "id": "uAdpzMVxTHpFPn16OD_rx" },
+    { "question": "Can I switch to a different plan during COBRA?", "answer": "You can only switch plans during the annual open enrollment period offered by your former employer's plan. Outside of open enrollment, you are locked into the plan you elected. Contact your plan administrator to find out when open enrollment occurs.", "id": "KubmBAra4Fqoh7ySt8mwL" },
+    { "question": "What happens to my COBRA when I get a new job?", "answer": "Enrollment in new employer-sponsored coverage is a qualifying event that ends your COBRA eligibility. You should cancel COBRA once your new coverage is confirmed active to avoid paying premiums for overlapping coverage. COBRA does not automatically cancel when you start a new job.", "id": "BbqqjsO6xvmpXrBEoQAj7" },
+    { "question": "How do I know when my COBRA coverage expires?", "answer": "Your election notice states the maximum coverage period — typically 18 months for job loss, up to 36 months for other qualifying events. Your plan administrator should send a notice before your coverage ends. You can also call them at any time to confirm your end date.", "id": "7hLbl-JYob91lA2NIoBPp" }
+  ]
+}

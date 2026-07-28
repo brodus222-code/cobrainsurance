@@ -1,0 +1,158 @@
+{
+  "hero": {
+    "eyebrow": "Alternatives to COBRA",
+    "title": "Is COBRA Too Expensive? You Have Options.",
+    "subtitle": "COBRA lets you keep your exact employer plan — but you pay the full premium. For many people, there are significantly cheaper alternatives that still provide solid coverage."
+  },
+  "stats": [
+    { "id": "s1", "stat": "60 Days", "label": "Special Enrollment Period after losing job coverage" },
+    { "id": "s2", "stat": "Up to 60%", "label": "Savings possible vs. COBRA with ACA subsidies" },
+    { "id": "s3", "stat": "5 Options", "label": "Alternatives reviewed on this page" }
+  ],
+  "whenCobraSection": {
+    "heading": "When Does COBRA Actually Make Sense?",
+    "intro": "COBRA isn't always the wrong choice — it's the right one in specific situations. Here's when it's worth the higher cost:",
+    "scenarios": [
+      { "id": "sc1", "title": "You have ongoing treatment", "desc": "If you're mid-treatment for cancer, surgery, or a chronic condition, staying on the same plan avoids disrupting your care team and coverage." },
+      { "id": "sc2", "title": "You expect new coverage soon", "desc": "Starting a new job in 1–2 months? COBRA bridges the gap without changing plans or providers." },
+      { "id": "sc3", "title": "Your dependents have complex needs", "desc": "If a spouse or child has a specialist they rely on, COBRA keeps that network intact." },
+      { "id": "sc4", "title": "You've met your deductible", "desc": "Late in the plan year and already hit your deductible? COBRA may be cheaper than starting over on a new plan." }
+    ]
+  },
+  "alternativesSection": {
+    "heading": "Your Alternatives to COBRA",
+    "intro": "Each option has different trade-offs. Our advisors can help you choose the right fit."
+  },
+  "alternatives": [
+    {
+      "id": "a1",
+      "title": "ACA Marketplace Plans",
+      "subtitle": "Healthcare.gov / State Exchange",
+      "cost": "$0 – $500+/mo",
+      "costNote": "Subsidies available based on income",
+      "duration": "Annual (renews each year)",
+      "bestFor": "Most people — especially those who qualify for premium tax credits",
+      "pros": [
+        { "id": "a1p1", "text": "Subsidies can make premiums very affordable" },
+        { "id": "a1p2", "text": "Comprehensive coverage including pre-existing conditions" },
+        { "id": "a1p3", "text": "Losing job coverage triggers a Special Enrollment Period" },
+        { "id": "a1p4", "text": "Covers essential health benefits by law" }
+      ],
+      "cons": [
+        { "id": "a1c1", "text": "Network may differ from your previous employer plan" },
+        { "id": "a1c2", "text": "Must enroll within 60-day Special Enrollment Period" },
+        { "id": "a1c3", "text": "Income verification required for subsidies" }
+      ],
+      "highlight": true,
+      "badge": "Most Popular"
+    },
+    {
+      "id": "a2",
+      "title": "Short-Term Health Insurance",
+      "subtitle": "Temporary Gap Coverage",
+      "cost": "$50 – $300/mo",
+      "costNote": "Typically much cheaper than COBRA",
+      "duration": "1 month to 3 years (varies by state)",
+      "bestFor": "Healthy individuals needing a bridge between jobs",
+      "pros": [
+        { "id": "a2p1", "text": "Can start as soon as tomorrow" },
+        { "id": "a2p2", "text": "Very affordable premiums" },
+        { "id": "a2p3", "text": "Flexible coverage periods" },
+        { "id": "a2p4", "text": "No open enrollment window required" }
+      ],
+      "cons": [
+        { "id": "a2c1", "text": "Does not cover pre-existing conditions" },
+        { "id": "a2c2", "text": "Not available in all states" },
+        { "id": "a2c3", "text": "Limited essential health benefits" },
+        { "id": "a2c4", "text": "Not ACA-compliant" }
+      ],
+      "highlight": false,
+      "badge": "Fastest to Start"
+    },
+    {
+      "id": "a3",
+      "title": "Hospital Indemnity Insurance",
+      "subtitle": "Fixed Benefit Cash Plans",
+      "cost": "$30 – $150/mo",
+      "costNote": "Pays fixed cash amounts per event",
+      "duration": "Flexible — month-to-month available",
+      "bestFor": "Supplementing other coverage or as a low-cost safety net",
+      "pros": [
+        { "id": "a3p1", "text": "Very low monthly premiums" },
+        { "id": "a3p2", "text": "Pays cash directly to you" },
+        { "id": "a3p3", "text": "No network restrictions" },
+        { "id": "a3p4", "text": "Easy to qualify for" }
+      ],
+      "cons": [
+        { "id": "a3c1", "text": "Not a replacement for major medical coverage" },
+        { "id": "a3c2", "text": "Fixed benefit amounts may not cover full costs" },
+        { "id": "a3c3", "text": "Does not cover routine care" }
+      ],
+      "highlight": false,
+      "badge": "Lowest Cost"
+    },
+    {
+      "id": "a4",
+      "title": "Accident-Only Plans",
+      "subtitle": "Accidental Injury Coverage",
+      "cost": "$20 – $80/mo",
+      "costNote": "Covers accidents, not illness",
+      "duration": "Flexible terms available",
+      "bestFor": "Active individuals who want protection from unexpected injuries",
+      "pros": [
+        { "id": "a4p1", "text": "Extremely affordable" },
+        { "id": "a4p2", "text": "Covers ER visits, fractures, dislocations" },
+        { "id": "a4p3", "text": "No deductible on covered accidents" },
+        { "id": "a4p4", "text": "Pairs well with other limited plans" }
+      ],
+      "cons": [
+        { "id": "a4c1", "text": "Does not cover illness or disease" },
+        { "id": "a4c2", "text": "Very limited scope of coverage" },
+        { "id": "a4c3", "text": "Not suitable as standalone coverage" }
+      ],
+      "highlight": false,
+      "badge": ""
+    },
+    {
+      "id": "a5",
+      "title": "Teladoc / Virtual Care",
+      "subtitle": "Telehealth Membership",
+      "cost": "$10 – $50/mo",
+      "costNote": "Unlimited virtual visits included",
+      "duration": "Month-to-month",
+      "bestFor": "Healthy individuals who mainly need access to a doctor for minor issues",
+      "pros": [
+        { "id": "a5p1", "text": "Extremely affordable" },
+        { "id": "a5p2", "text": "24/7 access to licensed physicians" },
+        { "id": "a5p3", "text": "Prescriptions for common conditions" },
+        { "id": "a5p4", "text": "Mental health and dermatology available" }
+      ],
+      "cons": [
+        { "id": "a5c1", "text": "Cannot replace major medical insurance" },
+        { "id": "a5c2", "text": "No coverage for labs, imaging, or specialist visits" },
+        { "id": "a5c3", "text": "Not suitable for chronic conditions" }
+      ],
+      "highlight": false,
+      "badge": ""
+    }
+  ],
+  "comparisonRows": [
+    { "id": "cr1", "label": "Pre-existing conditions covered", "cobra": true, "aca": true, "shortTerm": false, "indemnity": false },
+    { "id": "cr2", "label": "Same plan/network as employer", "cobra": true, "aca": false, "shortTerm": false, "indemnity": false },
+    { "id": "cr3", "label": "Subsidies / financial help available", "cobra": false, "aca": true, "shortTerm": false, "indemnity": false },
+    { "id": "cr4", "label": "Can start immediately", "cobra": false, "aca": false, "shortTerm": true, "indemnity": true },
+    { "id": "cr5", "label": "Covers prescription drugs", "cobra": true, "aca": true, "shortTerm": false, "indemnity": false },
+    { "id": "cr6", "label": "Covers preventive care", "cobra": true, "aca": true, "shortTerm": false, "indemnity": false },
+    { "id": "cr7", "label": "Affordable for most budgets", "cobra": false, "aca": true, "shortTerm": true, "indemnity": true },
+    { "id": "cr8", "label": "No enrollment window required", "cobra": false, "aca": false, "shortTerm": true, "indemnity": true }
+  ],
+  "ctaHeading": "Not Sure Which Option Is Right for You?",
+  "ctaBody": "Our licensed advisors compare all your options side by side — COBRA, ACA plans, short-term coverage, and more — at no cost to you. We're independent, so we work for you, not the insurance companies.",
+  "ctaDisclaimer": "Licensed in 22 states · No obligation · Free consultation",
+  "relatedLinks": [
+    { "id": "rl1", "label": "COBRA FAQs & Eligibility", "href": "/kb" },
+    { "id": "rl2", "label": "Start COBRA Enrollment", "href": "/start-cobra" },
+    { "id": "rl3", "label": "Manage Your COBRA Plan", "href": "/manage-cobra" },
+    { "id": "rl4", "label": "Get Help from an Advisor", "href": "/customer-service" }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "hero": {
+    "eyebrow": "Get Help",
+    "title": "Customer Service",
+    "subtitle": "Our licensed advisors are here to help with COBRA enrollment, coverage questions, billing, and finding affordable alternatives. Reach us by phone, email, or the form below."
+  },
+  "phone": "877-262-7241",
+  "email": "support@cobrainsurance.com",
+  "address": {
+    "street": "2501 Chatham Rd Suite R",
+    "city": "Springfield, IL 62704"
+  },
+  "hours": [
+    {
+      "id": "h1",
+      "label": "Mon – Fri",
+      "time": "8:00 AM – 6:00 PM CT"
+    },
+    {
+      "id": "h2",
+      "label": "Saturday",
+      "time": "9:00 AM – 1:00 PM CT"
+    },
+    {
+      "id": "h3",
+      "label": "Sunday",
+      "time": "Closed"
+    }
+  ],
+  "contactReasons": [
+    {
+      "id": "r1",
+      "title": "COBRA Enrollment Help",
+      "desc": "Questions about electing COBRA, election deadlines, or what your notice means.",
+      "href": ""
+    },
+    {
+      "id": "r2",
+      "title": "Manage Your Plan",
+      "desc": "Update personal information, change payment method, or cancel COBRA coverage.",
+      "href": "/manage-cobra"
+    },
+    {
+      "id": "r3",
+      "title": "Verify Coverage Status",
+      "desc": "Confirm your COBRA is active, check effective dates, or request a coverage letter.",
+      "href": ""
+    },
+    {
+      "id": "r4",
+      "title": "Compare Alternatives",
+      "desc": "Speak with a licensed advisor about ACA plans, short-term coverage, and other options.",
+      "href": "/when-cobra"
+    }
+  ],
+  "licensingNote": "HealthLink Insurance Agency LLC is a licensed insurance agency operating in 22 states. CA License #0D43589. Our advisors are HealthCare.gov certified specialists in COBRA administration and health insurance alternatives.",
+  "faqs": [
+    {
+      "id": "f1",
+      "question": "How do I verify my COBRA coverage is active?",
+      "answer": "Call us at 877-262-7241 or email support@cobrainsurance.com with your name, date of birth, and former employer name. We can confirm your election status, effective date, and premium payment history. You can also request a written confirmation letter for providers."
+    },
+    {
+      "id": "f2",
+      "question": "I never received my COBRA election notice. What should I do?",
+      "answer": "Contact your former employer's HR department first — they are responsible for notifying the plan administrator within 30 days of your qualifying event. If HR is unresponsive, call us and we can help you determine your rights and next steps. You may still be within your 60-day election window."
+    },
+    {
+      "id": "f3",
+      "question": "How do I make a COBRA premium payment?",
+      "answer": "Payments can be made online through your plan administrator's portal, by phone, or by mailing a check. Your election notice will include payment instructions specific to your plan. If you're unsure where to send payment, call us at 877-262-7241."
+    },
+    {
+      "id": "f4",
+      "question": "Can I add or remove dependents from my COBRA coverage?",
+      "answer": "COBRA continuation must mirror the coverage you had on the day of your qualifying event. You generally cannot add new dependents to COBRA unless they also experienced a qualifying event. Contact us to discuss your specific situation."
+    },
+    {
+      "id": "f5",
+      "question": "What happens if I miss a COBRA premium payment?",
+      "answer": "COBRA has a 30-day grace period for premium payments. If payment is not received within 30 days of the due date, your coverage may be terminated retroactively. Once terminated for non-payment, you cannot reinstate COBRA coverage."
+    },
+    {
+      "id": "f6",
+      "question": "I'm an employer — how do I administer COBRA for my employees?",
+      "answer": "Employers with 20+ employees must notify their plan administrator within 30 days of a qualifying event. The plan administrator then has 14 days to send the election notice to the qualified beneficiary. We can help you understand your obligations and connect you with a COBRA administrator. Call 877-262-7241."
+    },
+    {
+      "id": "f7",
+      "question": "How do I stop unwanted insurance phone calls?",
+      "answer": "You can add yourself to our Do Not Call list. Visit our Do Not Call page or call 877-262-7241 and ask to be removed from our contact list. Federal law requires we honor your request within 30 days."
+    }
+  ],
+  "formDisclaimer": "By submitting this form you agree to be contacted by a licensed insurance advisor. We never sell your information.",
+  "quickLinks": [
+    {
+      "id": "ql1",
+      "label": "COBRA Knowledge Base",
+      "href": "/kb"
+    },
+    {
+      "id": "ql2",
+      "label": "Alternatives to COBRA",
+      "href": "/when-cobra"
+    },
+    {
+      "id": "ql3",
+      "label": "Start COBRA Enrollment",
+      "href": "/start-cobra"
+    },
+    {
+      "id": "ql4",
+      "label": "Manage Your COBRA Plan",
+      "href": "/manage-cobra"
+    },
+    {
+      "id": "ql5",
+      "label": "Do Not Call List",
+      "href": "/kb/stop-insurance-phone-calls"
+    }
+  ]
+}

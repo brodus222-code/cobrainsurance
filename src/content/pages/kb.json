@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "eyebrow": "COBRA Continuation",
+    "title": "COBRA Insurance Knowledge Base",
+    "subtitle": "Everything you need to understand your COBRA rights — eligibility, costs, enrollment deadlines, and how to compare affordable alternatives."
+  },
+  "navCards": [
+    { "id": "nc1", "label": "What is COBRA?", "anchor": "#what-is-cobra" },
+    { "id": "nc2", "label": "Eligibility & Costs", "anchor": "#eligibility" },
+    { "id": "nc3", "label": "Enrollment Timeline", "anchor": "#timeline" }
+  ],
+  "whatIsCobraParagraphs": [
+    { "id": "p1", "text": "COBRA stands for the Consolidated Omnibus Budget Reconciliation Act, a federal law enacted in 1986. It gives workers and their families who lose their health benefits the right to choose to continue group health benefits provided by their group health plan for limited periods of time under certain circumstances." },
+    { "id": "p2", "text": "COBRA applies to employers with 20 or more employees who sponsor group health plans. If your employer has fewer than 20 employees, your state may have a \"Mini-COBRA\" or state continuation law that provides similar protections." },
+    { "id": "p3", "text": "The key benefit of COBRA is continuity — you keep the exact same plan, network, and benefits you had as an active employee. The downside is cost: you pay the full premium (employer + employee share) plus a 2% administrative fee." }
+  ],
+  "qualifyingEvents": [
+    { "id": "qe1", "text": "Voluntary or involuntary job loss (except gross misconduct)" },
+    { "id": "qe2", "text": "Reduction in work hours below full-time threshold" },
+    { "id": "qe3", "text": "Divorce or legal separation from covered employee" },
+    { "id": "qe4", "text": "Death of the covered employee" },
+    { "id": "qe5", "text": "Covered employee becomes entitled to Medicare" },
+    { "id": "qe6", "text": "Dependent child ages off the plan (typically age 26)" }
+  ],
+  "eligibleBeneficiaries": [
+    { "id": "eb1", "text": "Covered employees who lose job-based coverage" },
+    { "id": "eb2", "text": "Spouses of covered employees" },
+    { "id": "eb3", "text": "Dependent children of covered employees" },
+    { "id": "eb4", "text": "Retirees and their families (in some cases)" }
+  ],
+  "costRows": [
+    { "id": "cr1", "label": "Individual coverage", "range": "$400 – $700 / mo" },
+    { "id": "cr2", "label": "Employee + spouse", "range": "$800 – $1,400 / mo" },
+    { "id": "cr3", "label": "Family coverage", "range": "$1,200 – $2,200 / mo" },
+    { "id": "cr4", "label": "Admin fee added", "range": "+2% of premium" }
+  ],
+  "costNote": "Estimates vary by plan, region, and employer. Contact us for a personalized comparison.",
+  "costCtaHeading": "Is COBRA too expensive for your budget?",
+  "costCtaBody": "Compare ACA plans, short-term coverage, and other affordable options.",
+  "timelineSteps": [
+    { "id": "ts1", "day": "Day 0", "label": "Qualifying Event", "desc": "Job loss, reduction in hours, divorce, or other qualifying event occurs." },
+    { "id": "ts2", "day": "14 Days", "label": "Employer Notifies Plan", "desc": "Your employer must notify the plan administrator within 30 days; the administrator then has 14 days to send your election notice." },
+    { "id": "ts3", "day": "60 Days", "label": "Election Window", "desc": "You have 60 days from the later of coverage loss or receipt of the notice to elect COBRA." },
+    { "id": "ts4", "day": "45 Days", "label": "First Premium Due", "desc": "After electing, you have 45 days to pay your first premium. Coverage is retroactive to the date it ended." },
+    { "id": "ts5", "day": "18–36 Mo", "label": "Coverage Period", "desc": "18 months for job loss/hours reduction; up to 36 months for other qualifying events." }
+  ],
+  "faqs": [
+    { "id": "f1", "question": "What is COBRA insurance?", "answer": "COBRA (Consolidated Omnibus Budget Reconciliation Act) is a federal law that allows employees and their dependents to continue their employer-sponsored group health coverage for a limited time after a qualifying event such as job loss, reduction in hours, or other life changes. It ensures you don't lose coverage immediately when your employment ends." },
+    { "id": "f2", "question": "Who is eligible for COBRA continuation coverage?", "answer": "You are eligible for COBRA if: (1) you were covered under an employer group health plan, (2) your employer has 20 or more employees, and (3) you experienced a qualifying event such as voluntary or involuntary job loss (except for gross misconduct), reduction in work hours, divorce or legal separation, death of the covered employee, or a dependent child aging off the plan." },
+    { "id": "f3", "question": "How long does COBRA coverage last?", "answer": "COBRA coverage typically lasts 18 months for job loss or reduction in hours. It can extend to 36 months for other qualifying events such as divorce, death of the covered employee, Medicare entitlement, or a dependent child losing eligibility. Disability can extend coverage to 29 months in some cases." },
+    { "id": "f4", "question": "How much does COBRA cost?", "answer": "Under COBRA, you pay the full premium — both your share and your former employer's share — plus a 2% administrative fee. This can be significantly more expensive than what you paid as an active employee, often ranging from $400 to $700+ per month for an individual and $1,200 to $2,000+ for a family." },
+    { "id": "f5", "question": "How do I enroll in COBRA?", "answer": "After a qualifying event, your employer or plan administrator must send you a COBRA election notice within 14 days. You then have 60 days from the later of the date coverage ends or the date you receive the notice to elect COBRA. Once elected, you have 45 days to pay your first premium retroactively to the date coverage ended." },
+    { "id": "f6", "question": "What happens if I miss the COBRA election deadline?", "answer": "If you miss the 60-day election window, you permanently lose your right to COBRA continuation coverage for that qualifying event. It's critical to act within the deadline. If you miss it, you may still be able to enroll in an ACA marketplace plan or other coverage options." },
+    { "id": "f7", "question": "Can I use COBRA if I was fired?", "answer": "Yes — COBRA applies to most involuntary terminations, including layoffs and firings. The only exception is termination for gross misconduct, which disqualifies you from COBRA. In most cases, being let go for performance reasons or company downsizing qualifies you for COBRA." },
+    { "id": "f8", "question": "Are there cheaper alternatives to COBRA?", "answer": "Yes. Losing job-based coverage is a qualifying life event that opens a Special Enrollment Period for ACA marketplace plans, which may be significantly cheaper — especially if your income qualifies for a subsidy. Short-term health plans, hospital indemnity, and accident-only plans are also options. We recommend comparing all options before defaulting to COBRA." },
+    { "id": "f9", "question": "Does COBRA cover dental and vision?", "answer": "COBRA can cover dental and vision if those benefits were part of your employer's group health plan. You may elect to continue dental and vision separately from medical coverage under COBRA, giving you flexibility to keep only the benefits you need." },
+    { "id": "f10", "question": "What is Mini-COBRA or State Continuation?", "answer": "Mini-COBRA (also called state continuation) applies to employers with fewer than 20 employees who are not subject to federal COBRA. Many states have their own continuation laws that provide similar protections. Coverage duration and rules vary by state. Our advisors can help you understand your state's specific rules." }
+  ],
+  "ctaHeading": "Ready to Explore Your Options?",
+  "ctaBody": "Our licensed advisors can walk you through COBRA enrollment or help you find a more affordable alternative — at no cost to you."
+}

@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "eyebrow": "Consumer Guide",
+    "title": "How to Stop Unwanted Insurance Phone Calls",
+    "subtitle": "If you've recently lost job-based coverage or requested a COBRA or health insurance quote, you may be getting flooded with calls. Here's exactly how to make them stop — legally and permanently."
+  },
+  "heroStats": [
+    { "id": "hs1", "value": "5", "label": "Steps to stop the calls" },
+    { "id": "hs2", "value": "31", "label": "Days for Do Not Call to take effect" },
+    { "id": "hs3", "value": "$1,500", "label": "Max per-call TCPA damages" }
+  ],
+  "whySoManyCallsHeading": "Why am I getting so many calls after losing coverage?",
+  "whySoManyCallsBody": "When you lose employer-sponsored coverage, your name can appear in data sources that insurance lead companies monitor. If you've also submitted any online quote requests — even a single form — that information is often sold to dozens of insurers simultaneously. The result is a flood of calls from companies you've never heard of, all claiming to offer COBRA alternatives or health plans. Most of these calls are legal but unwanted. Some are outright illegal robocalls. The steps below address both.",
+  "stepsHeading": "5 Steps to Stop the Calls",
+  "stepsIntro": "Work through these in order — each step closes a different gap.",
+  "steps": [
+    {
+      "id": "st1",
+      "step": "1",
+      "title": "Register with the National Do Not Call Registry",
+      "body": "Go to donotcall.gov or call 1-888-382-1222 from the number you want to register. Registration is free and permanent — you never need to re-register. Most telemarketing calls must stop within 31 days of registration.",
+      "calloutType": "info",
+      "calloutText": "The registry covers landlines and cell phones. Register every number you want protected."
+    },
+    {
+      "id": "st2",
+      "step": "2",
+      "title": "Ask each company to add you to their internal do-not-call list",
+      "body": "The Do Not Call Registry has exemptions — companies you have an existing business relationship with can still call you. To stop those calls, contact each company directly and request to be placed on their internal do-not-call list. Under the Telephone Consumer Protection Act (TCPA), they must honor this request.",
+      "calloutType": "tip",
+      "calloutText": "Ask for written confirmation (email or letter) that your number has been added to their internal list. Keep it for your records."
+    },
+    {
+      "id": "st3",
+      "step": "3",
+      "title": "Revoke any consent you may have given",
+      "body": "If you ever filled out a form online requesting insurance quotes, you may have consented to be contacted by multiple companies. That consent can be revoked. Send a written revocation by email or certified mail to each company, stating clearly that you withdraw consent for them to contact you by phone.",
+      "calloutType": "warning",
+      "calloutText": "Lead generation websites often sell your contact information to dozens of insurance companies at once. A single quote request can trigger a flood of calls."
+    },
+    {
+      "id": "st4",
+      "step": "4",
+      "title": "Use your carrier's call-blocking tools",
+      "body": "Most major carriers (AT&T, Verizon, T-Mobile) offer free or low-cost call-blocking services. AT&T ActiveArmor, Verizon Call Filter, and T-Mobile Scam Shield can automatically identify and block suspected spam and robocalls before they reach you.",
+      "calloutType": "",
+      "calloutText": ""
+    },
+    {
+      "id": "st5",
+      "step": "5",
+      "title": "Report violations and document everything",
+      "body": "If calls continue after you've registered and made opt-out requests, file complaints with the FTC (donotcall.gov), the FCC (fcc.gov), and your state Attorney General. Log each call: date, time, caller ID, company name if given, and what was said. Repeated TCPA violations can entitle you to $500–$1,500 per call in damages.",
+      "calloutType": "tip",
+      "calloutText": "Screenshot your call log and save voicemails. This documentation is essential if you pursue a TCPA complaint."
+    }
+  ],
+  "exemptionsHeading": "Who Can Still Call You (and How to Stop Them)",
+  "exemptionsIntro": "The Do Not Call Registry has exemptions. These callers can legally reach you even after you register — but you can still stop them.",
+  "exemptions": [
+    { "id": "ex1", "who": "Your current insurance company", "why": "Existing business relationship — they can call about your active policy", "howToStop": "Request internal do-not-call list placement directly with them" },
+    { "id": "ex2", "who": "Your plan administrator (COBRA)", "why": "Administrative calls about your active COBRA coverage are permitted", "howToStop": "Ask them to communicate by mail or email instead" },
+    { "id": "ex3", "who": "Companies you requested a quote from", "why": "You gave consent when submitting the quote form", "howToStop": "Send written revocation of consent to each company" },
+    { "id": "ex4", "who": "Political organizations", "why": "Exempt from Do Not Call Registry rules", "howToStop": "Ask them directly to stop calling; no legal obligation to comply" },
+    { "id": "ex5", "who": "Charities and non-profits", "why": "Exempt from Do Not Call Registry rules", "howToStop": "Ask them directly to remove your number" },
+    { "id": "ex6", "who": "Survey and research callers", "why": "Exempt if no sales pitch is made", "howToStop": "Ask to be removed from their call list" }
+  ],
+  "reportingHeading": "Where to Report Violations",
+  "reportingIntro": "If calls continue after you've taken the steps above, these agencies can act.",
+  "reportingAgencies": [
+    { "id": "ra1", "agency": "Federal Trade Commission (FTC)", "url": "donotcall.gov", "href": "https://www.donotcall.gov", "desc": "Register your number and file complaints about Do Not Call violations. The FTC pursues enforcement actions against repeat violators." },
+    { "id": "ra2", "agency": "Federal Communications Commission (FCC)", "url": "fcc.gov", "href": "https://consumercomplaints.fcc.gov", "desc": "File complaints about illegal robocalls, spoofed caller ID, and TCPA violations. The FCC can issue substantial fines." },
+    { "id": "ra3", "agency": "State Attorney General", "url": "naag.org", "href": "https://www.naag.org/find-my-ag/", "desc": "Many states have their own telemarketing laws with additional protections. Your state AG can investigate and prosecute local violators." }
+  ],
+  "faqs": [
+    { "id": "f1", "question": "Does the Do Not Call Registry stop insurance calls?", "answer": "The National Do Not Call Registry stops most telemarketing calls, but there are important exceptions. Insurance companies you have an existing relationship with, political organizations, charities, and survey callers are all exempt. Registering still significantly reduces unsolicited sales calls — most must stop within 31 days of registration." },
+    { "id": "f2", "question": "Can I stop calls from my current insurance company?", "answer": "Yes. Contact your insurance company directly and ask to be placed on their internal do-not-call list. Under the Telephone Consumer Protection Act (TCPA), they must honor your request. Always get confirmation in writing — an email reply is sufficient." },
+    { "id": "f3", "question": "Are COBRA-related calls legal?", "answer": "Calls from your plan administrator or licensed insurance advisors about your active COBRA coverage are generally permitted under existing business relationship rules. Unsolicited sales calls from companies you have no prior relationship with must comply with Do Not Call rules and TCPA requirements, including obtaining prior express written consent before using an autodialer." },
+    { "id": "f4", "question": "I submitted a quote request online and now I'm getting dozens of calls. What happened?", "answer": "Many online insurance quote forms are operated by lead generation companies that sell your contact information to multiple insurers simultaneously. By submitting the form, you typically consented to be contacted by all of them. You can revoke that consent in writing to each company. Going forward, request quotes directly from individual insurers or through a licensed advisor rather than lead aggregator sites." },
+    { "id": "f5", "question": "What should I do if I keep getting illegal robocalls about health insurance?", "answer": "File a complaint with the FTC at donotcall.gov, the FCC at fcc.gov/consumers/guides/filing-informal-complaint, and your state Attorney General's office. Document each call with date, time, caller ID, and what was said. Repeated illegal robocalls may entitle you to $500–$1,500 per call in statutory damages under the TCPA — many consumer attorneys take these cases on contingency." },
+    { "id": "f6", "question": "How long does it take for calls to stop after registering with Do Not Call?", "answer": "Most telemarketers are required to stop calling within 31 days of your registration. Companies with an existing relationship with you are exempt and may continue calling until you specifically request they stop. Illegal robocallers, by definition, ignore the registry entirely — those require FTC/FCC complaints." },
+    { "id": "f7", "question": "Can I block calls on my cell phone without my carrier's help?", "answer": "Yes. Both iOS and Android have built-in call-blocking features. On iPhone, go to Settings → Phone → Silence Unknown Callers. On Android, open the Phone app → Settings → Blocked Numbers. Third-party apps like Nomorobo, Hiya, and RoboKiller offer more sophisticated filtering. Your carrier's built-in tools (AT&T ActiveArmor, Verizon Call Filter, T-Mobile Scam Shield) are often the most effective because they work at the network level." }
+  ],
+  "advisorNoteEyebrow": "A note from our advisors",
+  "advisorNoteHeading": "We won't flood your phone. We'll answer your questions.",
+  "advisorNoteBody": "HealthLink Insurance Agency LLC is a licensed agency — not a lead generation company. When you contact us, you speak with a licensed advisor. We don't sell your information to third parties, and we don't call you repeatedly. One conversation, honest answers, no pressure.",
+  "ctaHeading": "Need real help with your COBRA coverage?",
+  "ctaBody": "Skip the noise. Our licensed advisors will walk you through your actual options — COBRA, ACA marketplace plans, and alternatives — at no cost to you.",
+  "relatedLinks": [
+    { "id": "rl1", "label": "COBRA Knowledge Base", "href": "/kb" },
+    { "id": "rl2", "label": "Start COBRA Enrollment", "href": "/start-cobra" },
+    { "id": "rl3", "label": "Alternatives to COBRA", "href": "/when-cobra" },
+    { "id": "rl4", "label": "State COBRA Rules", "href": "/usa-state-cobra-rules" },
+    { "id": "rl5", "label": "Get Help from an Advisor", "href": "/customer-service" }
+  ]
+}

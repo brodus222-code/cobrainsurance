@@ -1,0 +1,34 @@
+{
+  "documents": [
+    {
+      "label": "COBRA Election Notice",
+      "desc": "Mailed by your plan administrator after the qualifying event",
+      "id": "y6-ABuZvEdIoXuFfDarFH"
+    },
+    {
+      "label": "Completed Election Form",
+      "desc": "Included with your election notice — return by the deadline",
+      "id": "GJo8XqJbPBCrpwarswkHa"
+    },
+    {
+      "label": "Photo ID",
+      "desc": "Government-issued ID for identity verification",
+      "id": "BA6l2RDn1KZd-1uo5Fjjo"
+    },
+    {
+      "label": "Former Employer Information",
+      "desc": "Company name, HR contact, and your last day of coverage",
+      "id": "QlBySD0iOmApmYm1jx7hN"
+    },
+    {
+      "label": "Dependent Information",
+      "desc": "Names, dates of birth, and SSNs for any dependents you're adding",
+      "id": "oo-YL1qnv2ojIRY_JyqG8"
+    },
+    {
+      "label": "Payment Method",
+      "desc": "Check, money order, or credit card depending on your plan administrator",
+      "id": "Ist1sGA0QsvOM0Bl0qr55"
+    }
+  ]
+}

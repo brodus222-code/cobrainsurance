@@ -1,0 +1,88 @@
+{
+  "values": [
+    {
+      "title": "Honest Guidance",
+      "desc": "We tell you when COBRA is the right choice — and when it isn't. Our advisors are paid to help you find the best coverage, not to push the most expensive option.",
+      "id": "LxCtCCPxm0qegrUBCIzl1"
+    },
+    {
+      "title": "Deep Expertise",
+      "desc": "COBRA is all we do. Our team stays current on federal regulations, state mini-COBRA laws, and ACA marketplace rules so you don't have to.",
+      "id": "2nOIcqm7g81GLk_EvbSAu"
+    },
+    {
+      "title": "People First",
+      "desc": "Losing a job or going through a life change is stressful enough. We make the insurance piece straightforward, fast, and human.",
+      "id": "lwZfqiCmg1gHpKnxB218n"
+    },
+    {
+      "title": "No Pressure",
+      "desc": "There's no obligation when you call us. We answer your questions, explain your options, and let you decide what's right for your situation.",
+      "id": "OIIUxH-bv9l1inoM7ItNd"
+    }
+  ],
+  "credentials": [
+    "Licensed in 22 states",
+    "Certified COBRA Advisors on staff",
+    "Errors & Omissions (E&O) insured",
+    "Compliant with state Department of Insurance requirements",
+    "Registered with the U.S. Department of Labor COBRA guidelines",
+    "Member of the National Association of Health Underwriters (NAHU)"
+  ],
+  "licensedStates": [
+    "Arizona",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Florida",
+    "Georgia",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Maryland",
+    "Michigan",
+    "Minnesota",
+    "Missouri",
+    "New Jersey",
+    "New York",
+    "North Carolina",
+    "Ohio",
+    "Pennsylvania",
+    "Tennessee",
+    "Texas",
+    "Virginia",
+    "Wisconsin"
+  ],
+  "whatWeDo": [
+    {
+      "title": "COBRA Enrollment Guidance",
+      "desc": "We walk you through every step of electing COBRA — from reading your election notice to making your first payment on time.",
+      "href": "/start-cobra",
+      "linkLabel": "Start COBRA Enrollment →",
+      "id": "klpYBC9mm31uBcN0f3ypd"
+    },
+    {
+      "title": "Coverage Alternatives",
+      "desc": "We compare COBRA against ACA marketplace plans, short-term coverage, and other options so you can make an informed decision.",
+      "href": "/when-cobra",
+      "linkLabel": "Compare Alternatives →",
+      "id": "nesJV0nYIrZCFFkfSRQSQ"
+    },
+    {
+      "title": "Ongoing Plan Management",
+      "desc": "Questions about payments, dependents, or coverage verification? We help you manage your active COBRA plan from election through expiration.",
+      "href": "/manage-cobra",
+      "linkLabel": "Manage Your Plan →",
+      "id": "HtdpADW0comkNY47NKq9y"
+    },
+    {
+      "title": "State-Specific Expertise",
+      "desc": "Mini-COBRA laws vary dramatically by state. We know the rules in all 22 states where we're licensed and can tell you exactly what applies to your situation.",
+      "href": "/usa-state-cobra-rules",
+      "linkLabel": "State COBRA Rules →",
+      "id": "2EyCj1JtIeu3otymXTKnm"
+    }
+  ]
+}

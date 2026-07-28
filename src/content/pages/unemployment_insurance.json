@@ -1,0 +1,130 @@
+{
+  "hero": {
+    "eyebrow": "Unemployment & Health Coverage",
+    "title": "Lost Your Job? Here's What Happens to Your Health Insurance",
+    "subtitle": "Unemployment benefits replace part of your income — but they don't replace your health coverage. Here's how to protect yourself and your family while you're between jobs."
+  },
+  "stats": [
+    { "id": "s1", "value": "60 Days", "label": "To elect COBRA after losing coverage" },
+    { "id": "s2", "value": "18 Months", "label": "Maximum COBRA continuation period" },
+    { "id": "s3", "value": "60 Days", "label": "ACA Special Enrollment Period" },
+    { "id": "s4", "value": "102%", "label": "Of full premium you pay under COBRA" }
+  ],
+  "steps": [
+    {
+      "id": "st1",
+      "number": "01",
+      "title": "File for Unemployment Benefits",
+      "body": "File your unemployment claim with your state's workforce agency as soon as possible after losing your job. Most states allow you to file online. Benefits typically begin 2–3 weeks after approval and replace 40–60% of your prior wages up to a state maximum.",
+      "tip": "File the same week you lose your job — most states have a one-week waiting period before benefits begin, and delays in filing delay your first payment.",
+      "details": [
+        "File online at your state's workforce agency website",
+        "Have your employer's name, address, and dates of employment ready",
+        "Report your reason for separation accurately — it affects eligibility",
+        "Certify weekly or bi-weekly to keep benefits active"
+      ]
+    },
+    {
+      "id": "st2",
+      "number": "02",
+      "title": "Understand Your Health Coverage Gap",
+      "body": "Your employer-sponsored health insurance typically ends on your last day of work or the last day of the month in which you were terminated — depending on your employer's plan. Unemployment benefits do NOT include health insurance.",
+      "tip": null,
+      "details": [
+        "Check your termination letter or HR paperwork for your exact coverage end date",
+        "Any claims after that date will not be covered unless you elect continuation coverage",
+        "Prescriptions, scheduled procedures, and ongoing care are all affected"
+      ]
+    },
+    {
+      "id": "st3",
+      "number": "03",
+      "title": "Elect COBRA or Find an Alternative",
+      "body": "You have 60 days from losing coverage (or receiving your COBRA election notice, whichever is later) to decide. COBRA keeps your exact same plan but you pay the full premium. ACA marketplace plans may be significantly cheaper — especially with unemployment income.",
+      "tip": "If your income drops to 100–400% of the federal poverty level, you may qualify for substantial ACA subsidies that make marketplace coverage far cheaper than COBRA.",
+      "details": [
+        "COBRA election notice must arrive within 14 days of your employer notifying the plan",
+        "You can elect COBRA retroactively — useful if you have a pending claim",
+        "ACA Special Enrollment Period opens when you lose job-based coverage",
+        "Medicaid may be available if your income drops significantly"
+      ]
+    },
+    {
+      "id": "st4",
+      "number": "04",
+      "title": "Budget for Premiums During Job Search",
+      "body": "Health insurance premiums are a real expense during unemployment. COBRA can cost $400–$700/month for an individual. Factor this into your unemployment budget alongside rent, food, and other essentials.",
+      "tip": "Some states allow you to deduct health insurance premiums from your unemployment benefits when calculating eligibility for other assistance programs.",
+      "details": [
+        "COBRA premiums are not covered by unemployment benefits",
+        "Health insurance premiums may be tax-deductible if you itemize",
+        "Short-term plans can cost significantly less but cover less",
+        "Contact a licensed advisor to compare your actual options and costs"
+      ]
+    }
+  ],
+  "coverageOptions": [
+    {
+      "id": "co1",
+      "title": "COBRA Continuation",
+      "badge": "Same Plan",
+      "badgeColor": "#3c4c63",
+      "pros": [
+        "Exact same plan, network, and doctors",
+        "Retroactive coverage available",
+        "No new underwriting or waiting periods"
+      ],
+      "cons": [
+        "You pay 100% of premium + 2% fee",
+        "Can cost $400–$700+/month for individual",
+        "Only lasts 18–36 months"
+      ],
+      "cta": "Learn About COBRA",
+      "href": "/kb"
+    },
+    {
+      "id": "co2",
+      "title": "ACA Marketplace Plan",
+      "badge": "Often Cheaper",
+      "badgeColor": "#16a34a",
+      "pros": [
+        "Subsidies available based on income",
+        "60-day Special Enrollment Period",
+        "Comprehensive coverage options"
+      ],
+      "cons": [
+        "May need to switch doctors or networks",
+        "Coverage starts on a future date",
+        "Subsidy eligibility depends on income"
+      ],
+      "cta": "Compare Alternatives",
+      "href": "/when-cobra"
+    },
+    {
+      "id": "co3",
+      "title": "Medicaid",
+      "badge": "Low/No Cost",
+      "badgeColor": "#0891b2",
+      "pros": [
+        "Free or very low cost if you qualify",
+        "No waiting period in most states",
+        "Comprehensive benefits"
+      ],
+      "cons": [
+        "Income limits apply",
+        "Not available in all states at same thresholds",
+        "Provider networks may be limited"
+      ],
+      "cta": "Get Help Comparing",
+      "href": "/customer-service"
+    }
+  ],
+  "faqs": [
+    { "id": "f1", "question": "Does unemployment insurance cover health insurance?", "answer": "No. Unemployment insurance (UI) replaces a portion of your lost wages but does not include health insurance. You are responsible for securing your own health coverage after losing your job. Your options include COBRA continuation, ACA marketplace plans, Medicaid, or short-term health insurance." },
+    { "id": "f2", "question": "Can I use unemployment benefits to pay COBRA premiums?", "answer": "Yes — you can use your unemployment benefit payments to pay COBRA premiums, but there is no automatic connection between the two. You receive unemployment benefits from your state and pay COBRA premiums separately to your former employer's plan administrator. Budget accordingly, as COBRA can be expensive." },
+    { "id": "f3", "question": "How long do I have to get health insurance after losing my job?", "answer": "You have 60 days from the date you lose your job-based coverage (or from the date you receive your COBRA election notice, whichever is later) to elect COBRA. Separately, losing job-based coverage opens a 60-day Special Enrollment Period for ACA marketplace plans. Acting quickly is important — gaps in coverage can leave you unprotected." },
+    { "id": "f4", "question": "What if I can't afford COBRA while on unemployment?", "answer": "If COBRA is too expensive, you have alternatives. ACA marketplace plans may be significantly cheaper with income-based subsidies — and unemployment benefits count as income for subsidy calculations. If your income drops low enough, you may qualify for Medicaid. Short-term health plans are another option, though they cover less. A licensed advisor can help you compare real costs." },
+    { "id": "f5", "question": "Does receiving unemployment affect my ACA subsidy eligibility?", "answer": "Yes — unemployment benefits count as income when calculating your eligibility for ACA premium tax credits (subsidies). If your annual income falls between 100% and 400% of the federal poverty level, you may qualify for substantial subsidies that reduce your monthly premium significantly. In some years, enhanced subsidies have been available at higher income levels." },
+    { "id": "f6", "question": "What happens to my health insurance if I'm laid off vs. fired?", "answer": "In most cases, the health insurance outcome is the same whether you are laid off or fired — your coverage ends and you are eligible for COBRA. The exception is termination for gross misconduct, which disqualifies you from COBRA. Being fired for performance reasons, company downsizing, or most other reasons still qualifies you for COBRA continuation coverage." }
+  ]
+}

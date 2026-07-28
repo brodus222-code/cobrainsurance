@@ -1,0 +1,40 @@
+{
+  "comparisonRows": [
+    {
+      "feature": "Employer size covered",
+      "federal": "20+ employees",
+      "state": "Typically 2–19 employees",
+      "id": "LqVdsZd90wc71-MZ7Ll3V"
+    },
+    {
+      "feature": "Maximum duration",
+      "federal": "18–36 months",
+      "state": "3–36 months (varies by state)",
+      "id": "VPpXRyevae3I0SiKS0yWp"
+    },
+    {
+      "feature": "Premium cap",
+      "federal": "102% of group rate",
+      "state": "100–115% (varies by state)",
+      "id": "qAwnlFBmxYh9XUNc9Ihz_"
+    },
+    {
+      "feature": "Who administers it",
+      "federal": "Plan administrator",
+      "state": "Insurance carrier",
+      "id": "TdWfXhQv7sRlRLzOD9UUx"
+    },
+    {
+      "feature": "Qualifying events",
+      "federal": "Federal law defines them",
+      "state": "Mirrors federal, sometimes broader",
+      "id": "Dal9woJFrH-xrOILMerDU"
+    },
+    {
+      "feature": "Self-insured plans covered?",
+      "federal": "Yes",
+      "state": "No — state law only covers fully insured plans",
+      "id": "ZGOI82RbqOrTtO5_GCXzm"
+    }
+  ]
+}
