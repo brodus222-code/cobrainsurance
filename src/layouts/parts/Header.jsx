@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import Logo from '@/components/Logo';
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -26,7 +25,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <Logo />
+            <img
+              src="https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/2f7be0b8e_logo_transparent_ai1.png"
+              alt="CobraInsurance.Health"
+              className="h-9 w-auto"
+            />
           </Link>
 
           {/* Desktop Nav */}
