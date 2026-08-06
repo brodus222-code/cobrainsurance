@@ -10,6 +10,7 @@ export default function Header() {
     { label: 'COBRA Continuation', href: '/kb' },
     { label: 'Alternatives to COBRA', href: '/when-cobra' },
     { label: 'COBRA Calculator', href: '/cobra-calculator' },
+    { label: 'Coverage Quiz', href: '/coverage-quiz' },
     { label: 'About Us', href: '/about-us' },
     { label: 'Get Help', href: '/customer-service' },
   ];
