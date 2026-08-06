@@ -51,12 +51,14 @@ export default function ExpertsSection() {
               className="rounded-2xl overflow-hidden shadow-lg"
               style={{ border: '3px solid #e01f1f', maxWidth: '220px' }}
             >
-              <Image
-                src="https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/c5fa395a0_mirrored-4oVTOA-jPY1.jpg"
-                alt="Licensed COBRA advisor at HealthLink Insurance Agency"
-                className="w-full"
-                fittingType="fill"
-              />
+              <div className="w-full" style={{ aspectRatio: '4 / 5' }}>
+                <Image
+                  src="https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/c5fa395a0_mirrored-4oVTOA-jPY1.jpg"
+                  alt="Licensed COBRA advisor at HealthLink Insurance Agency"
+                  className="w-full h-full"
+                  fittingType="fill"
+                />
+              </div>
               <div className="px-4 py-3 text-center" style={{ background: '#3c4c63' }}>
                 <p
                   className="text-xs font-bold text-white uppercase tracking-wide"
