@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Footer from '@/layouts/parts/Footer';
 import Header from '@/layouts/parts/Header';
 import Website from '@/layouts/Website';
+import ExitIntentModal from '@/components/ExitIntentModal';
 
 export default function RootLayout() {
   return (
@@ -10,6 +11,7 @@ export default function RootLayout() {
       <Header />
       <Outlet />
       <Footer />
+      <ExitIntentModal />
     </Website>
   );
 }
