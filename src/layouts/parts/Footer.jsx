@@ -7,6 +7,7 @@ export default function Footer() {
     { label: 'Do Not Call List', href: '/kb/stop-insurance-phone-calls' },
     { label: 'Start COBRA', href: '/start-cobra' },
     { label: 'Manage Your COBRA', href: '/manage-cobra' },
+    { label: 'COBRA Account Portal', href: '/cobra-portal' },
     { label: 'State Continuation Laws', href: '/usa-state-cobra-rules' },
     { label: 'About Us', href: '/about-us' },
     { label: 'Where to File Unemployment', href: '/unemployment-insurance' },
