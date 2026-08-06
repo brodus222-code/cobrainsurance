@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { User } from 'lucide-react';
+import { Image } from '@/components/ui/image';
 
 export default function ExpertsSection() {
   return (
@@ -51,13 +51,12 @@ export default function ExpertsSection() {
               className="rounded-2xl overflow-hidden shadow-lg"
               style={{ border: '3px solid #e01f1f', maxWidth: '220px' }}
             >
-              <div
-                className="w-full flex items-center justify-center"
-                style={{ aspectRatio: '1 / 1', background: 'linear-gradient(135deg, #6b8099, #3c4c63)' }}
-                aria-hidden="true"
-              >
-                <User className="w-20 h-20" style={{ color: '#ffffff' }} />
-              </div>
+              <Image
+                src="https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/c5fa395a0_mirrored-4oVTOA-jPY1.jpg"
+                alt="Licensed COBRA advisor at HealthLink Insurance Agency"
+                className="w-full"
+                fittingType="fill"
+              />
               <div className="px-4 py-3 text-center" style={{ background: '#3c4c63' }}>
                 <p
                   className="text-xs font-bold text-white uppercase tracking-wide"
