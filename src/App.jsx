@@ -21,6 +21,7 @@ import TermsPage from '@/pages/TermsPage';
 import QuotePage from '@/pages/QuotePage';
 import CobraCalculatorPage from '@/pages/CobraCalculatorPage';
 import CoverageQuizPage from '@/pages/CoverageQuizPage';
+import CobraTrapPage from '@/pages/CobraTrapPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
 const AuthenticatedApp = () => {
@@ -65,6 +66,7 @@ const AuthenticatedApp = () => {
         <Route path="/quote" element={<QuotePage />} />
         <Route path="/cobra-calculator" element={<CobraCalculatorPage />} />
         <Route path="/coverage-quiz" element={<CoverageQuizPage />} />
+        <Route path="/cobra-trap" element={<CobraTrapPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
