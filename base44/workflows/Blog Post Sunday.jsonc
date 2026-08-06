@@ -1,0 +1,48 @@
+{
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "blog_post_sunday",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "generate_post": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "generateBlogPost",
+            "args": {
+              "model": "gemini_3_1_pro",
+              "use_web_search": true
+            }
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Generate blog post (Gemini + web search)",
+            "description": "Trending-keyword weekly roundup draft"
+          }
+        }
+      }
+    ]
+  },
+  "description": "Auto-generates a trending-keyword blog post draft using Gemini 3.1 Pro with live web search every Sunday at 9am ET.",
+  "name": "Blog Post Sunday (Gemini + Web Search)",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "0 9 * * 0",
+      "one_time_date": null,
+      "timezone": "America/New_York",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  }
+}

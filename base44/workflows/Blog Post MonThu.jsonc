@@ -1,0 +1,48 @@
+{
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "blog_post_mon_thu",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "generate_post": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "generateBlogPost",
+            "args": {
+              "model": "claude_sonnet_4_6",
+              "use_web_search": false
+            }
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Generate blog post (Claude Sonnet)",
+            "description": "Deep evergreen SEO article draft"
+          }
+        }
+      }
+    ]
+  },
+  "description": "Auto-generates an SEO-optimized blog post draft using Claude Sonnet 4.6 every Monday and Thursday at 9am ET.",
+  "name": "Blog Post Mon/Thu (Claude Sonnet)",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "0 9 * * 1,4",
+      "one_time_date": null,
+      "timezone": "America/New_York",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  }
+}

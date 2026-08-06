@@ -1,0 +1,121 @@
+{
+  "name": "BlogPost",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "description": "SEO-optimized blog post title (H1)"
+    },
+    "slug": {
+      "type": "string",
+      "title": "URL Slug",
+      "description": "URL-friendly slug, e.g. 'cobra-vs-aca-comparison'"
+    },
+    "meta_description": {
+      "type": "string",
+      "title": "Meta Description",
+      "description": "SEO meta description, under 160 characters"
+    },
+    "excerpt": {
+      "type": "string",
+      "title": "Excerpt",
+      "description": "1-2 sentence summary shown on the blog listing page"
+    },
+    "content": {
+      "type": "string",
+      "title": "Content (Markdown)",
+      "description": "Full blog post body in Markdown format"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "enum": [
+        "COBRA Basics",
+        "Costs & Savings",
+        "Enrollment",
+        "Alternatives",
+        "State Rules",
+        "Life Events",
+        "Industry News"
+      ],
+      "default": "COBRA Basics"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "Target Keywords",
+      "description": "Primary SEO keywords this post targets"
+    },
+    "author": {
+      "type": "string",
+      "title": "Author",
+      "default": "HealthLink Insurance Agency"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft"
+    },
+    "published_date": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Published Date"
+    },
+    "model_used": {
+      "type": "string",
+      "title": "AI Model Used"
+    },
+    "reading_time_minutes": {
+      "type": "number",
+      "title": "Reading Time (minutes)"
+    },
+    "og_image": {
+      "type": "string",
+      "title": "Social Share Image URL"
+    }
+  },
+  "required": [
+    "title",
+    "slug",
+    "meta_description",
+    "excerpt",
+    "content",
+    "category"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.status": "published"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
