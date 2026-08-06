@@ -9,6 +9,7 @@ export default function Header() {
   const navLinks = [
     { label: 'COBRA Continuation', href: '/kb' },
     { label: 'Alternatives to COBRA', href: '/when-cobra' },
+    { label: 'COBRA Calculator', href: '/cobra-calculator' },
     { label: 'About Us', href: '/about-us' },
     { label: 'Get Help', href: '/customer-service' },
   ];
