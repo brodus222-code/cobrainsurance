@@ -26,7 +26,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <img
-              src="https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/2f7be0b8e_logo_transparent_ai1.png"
+              src="https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/f53eb5476_cobra_logo_tight_final1.png"
               alt="CobraInsurance.Health"
               className="h-9 w-auto"
             />
