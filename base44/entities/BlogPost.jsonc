@@ -32,11 +32,14 @@
       "title": "Category",
       "enum": [
         "COBRA Basics",
+        "COBRA Coverage",
         "Costs & Savings",
         "Enrollment",
         "Alternatives",
         "State Rules",
+        "Troubleshooting",
         "Life Events",
+        "Medicare",
         "Industry News"
       ],
       "default": "COBRA Basics"

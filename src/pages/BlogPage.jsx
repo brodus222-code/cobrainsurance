@@ -17,7 +17,7 @@ const jsonLd = {
   publisher: { '@id': `${site}/#organization` },
 };
 
-const CATEGORIES = ['All', 'COBRA Basics', 'Costs & Savings', 'Enrollment', 'Alternatives', 'State Rules', 'Life Events', 'Industry News'];
+const CATEGORIES = ['All', 'COBRA Coverage', 'COBRA Basics', 'State Rules', 'Alternatives', 'Troubleshooting', 'Costs & Savings', 'Enrollment', 'Life Events', 'Medicare', 'Industry News'];
 
 export default function BlogPage() {
   const [posts, setPosts] = useState([]);
