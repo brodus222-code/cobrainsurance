@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ShieldCheck } from 'lucide-react';
 
-const HERO_IMG = 'https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/7a5b75387_gettyimages-1205374923-2048x2048.jpg';
+const HERO_VIDEO = 'https://media.base44.com/videos/public/6a68570ee6720473b2a5fb34/318b09b21_gettyimages-2249876809-640_adpp.mp4';
 
 export default function HeroSection() {
   return (
@@ -9,14 +9,16 @@ export default function HeroSection() {
       className="relative w-full overflow-hidden"
       style={{ background: '#3c4c63', minHeight: '520px' }}
     >
-      {/* Background image — full bleed */}
+      {/* Background video — full bleed */}
       <div className="absolute inset-0">
-        <img
-          src={HERO_IMG}
-          alt=""
+        <video
+          src={HERO_VIDEO}
+          autoPlay
+          loop
+          muted
+          playsInline
           aria-hidden="true"
           className="w-full h-full object-cover object-center"
-          loading="eager"
         />
         {/* dark overlay for text readability */}
         <div
