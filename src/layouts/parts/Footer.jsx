@@ -48,12 +48,12 @@ export default function Footer() {
                 2501 Chatham Rd Suite R, Springfield, IL 62704
               </a>
               <a
-                href="tel:8772627241"
+                href="tel:8445691234"
                 className="flex items-center gap-2 text-xs transition-opacity hover:opacity-75"
                 style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}
               >
                 <Phone className="w-3.5 h-3.5 flex-shrink-0" />
-                877-262-7241
+                844-569-1234
               </a>
               <a
                 href="mailto:support@cobrainsurance.com"

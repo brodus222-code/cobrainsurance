@@ -38,12 +38,12 @@ export default function CTABand() {
                 Get A Quote Now
               </Link>
               <a
-                href="tel:8772627241"
+                href="tel:8445691234"
                 className="flex items-center gap-2 font-bold text-white text-lg transition-opacity hover:opacity-80"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
                 <Phone className="w-5 h-5" />
-                Call Us at 877-262-7241
+                Call Us at 844-569-1234
               </a>
             </div>
           </div>

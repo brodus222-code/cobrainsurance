@@ -385,8 +385,8 @@ export default function KbPage() {
               style={{ color: '#666666', fontFamily: 'var(--font-sans)' }}
             >
               Still have questions? Call us at{' '}
-              <a href="tel:8772627241" className="font-semibold" style={{ color: '#e01f1f' }}>
-                877-262-7241
+              <a href="tel:8445691234" className="font-semibold" style={{ color: '#e01f1f' }}>
+                844-569-1234
               </a>
               .
             </p>

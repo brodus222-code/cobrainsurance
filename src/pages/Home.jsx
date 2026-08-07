@@ -20,7 +20,7 @@ const jsonLd = {
       '@id': `${site}/#organization`,
       name: 'HealthLink Insurance Agency LLC',
       url: `${site}/`,
-      telephone: '877-262-7241',
+      telephone: '844-569-1234',
       email: 'support@cobrainsurance.com',
       address: {
         '@type': 'PostalAddress',

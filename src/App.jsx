@@ -23,6 +23,7 @@ import CobraCalculatorPage from '@/pages/CobraCalculatorPage';
 import CoverageQuizPage from '@/pages/CoverageQuizPage';
 import CobraTrapPage from '@/pages/CobraTrapPage';
 import CobraPortalPage from '@/pages/CobraPortalPage';
+import SchedulePage from '@/pages/SchedulePage';
 import BlogPage from '@/pages/BlogPage';
 import BlogPostPage from '@/pages/BlogPostPage';
 import NotFoundPage from '@/pages/NotFoundPage';
@@ -71,6 +72,7 @@ const AuthenticatedApp = () => {
         <Route path="/quiz" element={<CoverageQuizPage />} />
         <Route path="/the-cobra-trap" element={<CobraTrapPage />} />
         <Route path="/cobra-portal" element={<CobraPortalPage />} />
+        <Route path="/schedule" element={<SchedulePage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="*" element={<NotFoundPage />} />

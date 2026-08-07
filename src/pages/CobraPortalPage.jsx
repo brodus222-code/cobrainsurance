@@ -267,12 +267,12 @@ export default function CobraPortalPage() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
-                  href="tel:8772627241"
+                  href="tel:8445691234"
                   className="flex items-center justify-center gap-2 px-6 py-3.5 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-gray-900"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
                   <Phone className="w-4 h-4" />
-                  Call 877-262-7241
+                  Call 844-569-1234
                 </a>
               </div>
             </div>

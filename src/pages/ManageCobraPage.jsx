@@ -385,8 +385,8 @@ export default function ManageCobraPage() {
               style={{ color: '#666666', fontFamily: 'var(--font-sans)' }}
             >
               Still have questions? Call{' '}
-              <a href="tel:8772627241" className="font-semibold" style={{ color: '#e01f1f' }}>
-                877-262-7241
+              <a href="tel:8445691234" className="font-semibold" style={{ color: '#e01f1f' }}>
+                844-569-1234
               </a>{' '}
               and we'll help right away.
             </p>
@@ -416,12 +416,12 @@ export default function ManageCobraPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="tel:8772627241"
+                href="tel:8445691234"
                 className="flex items-center gap-2 px-6 py-3 rounded font-bold text-sm transition-opacity hover:opacity-90"
                 style={{ background: '#ffffff', color: '#e01f1f', fontFamily: 'var(--font-sans)' }}
               >
                 <Phone className="w-4 h-4" />
-                Call 877-262-7241
+                Call 844-569-1234
               </a>
               <Link
                 to="/get-help"

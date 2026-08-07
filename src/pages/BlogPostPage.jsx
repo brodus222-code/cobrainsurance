@@ -222,12 +222,12 @@ export default function BlogPostPage() {
                 Compare Alternatives →
               </Link>
               <a
-                href="tel:8772627241"
+                href="tel:8445691234"
                 className="flex items-center gap-2 px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
                 <Phone className="w-4 h-4" />
-                877-262-7241
+                844-569-1234
               </a>
             </div>
           </div>

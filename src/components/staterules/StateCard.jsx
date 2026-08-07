@@ -97,12 +97,12 @@ export default function StateCard({ rule }) {
                   Our licensed advisors can walk you through your options in {rule.state}.
                 </p>
                 <a
-                  href="tel:8772627241"
+                  href="tel:8445691234"
                   className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold transition-opacity hover:opacity-90"
                   style={{ background: '#e01f1f', color: '#ffffff', fontFamily: 'var(--font-sans)' }}
                 >
                   <Phone className="w-3 h-3" />
-                  Call 877-262-7241
+                  Call 844-569-1234
                 </a>
               </div>
             </div>

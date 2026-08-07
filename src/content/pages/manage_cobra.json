@@ -33,7 +33,7 @@
         "Contact your plan administrator directly — most updates require a written request or a form",
         "For address changes, submit in writing and request written confirmation",
         "Update your email with both your plan administrator and HealthLink Insurance Agency LLC",
-        "Call us at 877-262-7241 if you need help locating your plan administrator"
+        "Call us at 844-569-1234 if you need help locating your plan administrator"
       ],
       "warning": null,
       "accent": false,
@@ -46,7 +46,7 @@
         "You generally cannot add new dependents unless they also experienced a qualifying event",
         "A dependent who has their own qualifying event (e.g., divorce, aging off) may elect COBRA separately",
         "To remove a dependent, contact your plan administrator in writing",
-        "Call us at 877-262-7241 to discuss your specific situation"
+        "Call us at 844-569-1234 to discuss your specific situation"
       ],
       "warning": "You cannot add a newborn or newly adopted child to COBRA mid-coverage unless your original plan allowed it. Consult your plan administrator.",
       "accent": false,
@@ -59,7 +59,7 @@
         "Call your plan administrator — their number is on your election notice and ID card",
         "Ask for a \"Certificate of Creditable Coverage\" or a coverage verification letter",
         "Confirm your coverage effective date and the date through which premiums are paid",
-        "Call us at 877-262-7241 if you need help navigating your plan administrator"
+        "Call us at 844-569-1234 if you need help navigating your plan administrator"
       ],
       "warning": null,
       "accent": false,
@@ -87,7 +87,7 @@
     { "label": "Best practice", "value": "Pay 10+ days early or set up autopay", "id": "p08V0FI75p-vQXT2rckPa" }
   ],
   "faqs": [
-    { "question": "Where do I send my COBRA premium payment?", "answer": "Payment instructions are on your election notice and in your coupon book. Payments go to your plan administrator — not to your former employer and not to HealthLink Insurance Agency LLC. If you've lost your notice, call us at 877-262-7241 and we'll help you locate your administrator.", "id": "1ytZ6a3xfCPCa4vcNGMny" },
+    { "question": "Where do I send my COBRA premium payment?", "answer": "Payment instructions are on your election notice and in your coupon book. Payments go to your plan administrator — not to your former employer and not to HealthLink Insurance Agency LLC. If you've lost your notice, call us at 844-569-1234 and we'll help you locate your administrator.", "id": "1ytZ6a3xfCPCa4vcNGMny" },
     { "question": "My COBRA payment was returned. What do I do?", "answer": "Contact your plan administrator immediately. A returned payment does not automatically terminate coverage, but you must resolve it before the grace period expires. Resubmit payment as soon as possible and request written confirmation that your coverage remains active.", "id": "H3-zTi1xldbAJFk_LcSuA" },
     { "question": "How do I get a new insurance ID card?", "answer": "Contact your plan administrator or the insurance carrier directly — their number is on your existing ID card or election notice. Most carriers allow you to print a temporary ID card from their member portal while a physical card is mailed.", "id": "uAdpzMVxTHpFPn16OD_rx" },
     { "question": "Can I switch to a different plan during COBRA?", "answer": "You can only switch plans during the annual open enrollment period offered by your former employer's plan. Outside of open enrollment, you are locked into the plan you elected. Contact your plan administrator to find out when open enrollment occurs.", "id": "KubmBAra4Fqoh7ySt8mwL" },

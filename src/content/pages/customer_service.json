@@ -4,7 +4,7 @@
     "title": "Customer Service",
     "subtitle": "Our licensed advisors are here to help with COBRA enrollment, coverage questions, billing, and finding affordable alternatives. Reach us by phone, email, or the form below."
   },
-  "phone": "877-262-7241",
+  "phone": "844-569-1234",
   "email": "support@cobrainsurance.com",
   "address": {
     "street": "2501 Chatham Rd Suite R",
@@ -58,7 +58,7 @@
     {
       "id": "f1",
       "question": "How do I verify my COBRA coverage is active?",
-      "answer": "Call us at 877-262-7241 or email support@cobrainsurance.com with your name, date of birth, and former employer name. We can confirm your election status, effective date, and premium payment history. You can also request a written confirmation letter for providers."
+      "answer": "Call us at 844-569-1234 or email support@cobrainsurance.com with your name, date of birth, and former employer name. We can confirm your election status, effective date, and premium payment history. You can also request a written confirmation letter for providers."
     },
     {
       "id": "f2",
@@ -68,7 +68,7 @@
     {
       "id": "f3",
       "question": "How do I make a COBRA premium payment?",
-      "answer": "Payments can be made online through your plan administrator's portal, by phone, or by mailing a check. Your election notice will include payment instructions specific to your plan. If you're unsure where to send payment, call us at 877-262-7241."
+      "answer": "Payments can be made online through your plan administrator's portal, by phone, or by mailing a check. Your election notice will include payment instructions specific to your plan. If you're unsure where to send payment, call us at 844-569-1234."
     },
     {
       "id": "f4",
@@ -83,12 +83,12 @@
     {
       "id": "f6",
       "question": "I'm an employer — how do I administer COBRA for my employees?",
-      "answer": "Employers with 20+ employees must notify their plan administrator within 30 days of a qualifying event. The plan administrator then has 14 days to send the election notice to the qualified beneficiary. We can help you understand your obligations and connect you with a COBRA administrator. Call 877-262-7241."
+      "answer": "Employers with 20+ employees must notify their plan administrator within 30 days of a qualifying event. The plan administrator then has 14 days to send the election notice to the qualified beneficiary. We can help you understand your obligations and connect you with a COBRA administrator. Call 844-569-1234."
     },
     {
       "id": "f7",
       "question": "How do I stop unwanted insurance phone calls?",
-      "answer": "You can add yourself to our Do Not Call list. Visit our Do Not Call page or call 877-262-7241 and ask to be removed from our contact list. Federal law requires we honor your request within 30 days."
+      "answer": "You can add yourself to our Do Not Call list. Visit our Do Not Call page or call 844-569-1234 and ask to be removed from our contact list. Federal law requires we honor your request within 30 days."
     }
   ],
   "formDisclaimer": "By submitting this form you agree to be contacted by a licensed insurance advisor. We never sell your information.",
