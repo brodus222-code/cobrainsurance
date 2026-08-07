@@ -30,7 +30,7 @@ export default function Footer() {
             </div>
             <p
               className="text-sm leading-relaxed mb-5"
-              style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}
+              style={{ color: '#ffffff', fontFamily: 'var(--font-sans)' }}
             >
               Experts helping workers between jobs find affordable health coverage.
               <br />
@@ -42,7 +42,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-2 text-xs transition-opacity hover:opacity-75"
-                style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}
+                style={{ color: '#ffffff', fontFamily: 'var(--font-sans)' }}
               >
                 <MapPin className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
                 2501 Chatham Rd Suite R, Springfield, IL 62704
@@ -50,7 +50,7 @@ export default function Footer() {
               <a
                 href="tel:8445691234"
                 className="flex items-center gap-2 text-xs transition-opacity hover:opacity-75"
-                style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}
+                style={{ color: '#ffffff', fontFamily: 'var(--font-sans)' }}
               >
                 <Phone className="w-3.5 h-3.5 flex-shrink-0" />
                 844-569-1234
@@ -58,7 +58,7 @@ export default function Footer() {
               <a
                 href="mailto:support@cobrainsurance.com"
                 className="flex items-center gap-2 text-xs transition-opacity hover:opacity-75"
-                style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}
+                style={{ color: '#ffffff', fontFamily: 'var(--font-sans)' }}
               >
                 <Mail className="w-3.5 h-3.5 flex-shrink-0" />
                 support@cobrainsurance.com
@@ -80,7 +80,7 @@ export default function Footer() {
                   <Link
                     to={link.href}
                     className="text-sm transition-opacity hover:opacity-75"
-                    style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}
+                    style={{ color: '#ffffff', fontFamily: 'var(--font-sans)' }}
                   >
                     {link.label}
                   </Link>
@@ -106,8 +106,8 @@ export default function Footer() {
                   className="flex flex-col transition-opacity hover:opacity-75"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
-                  <span className="text-sm" style={{ color: '#a0b4c8' }}>U.S. Department of Labor — COBRA</span>
-                  <span className="text-xs" style={{ color: '#6b8099' }}>dol.gov/cobra</span>
+                  <span className="text-sm" style={{ color: '#ffffff' }}>U.S. Department of Labor — COBRA</span>
+                  <span className="text-xs" style={{ color: '#b8c8d8' }}>dol.gov/cobra</span>
                 </a>
               </li>
               <li>
@@ -118,8 +118,8 @@ export default function Footer() {
                   className="flex flex-col transition-opacity hover:opacity-75"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
-                  <span className="text-sm" style={{ color: '#a0b4c8' }}>Health Insurance Marketplace®</span>
-                  <span className="text-xs" style={{ color: '#6b8099' }}>HealthCare.gov</span>
+                  <span className="text-sm" style={{ color: '#ffffff' }}>Health Insurance Marketplace®</span>
+                  <span className="text-xs" style={{ color: '#b8c8d8' }}>HealthCare.gov</span>
                 </a>
               </li>
               <li>
@@ -130,8 +130,8 @@ export default function Footer() {
                   className="flex flex-col transition-opacity hover:opacity-75"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
-                  <span className="text-sm" style={{ color: '#a0b4c8' }}>Find Your State Insurance Department</span>
-                  <span className="text-xs" style={{ color: '#6b8099' }}>naic.org</span>
+                  <span className="text-sm" style={{ color: '#ffffff' }}>Find Your State Insurance Department</span>
+                  <span className="text-xs" style={{ color: '#b8c8d8' }}>naic.org</span>
                 </a>
               </li>
               <li>
@@ -142,14 +142,14 @@ export default function Footer() {
                   className="flex flex-col transition-opacity hover:opacity-75"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
-                  <span className="text-sm" style={{ color: '#a0b4c8' }}>Medicaid &amp; CHIP</span>
-                  <span className="text-xs" style={{ color: '#6b8099' }}>medicaid.gov</span>
+                  <span className="text-sm" style={{ color: '#ffffff' }}>Medicaid &amp; CHIP</span>
+                  <span className="text-xs" style={{ color: '#b8c8d8' }}>medicaid.gov</span>
                 </a>
               </li>
             </ul>
             <p
               className="text-xs mt-5 leading-relaxed"
-              style={{ color: '#4e6080', fontFamily: 'var(--font-sans)' }}
+              style={{ color: '#8a9bb0', fontFamily: 'var(--font-sans)' }}
             >
               We're an independent agency — these official resources are provided for your reference.
             </p>
