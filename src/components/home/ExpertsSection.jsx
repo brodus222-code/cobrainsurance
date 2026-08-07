@@ -32,7 +32,7 @@ export default function ExpertsSection() {
               className="text-sm leading-relaxed mb-6"
               style={{ color: '#555555', fontFamily: 'var(--font-sans)' }}
             >
-              Our licensed advisors are certified specialists in COBRA administration and
+              Our licensed advisors are specialists in COBRA administration and
               health insurance alternatives. We're independent — we work for you, not the
               insurance companies. Licensed to operate in 22 states.
             </p>

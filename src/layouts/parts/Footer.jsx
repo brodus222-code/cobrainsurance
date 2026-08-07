@@ -32,7 +32,7 @@ export default function Footer() {
               className="text-sm leading-relaxed mb-5"
               style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}
             >
-              Helping workers between jobs find affordable health coverage since 1999.
+              Experts helping workers between jobs find affordable health coverage.
               <br />
               HealthLink Insurance Agency LLC — Licensed in 22 States.
             </p>
