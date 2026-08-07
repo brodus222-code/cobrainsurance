@@ -162,32 +162,70 @@ export default function Footer() {
         className="border-t"
         style={{ background: '#2d3a4d', borderColor: '#4e6080' }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-          <div className="flex flex-col md:flex-row justify-between gap-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <p
+            className="text-xs leading-relaxed mb-4"
+            style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}
+          >
+            HealthLink Insurance Agency LLC is an independent, privately owned licensed insurance
+            agency. We are not a government agency, and this is not a government website. We are
+            not your employer's COBRA plan administrator — COBRA elections, premium payments, and
+            cancellations are handled through your employer or its designated plan administrator,
+            and we can help you understand that process at no charge.
+          </p>
+          <p
+            className="text-xs leading-relaxed mb-4"
+            style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}
+          >
+            COBRA continuation coverage is a federal program regulated by the U.S. Department of
+            Labor. For official information, visit{' '}
+            <a
+              href="https://www.dol.gov/general/topic/health-plans/cobra"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-white transition-colors"
+            >
+              dol.gov/cobra
+            </a>
+            . For the official Health Insurance Marketplace®, visit{' '}
+            <a
+              href="https://www.healthcare.gov"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-white transition-colors"
+            >
+              HealthCare.gov
+            </a>
+            .
+          </p>
+          <p
+            className="text-xs leading-relaxed mb-6"
+            style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}
+          >
+            Our services are free to consumers. We are compensated by insurance companies when you
+            enroll in a plan through us. This compensation does not affect the premium you pay.
+          </p>
+
+          <div className="flex flex-col md:flex-row justify-between gap-3 pt-4 border-t" style={{ borderColor: '#4e6080' }}>
             <p
-              className="text-xs"
+              className="text-xs leading-relaxed"
               style={{ color: '#6b8099', fontFamily: 'var(--font-sans)' }}
             >
               ©2026 HealthLink Insurance Agency LLC ·{' '}
               <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
               {' · '}
               <Link to="/terms" className="hover:text-white transition-colors">Terms of Use</Link>
+              {' · '}
+              <Link to="/do-not-call" className="hover:text-white transition-colors">Do Not Call Policy</Link>
             </p>
             <p
-              className="text-xs"
+              className="text-xs leading-relaxed"
               style={{ color: '#6b8099', fontFamily: 'var(--font-sans)' }}
             >
-              Licensed Agent · CA License #0D43589
+              Licensed insurance agency · IL License #3003596873 · CA License #6019438 · NPN #21554495 ·{' '}
+              <Link to="/about" className="underline hover:text-white transition-colors">See all state licenses →</Link>
             </p>
           </div>
-          <p
-            className="text-xs mt-3 leading-relaxed"
-            style={{ color: '#4e6080', fontFamily: 'var(--font-sans)' }}
-          >
-            The information provided on this website is designed to offer general guidance and is
-            not a substitute for professional advice in medical, psychological, tax, legal,
-            investment, accounting, or governmental matters.
-          </p>
         </div>
       </div>
     </footer>
