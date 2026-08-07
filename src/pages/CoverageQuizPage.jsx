@@ -67,7 +67,7 @@ export default function CoverageQuizPage() {
           {[
             { icon: Clock, title: 'Takes 2 minutes', body: 'Five simple questions, no account needed.' },
             { icon: ShieldCheck, title: 'Licensed in 22 states', body: 'Real advisors, real plans, no obligation.' },
-            { icon: Phone, title: 'Talk to a human', body: 'Prefer to talk? Call 877-262-7241.' },
+            { icon: Phone, title: 'Talk to a human', body: 'Prefer to talk? Call 844-569-1234.' },
           ].map((item) => (
             <div key={item.title}>
               <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: '#e01f1f' }} />

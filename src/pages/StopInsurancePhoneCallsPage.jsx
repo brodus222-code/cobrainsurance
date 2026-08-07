@@ -378,7 +378,7 @@ export default function StopInsurancePhoneCallsPage() {
             </h2>
             <p className="text-sm mb-8" style={{ color: '#666666', fontFamily: 'var(--font-sans)' }}>
               Still have questions? Call us at{' '}
-              <a href="tel:8772627241" className="font-semibold" style={{ color: '#e01f1f' }}>877-262-7241</a>.
+              <a href="tel:8445691234" className="font-semibold" style={{ color: '#e01f1f' }}>844-569-1234</a>.
             </p>
             <div className="rounded-2xl px-6" style={{ background: '#fbfbfb' }}>
               <InlineFaqList />
@@ -406,12 +406,12 @@ export default function StopInsurancePhoneCallsPage() {
               </div>
               <div className="flex flex-col gap-3">
                 <a
-                  href="tel:8772627241"
+                  href="tel:8445691234"
                   className="flex items-center justify-center gap-2 px-6 py-3.5 rounded font-bold text-sm transition-opacity hover:opacity-90"
                   style={{ background: '#e01f1f', color: '#ffffff', fontFamily: 'var(--font-sans)' }}
                 >
                   <Phone className="w-4 h-4" />
-                  Call 877-262-7241
+                  Call 844-569-1234
                 </a>
                 <Link
                   to="/get-help"

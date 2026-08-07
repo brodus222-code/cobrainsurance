@@ -153,7 +153,7 @@ export default function UsaStateCobraRulesPage() {
                   administrator, your state&apos;s Department of Insurance, or a licensed insurance
                   advisor. HealthLink Insurance Agency LLC is licensed in 22 states and can help
                   you understand your options — call{' '}
-                  <a href="tel:8772627241" className="font-semibold underline" style={{ color: '#7c3a00' }}>877-262-7241</a>.
+                  <a href="tel:8445691234" className="font-semibold underline" style={{ color: '#7c3a00' }}>844-569-1234</a>.
                 </p>
               </div>
             </div>
@@ -172,9 +172,9 @@ export default function UsaStateCobraRulesPage() {
               COBRA or an alternative makes more sense.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="tel:8772627241" className="flex items-center gap-2 px-6 py-3 rounded font-bold text-sm transition-opacity hover:opacity-90" style={{ background: '#ffffff', color: '#e01f1f', fontFamily: 'var(--font-sans)' }}>
+              <a href="tel:8445691234" className="flex items-center gap-2 px-6 py-3 rounded font-bold text-sm transition-opacity hover:opacity-90" style={{ background: '#ffffff', color: '#e01f1f', fontFamily: 'var(--font-sans)' }}>
                 <Phone className="w-4 h-4" />
-                Call 877-262-7241
+                Call 844-569-1234
               </a>
               <Link to="/get-help" className="px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600" style={{ fontFamily: 'var(--font-sans)' }}>
                 Contact an Advisor Online →

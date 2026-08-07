@@ -160,12 +160,12 @@ export default function CobraCalculatorPage() {
               Compare Alternatives
             </Link>
             <a
-              href="tel:8772627241"
+              href="tel:8445691234"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-sm text-white uppercase tracking-wide transition-colors hover:bg-white/10"
               style={{ border: '2px solid #ffffff', fontFamily: 'var(--font-sans)' }}
             >
               <Phone className="w-4 h-4" />
-              877-262-7241
+              844-569-1234
             </a>
           </div>
         </div>
