@@ -150,9 +150,9 @@
   "ctaBody": "Our licensed advisors compare all your options side by side — COBRA, ACA plans, short-term coverage, and more — at no cost to you. We're independent, so we work for you, not the insurance companies.",
   "ctaDisclaimer": "Licensed in 22 states · No obligation · Free consultation",
   "relatedLinks": [
-    { "id": "rl1", "label": "COBRA FAQs & Eligibility", "href": "/kb" },
+    { "id": "rl1", "label": "COBRA FAQs & Eligibility", "href": "/knowledge-base" },
     { "id": "rl2", "label": "Start COBRA Enrollment", "href": "/start-cobra" },
     { "id": "rl3", "label": "Manage Your COBRA Plan", "href": "/manage-cobra" },
-    { "id": "rl4", "label": "Get Help from an Advisor", "href": "/customer-service" }
+    { "id": "rl4", "label": "Get Help from an Advisor", "href": "/get-help" }
   ]
 }

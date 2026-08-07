@@ -3,17 +3,17 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
 const SITE = 'https://cobrainsurance.health';
 
 const INTERNAL_LINKS = [
-  { url: '/kb', label: 'COBRA Knowledge Base' },
-  { url: '/when-cobra', label: 'Alternatives to COBRA' },
+  { url: '/knowledge-base', label: 'COBRA Knowledge Base' },
+  { url: '/alternatives', label: 'Alternatives to COBRA' },
   { url: '/start-cobra', label: 'How to Start COBRA' },
   { url: '/manage-cobra', label: 'Manage Your COBRA Coverage' },
-  { url: '/cobra-calculator', label: 'COBRA Cost Calculator' },
-  { url: '/coverage-quiz', label: 'Coverage Recommendation Quiz' },
-  { url: '/cobra-trap', label: 'The COBRA Trap' },
-  { url: '/customer-service', label: 'Speak with a Licensed Advisor' },
-  { url: '/about-us', label: 'About HealthLink Insurance Agency' },
-  { url: '/usa-state-cobra-rules', label: 'State COBRA & Mini-COBRA Rules' },
-  { url: '/unemployment-insurance', label: 'Unemployment Insurance Guide' },
+  { url: '/calculator', label: 'COBRA Cost Calculator' },
+  { url: '/quiz', label: 'Coverage Recommendation Quiz' },
+  { url: '/the-cobra-trap', label: 'The COBRA Trap' },
+  { url: '/get-help', label: 'Speak with a Licensed Advisor' },
+  { url: '/about', label: 'About HealthLink Insurance Agency' },
+  { url: '/state-laws', label: 'State COBRA & Mini-COBRA Rules' },
+  { url: '/unemployment', label: 'Unemployment Insurance Guide' },
 ];
 
 const CONTENT_PILLARS = [

@@ -80,7 +80,7 @@
         "Only lasts 18–36 months"
       ],
       "cta": "Learn About COBRA",
-      "href": "/kb"
+      "href": "/knowledge-base"
     },
     {
       "id": "co2",
@@ -98,7 +98,7 @@
         "Subsidy eligibility depends on income"
       ],
       "cta": "Compare Alternatives",
-      "href": "/when-cobra"
+      "href": "/alternatives"
     },
     {
       "id": "co3",
@@ -116,7 +116,7 @@
         "Provider networks may be limited"
       ],
       "cta": "Get Help Comparing",
-      "href": "/customer-service"
+      "href": "/get-help"
     }
   ],
   "faqs": [

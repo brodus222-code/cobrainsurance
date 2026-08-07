@@ -3,14 +3,14 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const navLinks = [
-    { label: 'Do Not Call List', href: '/kb/stop-insurance-phone-calls' },
+    { label: 'Do Not Call List', href: '/do-not-call' },
     { label: 'Start COBRA', href: '/start-cobra' },
     { label: 'Manage Your COBRA', href: '/manage-cobra' },
     { label: 'COBRA Account Portal', href: '/cobra-portal' },
-    { label: 'State Continuation Laws', href: '/usa-state-cobra-rules' },
-    { label: 'About Us', href: '/about-us' },
+    { label: 'State Continuation Laws', href: '/state-laws' },
+    { label: 'About Us', href: '/about' },
     { label: 'COBRA Blog', href: '/blog' },
-    { label: 'Where to File Unemployment', href: '/unemployment-insurance' },
+    { label: 'Where to File Unemployment', href: '/unemployment' },
     { label: 'Sitio web en español', href: '/es' },
   ];
 

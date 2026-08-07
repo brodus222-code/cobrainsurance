@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 const site = 'https://cobrainsurance.health';
-const canonicalUrl = `${site}/about-us`;
+const canonicalUrl = `${site}/about`;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -347,7 +347,7 @@ export default function AboutUsPage() {
                 <p className="mt-4 text-xs" style={{ color: '#888888', fontFamily: 'var(--font-sans)' }}>
                   Not in one of these states?{' '}
                   <Link
-                    to="/customer-service"
+                    to="/get-help"
                     className="font-semibold underline"
                     style={{ color: '#3c4c63' }}
                   >
@@ -473,7 +473,7 @@ export default function AboutUsPage() {
                 Call 877-262-7241
               </a>
               <Link
-                to="/customer-service"
+                to="/get-help"
                 className="px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
@@ -494,12 +494,12 @@ export default function AboutUsPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: 'COBRA Knowledge Base', href: '/kb' },
+                { label: 'COBRA Knowledge Base', href: '/knowledge-base' },
                 { label: 'Start COBRA Enrollment', href: '/start-cobra' },
-                { label: 'Alternatives to COBRA', href: '/when-cobra' },
+                { label: 'Alternatives to COBRA', href: '/alternatives' },
                 { label: 'Manage Your COBRA Plan', href: '/manage-cobra' },
-                { label: 'State COBRA Rules', href: '/usa-state-cobra-rules' },
-                { label: 'Get Help', href: '/customer-service' },
+                { label: 'State COBRA Rules', href: '/state-laws' },
+                { label: 'Get Help', href: '/get-help' },
               ].map((link) => (
                 <Link
                   key={link.href}

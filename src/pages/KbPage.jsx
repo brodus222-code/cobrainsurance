@@ -5,7 +5,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
 const site = 'https://cobrainsurance.health';
-const canonicalUrl = `${site}/kb`;
+const canonicalUrl = `${site}/knowledge-base`;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -317,7 +317,7 @@ export default function KbPage() {
                 </p>
               </div>
               <Link
-                to="/when-cobra"
+                to="/alternatives"
                 className="flex-shrink-0 px-6 py-3 rounded font-bold text-sm text-white transition-opacity hover:opacity-90"
                 style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
               >
@@ -420,7 +420,7 @@ export default function KbPage() {
                 Start COBRA Enrollment →
               </Link>
               <Link
-                to="/when-cobra"
+                to="/alternatives"
                 className="px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >

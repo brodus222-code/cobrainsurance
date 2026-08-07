@@ -8,7 +8,7 @@ import FederalVsStateExplainer from '@/components/staterules/FederalVsStateExpla
 import ComparisonTable from '@/components/staterules/ComparisonTable';
 
 const site = 'https://cobrainsurance.health';
-const canonicalUrl = `${site}/usa-state-cobra-rules`;
+const canonicalUrl = `${site}/state-laws`;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -29,11 +29,11 @@ const FILTERS = [
 ];
 
 const QUICK_LINKS = [
-  { label: 'COBRA Knowledge Base', href: '/kb' },
+  { label: 'COBRA Knowledge Base', href: '/knowledge-base' },
   { label: 'Start COBRA Enrollment', href: '/start-cobra' },
-  { label: 'Alternatives to COBRA', href: '/when-cobra' },
+  { label: 'Alternatives to COBRA', href: '/alternatives' },
   { label: 'Manage Your COBRA Plan', href: '/manage-cobra' },
-  { label: 'Get Help from an Advisor', href: '/customer-service' },
+  { label: 'Get Help from an Advisor', href: '/get-help' },
 ];
 
 export default function UsaStateCobraRulesPage() {
@@ -176,7 +176,7 @@ export default function UsaStateCobraRulesPage() {
                 <Phone className="w-4 h-4" />
                 Call 877-262-7241
               </a>
-              <Link to="/customer-service" className="px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600" style={{ fontFamily: 'var(--font-sans)' }}>
+              <Link to="/get-help" className="px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600" style={{ fontFamily: 'var(--font-sans)' }}>
                 Contact an Advisor Online →
               </Link>
             </div>

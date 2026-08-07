@@ -98,7 +98,7 @@ export default function ExitIntentModal() {
 
           <div className="flex flex-col gap-3">
             <Link
-              to="/customer-service"
+              to="/get-help"
               onClick={close}
               className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-lg font-bold text-sm text-white transition-opacity hover:opacity-90"
               style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}

@@ -58,14 +58,14 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 mb-6">
             <Link
-              to="/kb"
+              to="/knowledge-base"
               className="px-6 py-3 rounded font-bold text-sm text-white transition-opacity hover:opacity-90"
               style={{ background: '#ff4d5a', fontFamily: 'var(--font-sans)' }}
             >
               COBRA Application Instructions &gt;
             </Link>
             <Link
-              to="/when-cobra"
+              to="/alternatives"
               className="px-6 py-3 rounded font-bold text-sm transition-colors hover:bg-white hover:text-gray-900"
               style={{
                 border: '2px solid #ffffff',
@@ -80,7 +80,7 @@ export default function HeroSection() {
           {/* Secondary nav links */}
           <div className="flex flex-col gap-2 mb-10">
             <Link
-              to="/quote"
+              to="/check-options"
               className="text-sm transition-opacity hover:opacity-80"
               style={{ color: '#e6ecf3', fontFamily: 'var(--font-sans)' }}
             >
@@ -88,7 +88,7 @@ export default function HeroSection() {
               <span className="font-semibold underline">Check your options here &gt;</span>
             </Link>
             <Link
-              to="/coverage-quiz"
+              to="/quiz"
               className="text-sm transition-opacity hover:opacity-80"
               style={{ color: '#e6ecf3', fontFamily: 'var(--font-sans)' }}
             >
@@ -155,7 +155,7 @@ export default function HeroSection() {
 
       {/* Sticky Talk to an Advisor button */}
       <Link
-        to="/customer-service"
+        to="/get-help"
         className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-full font-bold text-sm text-white shadow-lg transition-opacity hover:opacity-90"
         style={{ background: '#ff4d5a', fontFamily: 'var(--font-sans)' }}
       >

@@ -206,14 +206,14 @@ export default function BlogPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                to="/when-cobra"
+                to="/alternatives"
                 className="px-6 py-3 rounded font-bold text-sm transition-opacity hover:opacity-90"
                 style={{ background: '#ffffff', color: '#e01f1f', fontFamily: 'var(--font-sans)' }}
               >
                 Compare Alternatives →
               </Link>
               <Link
-                to="/customer-service"
+                to="/get-help"
                 className="px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >

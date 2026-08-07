@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 const site = 'https://cobrainsurance.health';
-const canonicalUrl = `${site}/kb/stop-insurance-phone-calls`;
+const canonicalUrl = `${site}/do-not-call`;
 
 // Icon map for steps — static, not from content layer
 const stepIcons = {
@@ -30,11 +30,11 @@ const stepIcons = {
 
 // Static href map for related links
 const relatedLinkHrefs = {
-  rl1: '/kb',
+  rl1: '/knowledge-base',
   rl2: '/start-cobra',
-  rl3: '/when-cobra',
-  rl4: '/usa-state-cobra-rules',
-  rl5: '/customer-service',
+  rl3: '/alternatives',
+  rl4: '/state-laws',
+  rl5: '/get-help',
 };
 
 // Static href map for reporting agencies
@@ -179,7 +179,7 @@ export default function StopInsurancePhoneCallsPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 mb-6 text-xs" style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}>
-              <Link to="/kb" className="hover:text-white transition-colors">COBRA Knowledge Base</Link>
+              <Link to="/knowledge-base" className="hover:text-white transition-colors">COBRA Knowledge Base</Link>
               <span>/</span>
               <span className="text-white">Stop Insurance Phone Calls</span>
             </div>
@@ -414,7 +414,7 @@ export default function StopInsurancePhoneCallsPage() {
                   Call 877-262-7241
                 </a>
                 <Link
-                  to="/customer-service"
+                  to="/get-help"
                   className="flex items-center justify-center gap-2 px-6 py-3.5 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-gray-900"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
@@ -443,7 +443,7 @@ export default function StopInsurancePhoneCallsPage() {
                 Start COBRA Enrollment →
               </Link>
               <Link
-                to="/when-cobra"
+                to="/alternatives"
                 className="px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >

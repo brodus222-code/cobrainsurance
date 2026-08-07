@@ -66,7 +66,7 @@
     {
       "title": "Coverage Alternatives",
       "desc": "We compare COBRA against ACA marketplace plans, short-term coverage, and other options so you can make an informed decision.",
-      "href": "/when-cobra",
+      "href": "/alternatives",
       "linkLabel": "Compare Alternatives →",
       "id": "nesJV0nYIrZCFFkfSRQSQ"
     },
@@ -80,7 +80,7 @@
     {
       "title": "State-Specific Expertise",
       "desc": "Mini-COBRA laws vary dramatically by state. We know the rules in all 22 states where we're licensed and can tell you exactly what applies to your situation.",
-      "href": "/usa-state-cobra-rules",
+      "href": "/state-laws",
       "linkLabel": "State COBRA Rules →",
       "id": "2EyCj1JtIeu3otymXTKnm"
     }

@@ -47,7 +47,7 @@ const actions = [
     title: 'Cancel Coverage',
     desc: 'Found a new job or better alternative? Submit a request to terminate your COBRA coverage.',
     cta: 'Cancel COBRA',
-    href: '/when-cobra',
+    href: '/alternatives',
   },
 ];
 
@@ -259,7 +259,7 @@ export default function CobraPortalPage() {
               </div>
               <div className="flex flex-col gap-3">
                 <Link
-                  to="/when-cobra"
+                  to="/alternatives"
                   className="flex items-center justify-center gap-2 px-6 py-3.5 rounded font-bold text-sm transition-opacity hover:opacity-90"
                   style={{ background: '#e01f1f', color: '#ffffff', fontFamily: 'var(--font-sans)' }}
                 >
@@ -292,8 +292,8 @@ export default function CobraPortalPage() {
               {[
                 { label: 'Detailed Manage Guide', href: '/manage-cobra' },
                 { label: 'Start COBRA Enrollment', href: '/start-cobra' },
-                { label: 'Alternatives to COBRA', href: '/when-cobra' },
-                { label: 'COBRA Knowledge Base', href: '/kb' },
+                { label: 'Alternatives to COBRA', href: '/alternatives' },
+                { label: 'COBRA Knowledge Base', href: '/knowledge-base' },
               ].map((link) => (
                 <Link
                   key={link.href}

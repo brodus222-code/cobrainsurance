@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 const site = 'https://cobrainsurance.health';
-const canonicalUrl = `${site}/cobra-trap`;
+const canonicalUrl = `${site}/the-cobra-trap`;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -136,7 +136,7 @@ export default function CobraTrapPage() {
                 Talk to an Advisor
               </a>
               <Link
-                to="/when-cobra"
+                to="/alternatives"
                 className="px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-gray-900"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
@@ -400,7 +400,7 @@ export default function CobraTrapPage() {
                   Call 877-262-7241
                 </a>
                 <Link
-                  to="/when-cobra"
+                  to="/alternatives"
                   className="flex items-center justify-center px-6 py-4 rounded font-bold text-base border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
@@ -422,10 +422,10 @@ export default function CobraTrapPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: 'Alternatives to COBRA', href: '/when-cobra' },
+                { label: 'Alternatives to COBRA', href: '/alternatives' },
                 { label: 'How to Start COBRA', href: '/start-cobra' },
-                { label: 'COBRA Knowledge Base', href: '/kb' },
-                { label: 'Coverage Quiz', href: '/coverage-quiz' },
+                { label: 'COBRA Knowledge Base', href: '/knowledge-base' },
+                { label: 'Coverage Quiz', href: '/quiz' },
               ].map((link) => (
                 <Link
                   key={link.href}

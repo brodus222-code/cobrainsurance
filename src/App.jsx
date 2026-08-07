@@ -55,21 +55,21 @@ const AuthenticatedApp = () => {
     <Routes>
       <Route element={<RootLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/kb" element={<KbPage />} />
-        <Route path="/when-cobra" element={<WhenCobraPage />} />
-        <Route path="/customer-service" element={<CustomerServicePage />} />
+        <Route path="/knowledge-base" element={<KbPage />} />
+        <Route path="/alternatives" element={<WhenCobraPage />} />
+        <Route path="/get-help" element={<CustomerServicePage />} />
         <Route path="/start-cobra" element={<StartCobraPage />} />
         <Route path="/manage-cobra" element={<ManageCobraPage />} />
-        <Route path="/about-us" element={<AboutUsPage />} />
-        <Route path="/kb/stop-insurance-phone-calls" element={<StopInsurancePhoneCallsPage />} />
-        <Route path="/unemployment-insurance" element={<UnemploymentInsurancePage />} />
-        <Route path="/usa-state-cobra-rules" element={<UsaStateCobraRulesPage />} />
+        <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/do-not-call" element={<StopInsurancePhoneCallsPage />} />
+        <Route path="/unemployment" element={<UnemploymentInsurancePage />} />
+        <Route path="/state-laws" element={<UsaStateCobraRulesPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
-        <Route path="/quote" element={<QuotePage />} />
-        <Route path="/cobra-calculator" element={<CobraCalculatorPage />} />
-        <Route path="/coverage-quiz" element={<CoverageQuizPage />} />
-        <Route path="/cobra-trap" element={<CobraTrapPage />} />
+        <Route path="/check-options" element={<QuotePage />} />
+        <Route path="/calculator" element={<CobraCalculatorPage />} />
+        <Route path="/quiz" element={<CoverageQuizPage />} />
+        <Route path="/the-cobra-trap" element={<CobraTrapPage />} />
         <Route path="/cobra-portal" element={<CobraPortalPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />

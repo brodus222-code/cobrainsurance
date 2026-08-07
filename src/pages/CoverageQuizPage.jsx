@@ -4,7 +4,7 @@ import { Phone, Clock, ShieldCheck } from 'lucide-react';
 import CoverageQuiz from '@/components/quiz/CoverageQuiz';
 
 const site = 'https://cobrainsurance.health';
-const canonicalUrl = `${site}/coverage-quiz`;
+const canonicalUrl = `${site}/quiz`;
 
 export default function CoverageQuizPage() {
   return (

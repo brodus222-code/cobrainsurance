@@ -26,7 +26,7 @@ const QUOTE_PRODUCT_MAP = {
 };
 
 const site = 'https://cobrainsurance.health';
-const canonicalUrl = `${site}/when-cobra`;
+const canonicalUrl = `${site}/alternatives`;
 
 // Icon map keyed by alternative id — static, not from content layer
 const altIcons = {
@@ -312,7 +312,7 @@ export default function WhenCobraPage() {
                       {/* CTA */}
                       <div className="mt-5 pt-4 border-t flex items-center gap-3 flex-wrap" style={{ borderColor: '#e5e7eb' }}>
                         <Link
-                          to={`/quote?product=${QUOTE_PRODUCT_MAP[alt.id] || ''}`}
+                          to={`/check-options?product=${QUOTE_PRODUCT_MAP[alt.id] || ''}`}
                           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
                           style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
                         >
@@ -421,7 +421,7 @@ export default function WhenCobraPage() {
                   Call 877-262-7241
                 </a>
                 <Link
-                  to="/customer-service"
+                  to="/get-help"
                   className="flex items-center justify-center px-6 py-4 rounded font-bold text-base border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
@@ -450,10 +450,10 @@ export default function WhenCobraPage() {
             <div className="flex flex-wrap gap-3">
               {(() => {
                 const linkHrefs = {
-                  rl1: '/kb',
+                  rl1: '/knowledge-base',
                   rl2: '/start-cobra',
                   rl3: '/manage-cobra',
-                  rl4: '/customer-service',
+                  rl4: '/get-help',
                 };
                 return when_cobra.relatedLinks.map((link) => (
                   <Link

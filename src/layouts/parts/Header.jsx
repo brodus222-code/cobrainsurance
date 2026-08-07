@@ -6,11 +6,11 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { label: 'COBRA Continuation', href: '/kb' },
-    { label: 'Alternatives to COBRA', href: '/when-cobra' },
-    { label: 'COBRA Calculator', href: '/cobra-calculator' },
+    { label: 'COBRA Continuation', href: '/knowledge-base' },
+    { label: 'Alternatives to COBRA', href: '/alternatives' },
+    { label: 'COBRA Calculator', href: '/calculator' },
 
-    { label: 'Get Help', href: '/customer-service' },
+    { label: 'Get Help', href: '/get-help' },
   ];
 
   return (
@@ -42,7 +42,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              to="/when-cobra"
+              to="/alternatives"
               className="ml-2 px-5 py-2.5 rounded text-sm font-bold uppercase tracking-wide text-white transition-opacity hover:opacity-90"
               style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
             >
@@ -81,7 +81,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              to="/when-cobra"
+              to="/alternatives"
               className="px-5 py-3 rounded text-sm font-bold uppercase tracking-wide text-white text-center"
               style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
               onClick={() => setMobileOpen(false)}

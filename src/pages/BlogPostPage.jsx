@@ -215,7 +215,7 @@ export default function BlogPostPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                to="/when-cobra"
+                to="/alternatives"
                 className="px-6 py-3 rounded font-bold text-sm transition-opacity hover:opacity-90"
                 style={{ background: '#ffffff', color: '#e01f1f', fontFamily: 'var(--font-sans)' }}
               >

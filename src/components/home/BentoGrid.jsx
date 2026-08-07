@@ -5,7 +5,7 @@ const cards = [
   {
     title: 'COBRA Continuation',
     description: 'FAQs, eligibility requirements, premium costs, and coverage timelines explained.',
-    href: '/kb',
+    href: '/knowledge-base',
     icon: BookOpen,
     featured: false,
     span: 'col-span-1',
@@ -22,7 +22,7 @@ const cards = [
     title: 'Alternatives to COBRA ⭐',
     description:
       'Compare short-term health plans, ACA marketplace coverage, accident-only, hospital indemnity, and Teladoc virtual care — often at a fraction of COBRA cost.',
-    href: '/when-cobra',
+    href: '/alternatives',
     icon: Star,
     featured: true,
     span: 'col-span-1 lg:col-span-2',
@@ -38,7 +38,7 @@ const cards = [
   {
     title: 'Get Help ☎️',
     description: 'Customer service, verify your coverage status, and employer administration guide.',
-    href: '/customer-service',
+    href: '/get-help',
     icon: Phone,
     featured: false,
     span: 'col-span-1',

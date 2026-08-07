@@ -37,7 +37,7 @@ export default function ExpertsSection() {
               insurance companies. Licensed to operate in 22 states.
             </p>
             <Link
-              to="/when-cobra"
+              to="/alternatives"
               className="inline-flex items-center gap-1 font-semibold text-sm transition-opacity hover:opacity-75"
               style={{ color: '#e01f1f', fontFamily: 'var(--font-sans)' }}
             >

@@ -352,7 +352,7 @@ export default function ManageCobraPage() {
               </div>
               <div className="flex flex-col gap-3">
                 <Link
-                  to="/when-cobra"
+                  to="/alternatives"
                   className="flex items-center justify-center gap-2 px-6 py-3.5 rounded font-bold text-sm transition-opacity hover:opacity-90"
                   style={{ background: '#e01f1f', color: '#ffffff', fontFamily: 'var(--font-sans)' }}
                 >
@@ -360,7 +360,7 @@ export default function ManageCobraPage() {
                   Compare Coverage Alternatives
                 </Link>
                 <Link
-                  to="/customer-service"
+                  to="/get-help"
                   className="flex items-center justify-center gap-2 px-6 py-3.5 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-gray-900"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
@@ -424,7 +424,7 @@ export default function ManageCobraPage() {
                 Call 877-262-7241
               </a>
               <Link
-                to="/customer-service"
+                to="/get-help"
                 className="flex items-center gap-2 px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
@@ -446,10 +446,10 @@ export default function ManageCobraPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: 'COBRA Knowledge Base', href: '/kb' },
+                { label: 'COBRA Knowledge Base', href: '/knowledge-base' },
                 { label: 'Start COBRA Enrollment', href: '/start-cobra' },
-                { label: 'Alternatives to COBRA', href: '/when-cobra' },
-                { label: 'Get Help from an Advisor', href: '/customer-service' },
+                { label: 'Alternatives to COBRA', href: '/alternatives' },
+                { label: 'Get Help from an Advisor', href: '/get-help' },
               ].map((link) => (
                 <Link
                   key={link.href}

@@ -392,14 +392,14 @@ export default function StartCobraPage() {
               </div>
               <div className="flex flex-col gap-3">
                 <Link
-                  to="/when-cobra"
+                  to="/alternatives"
                   className="flex items-center justify-center gap-2 px-6 py-3.5 rounded font-bold text-sm transition-opacity hover:opacity-90"
                   style={{ background: '#e01f1f', color: '#ffffff', fontFamily: 'var(--font-sans)' }}
                 >
                   Compare Alternatives to COBRA →
                 </Link>
                 <Link
-                  to="/kb"
+                  to="/knowledge-base"
                   className="flex items-center justify-center gap-2 px-6 py-3.5 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-gray-900"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
@@ -436,7 +436,7 @@ export default function StartCobraPage() {
                 Call 877-262-7241
               </a>
               <Link
-                to="/customer-service"
+                to="/get-help"
                 className="px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
@@ -457,10 +457,10 @@ export default function StartCobraPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: 'COBRA Knowledge Base', href: '/kb' },
-                { label: 'Alternatives to COBRA', href: '/when-cobra' },
+                { label: 'COBRA Knowledge Base', href: '/knowledge-base' },
+                { label: 'Alternatives to COBRA', href: '/alternatives' },
                 { label: 'Manage Your COBRA Plan', href: '/manage-cobra' },
-                { label: 'Get Help from an Advisor', href: '/customer-service' },
+                { label: 'Get Help from an Advisor', href: '/get-help' },
               ].map((link) => (
                 <Link
                   key={link.href}

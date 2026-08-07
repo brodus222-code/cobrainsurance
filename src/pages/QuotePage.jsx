@@ -8,7 +8,7 @@ import { StepProduct, StepLocation, StepHousehold, StepContact } from '@/compone
 import StepDone from '@/components/quote/StepDone';
 
 const site = 'https://cobrainsurance.health';
-const canonicalUrl = `${site}/quote`;
+const canonicalUrl = `${site}/check-options`;
 
 const STEPS = ['product', 'location', 'household', 'contact', 'done'];
 
@@ -75,7 +75,7 @@ export default function QuotePage() {
           <div className="max-w-xl mx-auto px-4 sm:px-6">
             {!isDone && (
               <Link
-                to="/when-cobra#alternatives"
+                to="/alternatives#alternatives"
                 className="inline-flex items-center gap-1.5 text-sm font-semibold mb-6 transition-opacity hover:opacity-75"
                 style={{ color: '#3c4c63', fontFamily: 'var(--font-sans)' }}
               >

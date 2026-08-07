@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 const site = 'https://cobrainsurance.health';
-const canonicalUrl = `${site}/unemployment-insurance`;
+const canonicalUrl = `${site}/unemployment`;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -382,9 +382,9 @@ export default function UnemploymentInsurancePage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {(() => {
                 const optionHrefs = {
-                  co1: '/kb',
-                  co2: '/when-cobra',
-                  co3: '/customer-service',
+                  co1: '/knowledge-base',
+                  co2: '/alternatives',
+                  co3: '/get-help',
                 };
                 return unemployment_insurance.coverageOptions.map((option) => (
                   <div
@@ -473,7 +473,7 @@ export default function UnemploymentInsurancePage() {
                 </p>
               </div>
               <Link
-                to="/customer-service"
+                to="/get-help"
                 className="flex-shrink-0 px-6 py-3 rounded font-bold text-sm text-white transition-opacity hover:opacity-90"
                 style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
               >
@@ -538,7 +538,7 @@ export default function UnemploymentInsurancePage() {
                 Call 877-262-7241
               </a>
               <Link
-                to="/when-cobra"
+                to="/alternatives"
                 className="px-6 py-3 rounded font-bold text-sm border-2 border-white text-white transition-colors hover:bg-white hover:text-red-600"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
@@ -559,12 +559,12 @@ export default function UnemploymentInsurancePage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: 'COBRA Knowledge Base', href: '/kb' },
-                { label: 'Alternatives to COBRA', href: '/when-cobra' },
+                { label: 'COBRA Knowledge Base', href: '/knowledge-base' },
+                { label: 'Alternatives to COBRA', href: '/alternatives' },
                 { label: 'How to Enroll in COBRA', href: '/start-cobra' },
                 { label: 'Manage Your COBRA Plan', href: '/manage-cobra' },
-                { label: 'State COBRA Rules', href: '/usa-state-cobra-rules' },
-                { label: 'Get Help from an Advisor', href: '/customer-service' },
+                { label: 'State COBRA Rules', href: '/state-laws' },
+                { label: 'Get Help from an Advisor', href: '/get-help' },
               ].map((link) => (
                 <Link
                   key={link.href}

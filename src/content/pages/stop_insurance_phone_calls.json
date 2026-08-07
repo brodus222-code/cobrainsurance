@@ -87,10 +87,10 @@
   "ctaHeading": "Need real help with your COBRA coverage?",
   "ctaBody": "Skip the noise. Our licensed advisors will walk you through your actual options — COBRA, ACA marketplace plans, and alternatives — at no cost to you.",
   "relatedLinks": [
-    { "id": "rl1", "label": "COBRA Knowledge Base", "href": "/kb" },
+    { "id": "rl1", "label": "COBRA Knowledge Base", "href": "/knowledge-base" },
     { "id": "rl2", "label": "Start COBRA Enrollment", "href": "/start-cobra" },
-    { "id": "rl3", "label": "Alternatives to COBRA", "href": "/when-cobra" },
-    { "id": "rl4", "label": "State COBRA Rules", "href": "/usa-state-cobra-rules" },
-    { "id": "rl5", "label": "Get Help from an Advisor", "href": "/customer-service" }
+    { "id": "rl3", "label": "Alternatives to COBRA", "href": "/alternatives" },
+    { "id": "rl4", "label": "State COBRA Rules", "href": "/state-laws" },
+    { "id": "rl5", "label": "Get Help from an Advisor", "href": "/get-help" }
   ]
 }

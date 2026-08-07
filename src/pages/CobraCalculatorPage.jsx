@@ -4,7 +4,7 @@ import { Phone, Shield, Clock, Info } from 'lucide-react';
 import CobraCalculator from '@/components/calculator/CobraCalculator';
 
 const site = 'https://cobrainsurance.health';
-const canonicalUrl = `${site}/cobra-calculator`;
+const canonicalUrl = `${site}/calculator`;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -153,7 +153,7 @@ export default function CobraCalculatorPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              to="/quote"
+              to="/check-options"
               className="px-6 py-3 rounded-lg font-bold text-sm text-white uppercase tracking-wide transition-opacity hover:opacity-90"
               style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
             >

@@ -57,7 +57,7 @@ export default function StepDone({ data }) {
           <span>{quote.done.callCta}</span>
         </a>
         <Link
-          to="/when-cobra"
+          to="/alternatives"
           className="text-sm font-semibold transition-opacity hover:opacity-75"
           style={{ color: '#3c4c63', fontFamily: 'var(--font-sans)' }}
         >

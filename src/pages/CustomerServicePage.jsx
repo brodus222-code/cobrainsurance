@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 const site = 'https://cobrainsurance.health';
-const canonicalUrl = `${site}/customer-service`;
+const canonicalUrl = `${site}/get-help`;
 
 // Icon map for contact reasons — static, not from content layer
 const reasonIcons = {
@@ -30,16 +30,16 @@ const reasonIcons = {
 // Static href map for contact reason links
 const reasonHrefs = {
   r2: '/manage-cobra',
-  r4: '/when-cobra',
+  r4: '/alternatives',
 };
 
 // Static href map for quick links
 const quickLinkHrefs = {
-  ql1: '/kb',
-  ql2: '/when-cobra',
+  ql1: '/knowledge-base',
+  ql2: '/alternatives',
   ql3: '/start-cobra',
   ql4: '/manage-cobra',
-  ql5: '/kb/stop-insurance-phone-calls',
+  ql5: '/do-not-call',
 };
 
 const jsonLd = {

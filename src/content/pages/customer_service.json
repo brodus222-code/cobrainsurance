@@ -50,7 +50,7 @@
       "id": "r4",
       "title": "Compare Alternatives",
       "desc": "Speak with a licensed advisor about ACA plans, short-term coverage, and other options.",
-      "href": "/when-cobra"
+      "href": "/alternatives"
     }
   ],
   "licensingNote": "HealthLink Insurance Agency LLC is a licensed insurance agency operating in 22 states. CA License #0D43589. Our advisors are HealthCare.gov certified specialists in COBRA administration and health insurance alternatives.",
@@ -96,12 +96,12 @@
     {
       "id": "ql1",
       "label": "COBRA Knowledge Base",
-      "href": "/kb"
+      "href": "/knowledge-base"
     },
     {
       "id": "ql2",
       "label": "Alternatives to COBRA",
-      "href": "/when-cobra"
+      "href": "/alternatives"
     },
     {
       "id": "ql3",
@@ -116,7 +116,7 @@
     {
       "id": "ql5",
       "label": "Do Not Call List",
-      "href": "/kb/stop-insurance-phone-calls"
+      "href": "/do-not-call"
     }
   ]
 }
