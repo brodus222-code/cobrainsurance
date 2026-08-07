@@ -96,12 +96,14 @@ export default function SchedulePage() {
                 </p>
               </div>
               <div className="p-6">
-                {/* GoHighLevel calendar embed — replace src with your calendar booking link */}
                 <iframe
-                  src="about:blank"
+                  src="https://links.healthlinkagency.com/widget/booking/Ho3h8SjTmJb87Zo8SJlp"
+                  allow="payment"
                   title="Schedule a Call"
                   className="w-full rounded-xl"
-                  style={{ minHeight: '500px', border: '1px solid #eeeeee', background: '#fafafa' }}
+                  style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '600px' }}
+                  scrolling="no"
+                  id="Ho3h8SjTmJb87Zo8SJlp_1786127792970"
                   loading="lazy"
                 />
                 <p
@@ -119,6 +121,7 @@ export default function SchedulePage() {
           </div>
         </section>
       </main>
+      <script src="https://links.healthlinkagency.com/js/form_embed.js" type="text/javascript" />
     </>
   );
 }
