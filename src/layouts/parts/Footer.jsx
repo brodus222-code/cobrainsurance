@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import Logo from '@/components/Logo';
 
 export default function Footer() {
   const navLinks = [
@@ -23,7 +22,11 @@ export default function Footer() {
           {/* Column 1 — Brand */}
           <div>
             <div className="mb-4">
-              <Logo variant="light" />
+              <img
+                src="https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/9c8064391_cobra_logo_white_transparent_v2.png"
+                alt="CobraInsurance.Health"
+                className="h-12 w-auto"
+              />
             </div>
             <p
               className="text-sm leading-relaxed mb-5"
