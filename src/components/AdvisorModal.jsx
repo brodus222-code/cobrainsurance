@@ -97,7 +97,7 @@ export default function AdvisorModal({ productName, open, onClose }) {
               Call 844-569-1234
             </a>
             <Link
-              to="/get-help"
+              to="/schedule"
               onClick={onClose}
               className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm border-2 transition-colors hover:text-white"
               style={{
