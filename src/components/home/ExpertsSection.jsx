@@ -6,9 +6,9 @@ export default function ExpertsSection() {
   return (
     <section className="w-full py-16 lg:py-24" style={{ background: '#ffffff' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
           {/* Left — wider text column */}
-          <div className="lg:col-span-7">
+          <div className="md:col-span-7">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-3"
               style={{ color: '#e01f1f', fontFamily: 'var(--font-sans)' }}
@@ -60,7 +60,7 @@ export default function ExpertsSection() {
           </div>
 
           {/* Right — advisor card */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div className="md:col-span-5 flex justify-center md:justify-end">
             <div
               className="rounded-2xl overflow-hidden shadow-xl"
               style={{ border: '3px solid #e01f1f', maxWidth: '240px' }}
