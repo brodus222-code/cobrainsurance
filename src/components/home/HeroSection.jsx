@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ShieldCheck } from 'lucide-react';
 
-const HERO_IMG = 'https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/63638038d_generated_1e5e2dca.png';
+const HERO_IMG = 'https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/bd5bc1f05_gettyimages-1185380264-2048x2048.jpg';
 
 export default function HeroSection() {
   return (
@@ -9,25 +9,22 @@ export default function HeroSection() {
       className="relative w-full overflow-hidden"
       style={{ background: '#3c4c63', minHeight: '520px' }}
     >
-      {/* Background image — right side blend */}
-      <div className="absolute inset-0 flex justify-end">
-        <div className="relative w-full lg:w-3/5 h-full">
-          <img
-            src={HERO_IMG}
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover object-center"
-            style={{ opacity: 0.22 }}
-            loading="eager"
-          />
-          {/* gradient fade left */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(to right, #3c4c63 0%, #3c4c6399 40%, transparent 100%)',
-            }}
-          />
-        </div>
+      {/* Background image — full bleed */}
+      <div className="absolute inset-0">
+        <img
+          src={HERO_IMG}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        {/* dark overlay for text readability */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, rgba(31,38,51,0.92) 0%, rgba(31,38,51,0.75) 50%, rgba(31,38,51,0.55) 100%)',
+          }}
+        />
       </div>
 
       {/* Content */}
