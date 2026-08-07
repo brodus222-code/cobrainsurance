@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ShieldCheck, CheckCircle2, MessageCircle } from 'lucide-react';
 
-const HERO_IMG = 'https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/fb11dc10a_gettyimages-621905776-2048x2048.jpg';
+const HERO_IMG = 'https://vibe.filesafe.space/1782002280399174400/assets/b02292c8-ee20-4954-9142-054465dd9411.png';
 
 export default function HeroSection() {
   return (
