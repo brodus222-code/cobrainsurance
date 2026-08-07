@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ShieldCheck } from 'lucide-react';
 
-const HERO_IMG = 'https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/fb11dc10a_gettyimages-621905776-2048x2048.jpg';
+const HERO_IMG = 'https://media.base44.com/images/public/6a68570ee6720473b2a5fb34/4be63a334_gettyimages-2194882474-2048x2048.jpg';
 
 export default function HeroSection() {
   return (
