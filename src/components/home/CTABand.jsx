@@ -3,7 +3,7 @@ import { Phone } from 'lucide-react';
 
 export default function CTABand() {
   return (
-    <section className="w-full py-14 lg:py-20" style={{ background: '#e01f1f' }}>
+    <section className="w-full py-14 lg:py-20" style={{ background: '#2d3441' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Left — large heading */}
@@ -20,7 +20,7 @@ export default function CTABand() {
           <div>
             <p
               className="text-base leading-relaxed mb-6"
-              style={{ color: 'rgba(255,255,255,0.88)', fontFamily: 'var(--font-sans)' }}
+              style={{ color: '#c8d4e0', fontFamily: 'var(--font-sans)' }}
             >
               Short-term health insurance is a popular option available in most states to cover
               gaps between major medical plans. It's affordable and can start tomorrow.
@@ -28,10 +28,9 @@ export default function CTABand() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/alternatives"
-                className="px-6 py-3 rounded font-bold text-sm transition-opacity hover:opacity-90"
+                className="px-6 py-3 rounded font-bold text-sm text-white transition-opacity hover:opacity-90"
                 style={{
-                  background: '#ffffff',
-                  color: '#e01f1f',
+                  background: '#e01f1f',
                   fontFamily: 'var(--font-sans)',
                 }}
               >

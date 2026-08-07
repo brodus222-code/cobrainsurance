@@ -6,8 +6,8 @@ const HERO_IMG = 'https://vibe.filesafe.space/1782002280399174400/assets/b02292c
 export default function HeroSection() {
   return (
     <section
-      className="relative w-full overflow-hidden"
-      style={{ background: '#2d3a55', minHeight: '560px' }}
+      className="relative w-full overflow-hidden flex flex-col"
+      style={{ background: '#1a1a1a', minHeight: '100vh' }}
     >
       {/* Background image — full bleed */}
       <div className="absolute inset-0">
@@ -18,103 +18,103 @@ export default function HeroSection() {
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
-        {/* dark blue overlay for text readability */}
+        {/* neutral dark overlay for text readability */}
         <div
           className="absolute inset-0"
-          style={{ background: 'rgba(45, 58, 85, 0.86)' }}
+          style={{ background: 'rgba(26, 26, 26, 0.76)' }}
         />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        <div className="max-w-3xl">
-          {/* Alert badge */}
-          <span
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white mb-6"
-            style={{ background: '#ff4d5a' }}
-          >
-            ● View Your COBRA Options
-          </span>
-
-          {/* Headline */}
-          <h1
-            className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-5"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            Your Right To Continue Coverage (COBRA)
-          </h1>
-
-          {/* Subheadline */}
-          <p
-            className="text-base lg:text-lg mb-8 leading-relaxed max-w-2xl"
-            style={{ color: '#e6ecf3', fontFamily: 'var(--font-sans)' }}
-          >
-            COBRA is a federal law that allows you to keep your most recent employer-sponsored
-            health coverage if it would otherwise end because of job loss or another qualifying
-            life event. Continue your employer plan for up to 18 or 36 months depending on the
-            qualifying event.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 mb-6">
-            <Link
-              to="/knowledge-base"
-              className="px-6 py-3 rounded font-bold text-sm text-white transition-opacity hover:opacity-90"
-              style={{ background: '#ff4d5a', fontFamily: 'var(--font-sans)' }}
+      {/* Main content — centered vertically */}
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 w-full">
+          <div className="max-w-3xl">
+            {/* Alert badge */}
+            <span
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white mb-6"
+              style={{ background: '#e01f1f' }}
             >
-              COBRA Application Instructions &gt;
-            </Link>
-            <Link
-              to="/alternatives"
-              className="px-6 py-3 rounded font-bold text-sm transition-colors hover:bg-white hover:text-gray-900"
-              style={{
-                border: '2px solid #ffffff',
-                color: '#ffffff',
-                fontFamily: 'var(--font-sans)',
-              }}
-            >
-              Find Affordable Health Coverage &gt;
-            </Link>
-          </div>
+              ● View Your COBRA Options
+            </span>
 
-          {/* Secondary nav links */}
-          <div className="flex flex-col gap-2 mb-10">
-            <Link
-              to="/check-options"
-              className="text-sm transition-opacity hover:opacity-80"
+            {/* Headline */}
+            <h1
+              className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-5"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              Your Right To Continue Coverage (COBRA)
+            </h1>
+
+            {/* Subheadline */}
+            <p
+              className="text-base lg:text-lg mb-3 leading-relaxed max-w-2xl"
               style={{ color: '#e6ecf3', fontFamily: 'var(--font-sans)' }}
             >
-              Prefer to start online without a call?{' '}
-              <span className="font-semibold underline">Check your options here &gt;</span>
-            </Link>
-            <Link
-              to="/quiz"
-              className="text-sm transition-opacity hover:opacity-80"
+              COBRA is a federal law that allows you to keep your most recent employer-sponsored
+              health coverage if it would otherwise end because of job loss or another qualifying
+              life event.
+            </p>
+            <p
+              className="text-base lg:text-lg mb-8 leading-relaxed max-w-2xl"
               style={{ color: '#e6ecf3', fontFamily: 'var(--font-sans)' }}
             >
-              Not sure which plan is right for you?{' '}
-              <span className="font-semibold underline">Take our quick quiz &gt;</span>
-            </Link>
-          </div>
+              Continue your employer plan for up to 18 or 36 months depending on the qualifying event.
+            </p>
 
-          {/* Trust strip — two columns divided by white line */}
-          <div
-            className="flex flex-col sm:flex-row gap-6 sm:gap-10 pt-6 border-t"
-            style={{ borderColor: 'rgba(255,255,255,0.4)' }}
-          >
-            <div className="flex items-center gap-3 flex-1">
-              <div
-                className="flex items-center justify-center rounded-full flex-shrink-0"
-                style={{
-                  width: '3rem',
-                  height: '3rem',
-                  background: 'rgba(255,255,255,0.12)',
-                  border: '1px solid rgba(255,255,255,0.5)',
-                }}
-                aria-hidden="true"
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 mb-6">
+              <Link
+                to="/knowledge-base"
+                className="px-6 py-3 rounded font-bold text-sm text-white transition-opacity hover:opacity-90"
+                style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
               >
-                <ShieldCheck className="w-6 h-6 text-white" />
-              </div>
+                COBRA Application Instructions &gt;
+              </Link>
+              <Link
+                to="/alternatives"
+                className="px-6 py-3 rounded font-bold text-sm transition-colors hover:bg-white hover:text-gray-900"
+                style={{
+                  border: '2px solid #ffffff',
+                  color: '#ffffff',
+                  fontFamily: 'var(--font-sans)',
+                }}
+              >
+                Find Affordable Health Coverage
+              </Link>
+            </div>
+
+            {/* Secondary nav links */}
+            <div className="flex flex-col gap-2">
+              <Link
+                to="/check-options"
+                className="text-sm transition-opacity hover:opacity-80"
+                style={{ color: '#e6ecf3', fontFamily: 'var(--font-sans)' }}
+              >
+                Prefer to start online without a call?{' '}
+                <span className="font-semibold underline">Check your options here &gt;</span>
+              </Link>
+              <Link
+                to="/quiz"
+                className="text-sm transition-opacity hover:opacity-80"
+                style={{ color: '#e6ecf3', fontFamily: 'var(--font-sans)' }}
+              >
+                Not sure which plan is right for you?{' '}
+                <span className="font-semibold underline">Take our quick quiz &gt;</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Trust bar — translucent overlay at bottom */}
+      <div
+        className="relative z-10 border-t"
+        style={{ borderColor: 'rgba(255,255,255,0.25)', background: 'rgba(0, 0, 0, 0.25)' }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+          <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
+            <div className="flex items-center gap-3 flex-1">
+              <ShieldCheck className="w-7 h-7 text-white flex-shrink-0" />
               <p
                 className="text-xs leading-snug"
                 style={{ color: '#e6ecf3', fontFamily: 'var(--font-sans)' }}
@@ -122,23 +122,12 @@ export default function HeroSection() {
                 <span className="font-semibold text-white block">
                   Federally-facilitated Marketplace Certified
                 </span>
-                Experts Helping Workers Between Jobs
+                Experts Helping Workers Between Jobs.
               </p>
             </div>
 
             <div className="flex items-center gap-3 flex-1">
-              <div
-                className="flex items-center justify-center rounded-full flex-shrink-0"
-                style={{
-                  width: '3rem',
-                  height: '3rem',
-                  background: 'rgba(255,255,255,0.12)',
-                  border: '1px solid rgba(255,255,255,0.5)',
-                }}
-                aria-hidden="true"
-              >
-                <CheckCircle2 className="w-6 h-6 text-white" />
-              </div>
+              <CheckCircle2 className="w-7 h-7 text-white flex-shrink-0" />
               <p
                 className="text-xs leading-snug"
                 style={{ color: '#e6ecf3', fontFamily: 'var(--font-sans)' }}
@@ -157,7 +146,7 @@ export default function HeroSection() {
       <Link
         to="/get-help"
         className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-full font-bold text-sm text-white shadow-lg transition-opacity hover:opacity-90"
-        style={{ background: '#ff4d5a', fontFamily: 'var(--font-sans)' }}
+        style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
       >
         <MessageCircle className="w-4 h-4" />
         Talk to an Advisor
