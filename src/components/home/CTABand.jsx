@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Phone, ShieldCheck, BadgeCheck } from 'lucide-react';
 
 export default function CTABand() {
   return (
@@ -52,7 +52,7 @@ export default function CTABand() {
           </div>
 
           <div className="flex items-center gap-3 justify-center">
-            <CheckCircle2 className="w-7 h-7 text-white flex-shrink-0" />
+            <BadgeCheck className="w-7 h-7 text-white flex-shrink-0" />
             <p
               className="text-xs leading-snug text-left"
               style={{ color: '#c8d4e0', fontFamily: 'var(--font-sans)' }}

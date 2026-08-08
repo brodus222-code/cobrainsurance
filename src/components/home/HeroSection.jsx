@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ShieldCheck, CheckCircle2, MessageCircle } from 'lucide-react';
+import { ShieldCheck, BadgeCheck, MessageCircle } from 'lucide-react';
 
 const HERO_IMG = 'https://vibe.filesafe.space/1782002280399174400/assets/b02292c8-ee20-4954-9142-054465dd9411.png';
 
@@ -127,7 +127,7 @@ export default function HeroSection() {
             </div>
 
             <div className="flex items-center gap-3 flex-1">
-              <CheckCircle2 className="w-7 h-7 text-white flex-shrink-0" />
+              <BadgeCheck className="w-7 h-7 text-white flex-shrink-0" />
               <p
                 className="text-xs leading-snug"
                 style={{ color: '#e6ecf3', fontFamily: 'var(--font-sans)' }}
