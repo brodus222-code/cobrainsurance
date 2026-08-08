@@ -34,9 +34,11 @@ export default function QuotePage() {
   const [step, setStep] = useState(initialProduct ? 'location' : 'product');
   const [data, setData] = useState({ ...EMPTY, product: initialProduct });
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   function set(key, value) {
     setData((prev) => ({ ...prev, [key]: value }));
+    if (submitError) setSubmitError('');
   }
 
   async function advance() {
@@ -44,14 +46,20 @@ export default function QuotePage() {
     if (idx < STEPS.length - 1) {
       if (step === 'contact') {
         setSubmitting(true);
+        setSubmitError('');
         try {
           await base44.functions.invoke('sendQuoteNotification', data);
+          setSubmitting(false);
+          setStep(STEPS[idx + 1]);
         } catch (err) {
           console.error('Notification send failed:', err);
+          setSubmitting(false);
+          const msg = err?.response?.data?.error || err?.message || 'Something went wrong. Please try again or call us at 844-569-1234.';
+          setSubmitError(msg);
         }
-        setSubmitting(false);
+      } else {
+        setStep(STEPS[idx + 1]);
       }
-      setStep(STEPS[idx + 1]);
     }
   }
 
@@ -108,6 +116,12 @@ export default function QuotePage() {
                 {step === 'household' && <StepHousehold data={data} set={set} />}
                 {step === 'contact' && <StepContact data={data} set={set} />}
                 {step === 'done' && <StepDone data={data} />}
+
+                {submitError && (
+                  <div className="mt-5 rounded-xl p-4 text-sm" style={{ background: '#fef2f2', border: '1px solid #fecaca', color: '#991b1b', fontFamily: 'var(--font-sans)' }}>
+                    {submitError}
+                  </div>
+                )}
 
                 {!isDone && (
                   <div className="flex justify-between items-center mt-8 gap-3">

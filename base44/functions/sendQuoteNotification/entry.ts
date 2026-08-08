@@ -34,7 +34,7 @@ const TIME_LABELS = {
 const EMAIL_RE = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 
 // --- In-memory rate limiting (best-effort, persists across warm invocations) ---
-const RATE_LIMIT_MAX = 3;          // max submissions per window per IP
+const RATE_LIMIT_MAX = 5;          // max submissions per window per IP
 const RATE_LIMIT_WINDOW_MS = 600_000; // 10-minute window
 const ipHits = new Map(); // ip -> [timestamps]
 
