@@ -62,8 +62,8 @@ export default function ExpertsSection() {
           {/* Right — advisor card */}
           <div className="md:col-span-5 flex justify-center md:justify-end">
             <div
-              className="rounded-2xl overflow-hidden shadow-xl"
-              style={{ border: '3px solid #e01f1f', maxWidth: '240px' }}
+              className="rounded-2xl overflow-hidden shadow-xl w-full max-w-[200px] sm:max-w-[240px] md:max-w-[320px] lg:max-w-[400px]"
+              style={{ border: '3px solid #e01f1f' }}
             >
               <div className="w-full" style={{ aspectRatio: '4 / 5' }}>
                 <Image
