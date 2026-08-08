@@ -20,10 +20,10 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
   '@id': `${canonicalUrl}#webpage`,
-  name: 'About HealthLink Insurance Agency LLC — Licensed COBRA Advisors',
+  name: 'About CobraInsurance.Health — Licensed COBRA Advisors',
   url: canonicalUrl,
   description:
-    'HealthLink Insurance Agency LLC is a licensed insurance agency specializing in COBRA continuation coverage and health insurance alternatives. Licensed in 22 states.',
+    'CobraInsurance.Health, operated by HealthLink Insurance Agency LLC, is a licensed insurance agency specializing in COBRA continuation coverage and health insurance alternatives. Licensed in 22 states.',
   isPartOf: { '@id': `${site}/#website` },
   about: { '@id': `${site}/#organization` },
 };
@@ -39,13 +39,13 @@ export default function AboutUsPage() {
   return (
     <>
       <Helmet>
-        <title>About HealthLink Insurance Agency LLC — Licensed COBRA Advisors in 22 States</title>
+        <title>About CobraInsurance.Health — Licensed COBRA Advisors in 22 States</title>
         <meta
           name="description"
-          content="HealthLink Insurance Agency LLC — certified COBRA advisors licensed in 22 states. We help workers between jobs understand their continuation coverage rights and find affordable health insurance alternatives."
+          content="CobraInsurance.Health — certified COBRA advisors licensed in 22 states. We help workers between jobs understand their continuation coverage rights and find affordable health insurance alternatives."
         />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content="About HealthLink Insurance Agency LLC — Licensed COBRA Advisors in 22 States" />
+        <meta property="og:title" content="About CobraInsurance.Health — Licensed COBRA Advisors in 22 States" />
         <meta
           property="og:description"
           content="Certified COBRA advisors licensed in 22 states. We help workers between jobs understand their continuation coverage rights and find affordable health insurance alternatives."
@@ -54,7 +54,7 @@ export default function AboutUsPage() {
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={`${site}/airo-assets/images/logo/horizontal`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About HealthLink Insurance Agency LLC — Licensed COBRA Advisors in 22 States" />
+        <meta name="twitter:title" content="About CobraInsurance.Health — Licensed COBRA Advisors in 22 States" />
         <meta name="twitter:description" content="Certified COBRA advisors licensed in 22 states. We help workers between jobs understand their continuation coverage rights and find affordable health insurance alternatives." />
         <meta name="twitter:image" content={`${site}/airo-assets/images/logo/horizontal`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -73,7 +73,7 @@ export default function AboutUsPage() {
               className="text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
-              HealthLink Insurance Agency LLC
+              CobraInsurance.Health
             </h1>
             <p
               className="text-base lg:text-lg max-w-2xl mx-auto mb-10"
@@ -130,8 +130,8 @@ export default function AboutUsPage() {
                   style={{ color: '#444444', fontFamily: 'var(--font-sans)' }}
                 >
                   COBRA notices are dense, deadlines are unforgiving, and the cost of a mistake
-                  can be a lapse in coverage at the worst possible time. HealthLink Insurance
-                  Agency LLC was built to fix that.
+                  can be a lapse in coverage at the worst possible time. CobraInsurance.Health
+                  was built to fix that.
                 </p>
                 <p
                   className="text-sm leading-relaxed mb-4"

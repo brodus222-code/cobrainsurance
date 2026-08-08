@@ -13,7 +13,7 @@ export default function ExpertsSection() {
               className="text-xs font-bold uppercase tracking-widest mb-3"
               style={{ color: '#e01f1f', fontFamily: 'var(--font-sans)' }}
             >
-              HealthLink Insurance Agency LLC
+              CobraInsurance.Health
             </p>
             <h2
               className="text-3xl lg:text-4xl font-bold mb-5 leading-tight"

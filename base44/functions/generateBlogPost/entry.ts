@@ -41,7 +41,7 @@ function buildPrompt(topic, categoryHint, recentTitles, model, webSearch) {
     ? '\n\nYou have live web search enabled. Research current trending keywords, recent COBRA/healthcare news, and seasonal search patterns. Incorporate fresh, accurate data and cite current figures where relevant. Optimize for keywords that consumers are actively searching for right now.'
     : '';
 
-  return `You are an expert SEO content writer and licensed health insurance advisor for CobraInsurance.Health, a platform helping workers between jobs navigate COBRA and find affordable health coverage. HealthLink Insurance Agency LLC, licensed in 22 states since 1999.
+  return `You are an expert SEO content writer and licensed health insurance advisor for CobraInsurance.Health, a platform operated by HealthLink Insurance Agency LLC (licensed in 22 states since 1999) helping workers between jobs navigate COBRA and find affordable health coverage.
 
 ${topicLine}${recentBlock}${webNote}
 
@@ -150,7 +150,7 @@ export default async function(req) {
       content: data.content,
       category,
       keywords: data.keywords || [],
-      author: 'HealthLink Insurance Agency',
+      author: 'CobraInsurance.Health',
       status: 'draft',
       model_used: llmModel,
       reading_time_minutes: data.reading_time_minutes || null,

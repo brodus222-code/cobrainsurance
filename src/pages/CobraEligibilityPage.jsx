@@ -11,7 +11,7 @@ const eligibilityJsonLd = {
   headline: 'COBRA Eligibility: Who Qualifies and When You Can Continue Coverage',
   description: 'A clear guide to COBRA eligibility requirements, qualifying events, covered beneficiaries, and employer rules — so you know exactly when you can keep your employer health plan.',
   url: `${site}/cobra-eligibility`,
-  author: { '@type': 'Organization', name: 'HealthLink Insurance Agency' },
+  author: { '@type': 'Organization', name: 'CobraInsurance.Health' },
   publisher: { '@id': `${site}/#organization` },
   mainEntityOfPage: { '@type': 'WebPage', '@id': `${site}/cobra-eligibility` },
   about: ['COBRA', 'health insurance continuation', 'qualifying events'],

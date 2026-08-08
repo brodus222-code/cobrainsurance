@@ -11,7 +11,7 @@ const comparisonJsonLd = {
   headline: 'COBRA vs ACA Marketplace: Which Health Coverage Is Right for You?',
   description: 'A side-by-side comparison of COBRA continuation coverage and ACA Marketplace plans — costs, eligibility, coverage gaps, and how to choose the best option after a job loss.',
   url: `${site}/cobra-vs-aca`,
-  author: { '@type': 'Organization', name: 'HealthLink Insurance Agency' },
+  author: { '@type': 'Organization', name: 'CobraInsurance.Health' },
   publisher: { '@id': `${site}/#organization` },
   mainEntityOfPage: { '@type': 'WebPage', '@id': `${site}/cobra-vs-aca` },
   about: ['COBRA', 'ACA Marketplace', 'health insurance comparison'],

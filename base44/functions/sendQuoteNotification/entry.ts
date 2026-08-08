@@ -233,7 +233,7 @@ export default async function(req: Request): Promise<Response> {
         <div style="background: #ffffff; padding: 28px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
           <p style="font-size: 16px;">Hi ${e.firstName},</p>
           <p style="font-size: 15px; line-height: 1.6; color: #555;">
-            Thank you for reaching out to HealthLink Insurance Agency! We've received your request
+            Thank you for reaching out to CobraInsurance.Health! We've received your request
             for <strong>${e.productLabel}</strong> and a licensed advisor will be in touch with you soon.
           </p>
 
@@ -257,7 +257,7 @@ export default async function(req: Request): Promise<Response> {
           </p>
 
           <p style="font-size: 15px; margin-top: 28px;">Best regards,<br />
-          <strong style="color: #2d3441;">The HealthLink Insurance Agency Team</strong><br />
+          <strong style="color: #2d3441;">The CobraInsurance.Health Team</strong><br />
           <span style="font-size: 13px; color: #888;">Licensed in 22 states &amp; DC · 844-569-1234</span></p>
         </div>
         <p style="font-size: 12px; color: #aaa; text-align: center; margin-top: 16px;">
@@ -274,7 +274,7 @@ export default async function(req: Request): Promise<Response> {
         html: agencyHtml,
       }),
       sendEmail(apiKey, {
-        from: `HealthLink Insurance Agency <${FROM_EMAIL}>`,
+        from: `CobraInsurance.Health <${FROM_EMAIL}>`,
         to: email,
         subject: `We received your request, ${firstName}! Here's what happens next.`,
         html: customerHtml,

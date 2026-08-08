@@ -35,7 +35,7 @@ const costsJsonLd = {
   headline: 'COBRA Insurance Costs: Understanding Premiums, Fees, and How to Save',
   description: 'A clear breakdown of COBRA premium costs, the 2% administrative fee, grace periods, and practical strategies to lower your health insurance expenses after a job loss.',
   url: `${site}/cobra-costs`,
-  author: { '@type': 'Organization', name: 'HealthLink Insurance Agency' },
+  author: { '@type': 'Organization', name: 'CobraInsurance.Health' },
   publisher: { '@id': `${site}/#organization` },
   mainEntityOfPage: { '@type': 'WebPage', '@id': `${site}/cobra-costs` },
   about: ['COBRA costs', 'health insurance premiums', 'COBRA savings'],
