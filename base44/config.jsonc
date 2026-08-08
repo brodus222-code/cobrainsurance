@@ -1,6 +1,6 @@
 {
   "name": "CobraInsurance",
-  "description": "CobraInsurance.Health is a refined, transparent, and intuitive platform that simplifies COBRA healthcare enrollment. We transform complex policy data into a fluid, human-centered experience — helping workers between jobs understand their coverage options, compare COBRA continuation with affordable alternatives like ACA Marketplace and short-term plans, and connect with licensed advisors at no cost. Built for clarity, trust, and action.",
+  "description": "Compare COBRA vs ACA & short-term health insurance. Free quotes, cost calculator, and licensed advisor help for workers between jobs. Licensed in 22 states.",
   "site": {
     "installCommand": "npm install",
     "buildCommand": "npm run build",
