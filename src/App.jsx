@@ -27,6 +27,7 @@ import SchedulePage from '@/pages/SchedulePage';
 import BlogPage from '@/pages/BlogPage';
 import BlogPostPage from '@/pages/BlogPostPage';
 import CobraEligibilityPage from '@/pages/CobraEligibilityPage';
+import CobraVsAcaPage from '@/pages/CobraVsAcaPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
 const AuthenticatedApp = () => {
@@ -77,6 +78,7 @@ const AuthenticatedApp = () => {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/cobra-eligibility" element={<CobraEligibilityPage />} />
+        <Route path="/cobra-vs-aca" element={<CobraVsAcaPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
