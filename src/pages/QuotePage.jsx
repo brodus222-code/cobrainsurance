@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Helmet } from '@/lib/helmet';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Loader2 } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
 import quote from '@/content/pages/quote.json';
 import QuoteProgressBar from '@/components/QuoteProgressBar';
 import { StepProduct, StepLocation, StepHousehold, StepContact } from '@/components/quote/QuoteSteps';
@@ -32,14 +33,26 @@ export default function QuotePage() {
 
   const [step, setStep] = useState(initialProduct ? 'location' : 'product');
   const [data, setData] = useState({ ...EMPTY, product: initialProduct });
+  const [submitting, setSubmitting] = useState(false);
 
   function set(key, value) {
     setData((prev) => ({ ...prev, [key]: value }));
   }
 
-  function advance() {
+  async function advance() {
     const idx = STEPS.indexOf(step);
-    if (idx < STEPS.length - 1) setStep(STEPS[idx + 1]);
+    if (idx < STEPS.length - 1) {
+      if (step === 'contact') {
+        setSubmitting(true);
+        try {
+          await base44.functions.invoke('sendQuoteNotification', data);
+        } catch (err) {
+          console.error('Notification send failed:', err);
+        }
+        setSubmitting(false);
+      }
+      setStep(STEPS[idx + 1]);
+    }
   }
 
   function back() {
@@ -112,12 +125,21 @@ export default function QuotePage() {
                     )}
                     <button
                       onClick={advance}
-                      disabled={!canAdvance(step, data)}
+                      disabled={!canAdvance(step, data) || submitting}
                       className="flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-bold text-white transition-opacity disabled:opacity-40"
                       style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
                     >
-                      {isLast ? 'Submit Request' : 'Continue'}
-                      <ChevronRight className="w-4 h-4" />
+                      {submitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Sending…
+                        </>
+                      ) : (
+                        <>
+                          {isLast ? 'Submit Request' : 'Continue'}
+                          <ChevronRight className="w-4 h-4" />
+                        </>
+                      )}
                     </button>
                   </div>
                 )}

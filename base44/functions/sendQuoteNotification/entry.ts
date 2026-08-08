@@ -1,0 +1,171 @@
+import { secrets } from 'base44:runtime';
+
+const RESEND_API_URL = 'https://api.resend.com/emails';
+const AGENCY_EMAIL = 'john@healthlinkagency.com';
+const FROM_EMAIL = 'no-reply@healthlinkagency.com';
+
+const PRODUCT_LABELS = {
+  cobra: 'COBRA Continuation Coverage',
+  aca: 'ACA Marketplace Plan',
+  stm: 'Short-Term Health Insurance',
+  'hospital-indemnity': 'Hospital Indemnity',
+  accident: 'Accident-Only Plan',
+  teladoc: 'Teladoc / Virtual Care',
+};
+
+const INCOME_LABELS = {
+  'under-25k': 'Under $25,000',
+  '25k-50k': '$25,000 – $50,000',
+  '50k-75k': '$50,000 – $75,000',
+  '75k-100k': '$75,000 – $100,000',
+  '100k-150k': '$100,000 – $150,000',
+  'over-150k': 'Over $150,000',
+  'prefer-not': 'Prefer not to say',
+};
+
+const TIME_LABELS = {
+  morning: 'Morning (8am – 12pm)',
+  afternoon: 'Afternoon (12pm – 5pm)',
+  evening: 'Evening (5pm – 7pm)',
+  anytime: 'Anytime',
+};
+
+async function sendEmail(apiKey, payload) {
+  const res = await fetch(RESEND_API_URL, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Resend API error (${res.status}): ${text}`);
+  }
+  return res.json();
+}
+
+export default async function(req: Request): Promise<Response> {
+  try {
+    const body = await req.json();
+    const {
+      product, state, zipCode, applicantAge, householdSize, annualIncome,
+      firstName, lastName, email, phone, bestTime, notes,
+    } = body || {};
+
+    if (!firstName || !email || !phone) {
+      return Response.json({ error: 'Missing required contact fields.' }, { status: 400 });
+    }
+
+    const apiKey = secrets.get('RESEND_API_KEY');
+    if (!apiKey) {
+      return Response.json({ error: 'Email service not configured.' }, { status: 500 });
+    }
+
+    const fullName = `${firstName} ${lastName || ''}`.trim();
+    const productLabel = PRODUCT_LABELS[product] || product || 'Not specified';
+    const incomeLabel = INCOME_LABELS[annualIncome] || annualIncome || 'Not specified';
+    const timeLabel = TIME_LABELS[bestTime] || bestTime || 'Not specified';
+
+    const submittedAt = new Date().toLocaleString('en-US', {
+      timeZone: 'America/New_York',
+      dateStyle: 'long',
+      timeStyle: 'short',
+    });
+
+    // 1. Notification email to the agency
+    const agencyHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+        <h2 style="color: #e01f1f; border-bottom: 2px solid #e01f1f; padding-bottom: 8px;">New Quote Request</h2>
+        <p style="font-size: 13px; color: #888;">Received ${submittedAt} (ET)</p>
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+          <tr><td style="padding: 6px 0; font-weight: bold; width: 160px; color: #555;">Name:</td><td style="padding: 6px 0;">${fullName}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Coverage Interest:</td><td style="padding: 6px 0;">${productLabel}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">State:</td><td style="padding: 6px 0;">${state || 'Not specified'}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Zip Code:</td><td style="padding: 6px 0;">${zipCode || 'Not specified'}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Age:</td><td style="padding: 6px 0;">${applicantAge || 'Not specified'}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Household Size:</td><td style="padding: 6px 0;">${householdSize || 'Not specified'}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Income Range:</td><td style="padding: 6px 0;">${incomeLabel}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Email:</td><td style="padding: 6px 0;"><a href="mailto:${email}">${email}</a></td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Phone:</td><td style="padding: 6px 0;"><a href="tel:${phone}">${phone}</a></td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Best Time to Reach:</td><td style="padding: 6px 0;">${timeLabel}</td></tr>
+        </table>
+        ${notes ? `<h3 style="margin-top: 20px; font-size: 14px; color: #555;">Additional Notes:</h3><p style="font-size: 14px; background: #f5f5f5; padding: 12px; border-radius: 6px;">${notes}</p>` : ''}
+        <hr style="margin-top: 24px; border: none; border-top: 1px solid #eee;" />
+        <p style="font-size: 12px; color: #aaa;">This request was submitted from cobrainsurance.health/check-options</p>
+      </div>
+    `;
+
+    // 2. Confirmation email to the submitter
+    const customerHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+        <div style="background: #2d3441; padding: 24px; border-radius: 8px 8px 0 0; text-align: center;">
+          <h1 style="color: #ffffff; margin: 0; font-size: 22px;">We Received Your Request!</h1>
+        </div>
+        <div style="background: #ffffff; padding: 28px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
+          <p style="font-size: 16px;">Hi ${firstName},</p>
+          <p style="font-size: 15px; line-height: 1.6; color: #555;">
+            Thank you for reaching out to HealthLink Insurance Agency! We've received your request
+            for <strong>${productLabel}</strong> and a licensed advisor will be in touch with you soon.
+          </p>
+
+          <h3 style="color: #2d3441; font-size: 16px; margin-top: 28px;">What Happens Next?</h3>
+          <ol style="font-size: 15px; line-height: 1.8; color: #555; padding-left: 20px;">
+            <li><strong>A licensed advisor will call you</strong> within 1 business day at ${phone}${bestTime ? ` (best time: ${timeLabel})` : ''}.</li>
+            <li><strong>We'll compare your options</strong> — COBRA, ACA Marketplace, short-term, and other plans — to find the best fit and price.</li>
+            <li><strong>You choose what works</strong> — there's no obligation, and our help is completely free.</li>
+          </ol>
+
+          <div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 14px 18px; margin: 24px 0; border-radius: 4px;">
+            <p style="margin: 0; font-size: 14px; color: #333;">
+              <strong>Need to talk sooner?</strong> Call us directly at
+              <a href="tel:8445691234" style="color: #e01f1f; font-weight: bold;">844-569-1234</a>.
+            </p>
+          </div>
+
+          <p style="font-size: 15px; line-height: 1.6; color: #555;">
+            We've saved your details and an advisor will review them before reaching out. If you
+            have any questions in the meantime, just reply to this email or give us a call.
+          </p>
+
+          <p style="font-size: 15px; margin-top: 28px;">Best regards,<br />
+          <strong style="color: #2d3441;">The HealthLink Insurance Agency Team</strong><br />
+          <span style="font-size: 13px; color: #888;">Licensed in 22 states &amp; DC · 844-569-1234</span></p>
+        </div>
+        <p style="font-size: 12px; color: #aaa; text-align: center; margin-top: 16px;">
+          ©2026 HealthLink Insurance Agency LLC · Springfield, IL
+        </p>
+      </div>
+    `;
+
+    const results = await Promise.allSettled([
+      sendEmail(apiKey, {
+        from: `CobraInsurance.Health <${FROM_EMAIL}>`,
+        to: AGENCY_EMAIL,
+        subject: `New Quote Request — ${fullName} (${productLabel})`,
+        html: agencyHtml,
+      }),
+      sendEmail(apiKey, {
+        from: `HealthLink Insurance Agency <${FROM_EMAIL}>`,
+        to: email,
+        subject: `We received your request, ${firstName}! Here's what happens next.`,
+        html: customerHtml,
+      }),
+    ]);
+
+    const errors = results
+      .map((r, i) => (r.status === 'rejected' ? `${i === 0 ? 'Agency' : 'Customer'} email: ${r.reason.message}` : null))
+      .filter(Boolean);
+
+    if (errors.length) {
+      console.error('Email send errors:', errors);
+      return Response.json({ error: 'Some emails failed to send.', details: errors }, { status: 500 });
+    }
+
+    return Response.json({ success: true });
+  } catch (error) {
+    console.error('sendQuoteNotification error:', error);
+    return Response.json({ error: 'An unexpected error occurred while sending notifications.' }, { status: 500 });
+  }
+}
