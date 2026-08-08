@@ -30,6 +30,40 @@ const TIME_LABELS = {
   anytime: 'Anytime',
 };
 
+// Strict email validation — RFC 5322 simplified
+const EMAIL_RE = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+
+// Field length limits to bound payload size
+const LIMITS = {
+  firstName: 60,
+  lastName: 60,
+  email: 254,
+  phone: 30,
+  state: 50,
+  zipCode: 20,
+  applicantAge: 3,
+  householdSize: 10,
+  notes: 2000,
+};
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function isNonEmptyString(v) {
+  return typeof v === 'string' && v.trim().length > 0;
+}
+
+function clampString(v, max) {
+  if (typeof v !== 'string') return '';
+  return v.slice(0, max);
+}
+
 async function sendEmail(apiKey, payload) {
   const res = await fetch(RESEND_API_URL, {
     method: 'POST',
@@ -49,24 +83,73 @@ async function sendEmail(apiKey, payload) {
 export default async function(req: Request): Promise<Response> {
   try {
     const body = await req.json();
-    const {
-      product, state, zipCode, applicantAge, householdSize, annualIncome,
-      firstName, lastName, email, phone, bestTime, notes,
-    } = body || {};
+
+    // --- Strict payload validation ---
+    if (!body || typeof body !== 'object') {
+      return Response.json({ error: 'Invalid request.' }, { status: 400 });
+    }
+
+    const firstName = clampString(body.firstName, LIMITS.firstName).trim();
+    const lastName = clampString(body.lastName, LIMITS.lastName).trim();
+    const email = clampString(body.email, LIMITS.email).trim();
+    const phone = clampString(body.phone, LIMITS.phone).trim();
 
     if (!firstName || !email || !phone) {
       return Response.json({ error: 'Missing required contact fields.' }, { status: 400 });
     }
+
+    if (!EMAIL_RE.test(email)) {
+      return Response.json({ error: 'Invalid email address.' }, { status: 400 });
+    }
+
+    // Validate enum-like fields against allowlists; reject unknown values
+    const product = body.product;
+    if (product && !PRODUCT_LABELS[product]) {
+      return Response.json({ error: 'Invalid product selection.' }, { status: 400 });
+    }
+
+    const annualIncome = body.annualIncome;
+    if (annualIncome && !INCOME_LABELS[annualIncome]) {
+      return Response.json({ error: 'Invalid income selection.' }, { status: 400 });
+    }
+
+    const bestTime = body.bestTime;
+    if (bestTime && !TIME_LABELS[bestTime]) {
+      return Response.json({ error: 'Invalid time selection.' }, { status: 400 });
+    }
+
+    const state = clampString(body.state, LIMITS.state).trim();
+    const zipCode = clampString(body.zipCode, LIMITS.zipCode).trim();
+    const applicantAge = clampString(body.applicantAge, LIMITS.applicantAge).trim();
+    const householdSize = clampString(body.householdSize, LIMITS.householdSize).trim();
+    const notes = clampString(body.notes, LIMITS.notes).trim();
 
     const apiKey = secrets.get('RESEND_API_KEY');
     if (!apiKey) {
       return Response.json({ error: 'Email service not configured.' }, { status: 500 });
     }
 
-    const fullName = `${firstName} ${lastName || ''}`.trim();
-    const productLabel = PRODUCT_LABELS[product] || product || 'Not specified';
-    const incomeLabel = INCOME_LABELS[annualIncome] || annualIncome || 'Not specified';
-    const timeLabel = TIME_LABELS[bestTime] || bestTime || 'Not specified';
+    // --- Build email content with all user input HTML-escaped ---
+    const fullName = `${firstName} ${lastName}`.trim();
+    const productLabel = PRODUCT_LABELS[product] || 'Not specified';
+    const incomeLabel = INCOME_LABELS[annualIncome] || 'Not specified';
+    const timeLabel = TIME_LABELS[bestTime] || 'Not specified';
+
+    // Escape every user-provided value before insertion into HTML
+    const e = {
+      fullName: escapeHtml(fullName),
+      firstName: escapeHtml(firstName),
+      productLabel: escapeHtml(productLabel),
+      state: escapeHtml(state || 'Not specified'),
+      zipCode: escapeHtml(zipCode || 'Not specified'),
+      applicantAge: escapeHtml(applicantAge || 'Not specified'),
+      householdSize: escapeHtml(householdSize || 'Not specified'),
+      incomeLabel: escapeHtml(incomeLabel),
+      email: escapeHtml(email),
+      phone: escapeHtml(phone),
+      timeLabel: escapeHtml(timeLabel),
+      notes: escapeHtml(notes),
+    };
 
     const submittedAt = new Date().toLocaleString('en-US', {
       timeZone: 'America/New_York',
@@ -78,20 +161,20 @@ export default async function(req: Request): Promise<Response> {
     const agencyHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
         <h2 style="color: #e01f1f; border-bottom: 2px solid #e01f1f; padding-bottom: 8px;">New Quote Request</h2>
-        <p style="font-size: 13px; color: #888;">Received ${submittedAt} (ET)</p>
+        <p style="font-size: 13px; color: #888;">Received ${escapeHtml(submittedAt)} (ET)</p>
         <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-          <tr><td style="padding: 6px 0; font-weight: bold; width: 160px; color: #555;">Name:</td><td style="padding: 6px 0;">${fullName}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Coverage Interest:</td><td style="padding: 6px 0;">${productLabel}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">State:</td><td style="padding: 6px 0;">${state || 'Not specified'}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Zip Code:</td><td style="padding: 6px 0;">${zipCode || 'Not specified'}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Age:</td><td style="padding: 6px 0;">${applicantAge || 'Not specified'}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Household Size:</td><td style="padding: 6px 0;">${householdSize || 'Not specified'}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Income Range:</td><td style="padding: 6px 0;">${incomeLabel}</td></tr>
-          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Email:</td><td style="padding: 6px 0;"><a href="mailto:${email}">${email}</a></td></tr>
-          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Phone:</td><td style="padding: 6px 0;"><a href="tel:${phone}">${phone}</a></td></tr>
-          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Best Time to Reach:</td><td style="padding: 6px 0;">${timeLabel}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; width: 160px; color: #555;">Name:</td><td style="padding: 6px 0;">${e.fullName}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Coverage Interest:</td><td style="padding: 6px 0;">${e.productLabel}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">State:</td><td style="padding: 6px 0;">${e.state}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Zip Code:</td><td style="padding: 6px 0;">${e.zipCode}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Age:</td><td style="padding: 6px 0;">${e.applicantAge}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Household Size:</td><td style="padding: 6px 0;">${e.householdSize}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Income Range:</td><td style="padding: 6px 0;">${e.incomeLabel}</td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Email:</td><td style="padding: 6px 0;"><a href="mailto:${e.email}">${e.email}</a></td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Phone:</td><td style="padding: 6px 0;"><a href="tel:${e.phone}">${e.phone}</a></td></tr>
+          <tr><td style="padding: 6px 0; font-weight: bold; color: #555;">Best Time to Reach:</td><td style="padding: 6px 0;">${e.timeLabel}</td></tr>
         </table>
-        ${notes ? `<h3 style="margin-top: 20px; font-size: 14px; color: #555;">Additional Notes:</h3><p style="font-size: 14px; background: #f5f5f5; padding: 12px; border-radius: 6px;">${notes}</p>` : ''}
+        ${notes ? `<h3 style="margin-top: 20px; font-size: 14px; color: #555;">Additional Notes:</h3><p style="font-size: 14px; background: #f5f5f5; padding: 12px; border-radius: 6px;">${e.notes}</p>` : ''}
         <hr style="margin-top: 24px; border: none; border-top: 1px solid #eee;" />
         <p style="font-size: 12px; color: #aaa;">This request was submitted from cobrainsurance.health/check-options</p>
       </div>
@@ -104,15 +187,15 @@ export default async function(req: Request): Promise<Response> {
           <h1 style="color: #ffffff; margin: 0; font-size: 22px;">We Received Your Request!</h1>
         </div>
         <div style="background: #ffffff; padding: 28px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
-          <p style="font-size: 16px;">Hi ${firstName},</p>
+          <p style="font-size: 16px;">Hi ${e.firstName},</p>
           <p style="font-size: 15px; line-height: 1.6; color: #555;">
             Thank you for reaching out to HealthLink Insurance Agency! We've received your request
-            for <strong>${productLabel}</strong> and a licensed advisor will be in touch with you soon.
+            for <strong>${e.productLabel}</strong> and a licensed advisor will be in touch with you soon.
           </p>
 
           <h3 style="color: #2d3441; font-size: 16px; margin-top: 28px;">What Happens Next?</h3>
           <ol style="font-size: 15px; line-height: 1.8; color: #555; padding-left: 20px;">
-            <li><strong>A licensed advisor will call you</strong> within 1 business day at ${phone}${bestTime ? ` (best time: ${timeLabel})` : ''}.</li>
+            <li><strong>A licensed advisor will call you</strong> within 1 business day at ${e.phone}${bestTime ? ` (best time: ${e.timeLabel})` : ''}.</li>
             <li><strong>We'll compare your options</strong> — COBRA, ACA Marketplace, short-term, and other plans — to find the best fit and price.</li>
             <li><strong>You choose what works</strong> — there's no obligation, and our help is completely free.</li>
           </ol>
