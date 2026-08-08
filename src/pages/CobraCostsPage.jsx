@@ -1,8 +1,32 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from '@/lib/helmet';
-import { Phone, ShieldCheck, DollarSign, Calendar, AlertTriangle, Percent } from 'lucide-react';
+import { Phone, ShieldCheck, DollarSign, Calendar, AlertTriangle, Percent, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
 
 const site = 'https://cobrainsurance.health';
+
+const faqs = [
+  {
+    q: 'Why is COBRA so expensive?',
+    a: 'COBRA requires you to pay the full premium your employer previously subsidized — typically 70% to 80% of the cost — plus up to a 2% administrative fee. The plan itself costs the same; you are simply paying the portion your employer used to cover.',
+  },
+  {
+    q: 'Can I lower my COBRA payment?',
+    a: 'You cannot negotiate the COBRA premium itself, but you can often find cheaper coverage through the ACA Marketplace with income-based subsidies, short-term health insurance, or Medicaid if you qualify. Comparing options before electing can save hundreds per month.',
+  },
+  {
+    q: 'What happens if I miss a COBRA payment?',
+    a: 'Most COBRA plans include a 30-day grace period. If you miss a payment beyond that window, your coverage can be terminated retroactively and generally cannot be reinstated. Pay on time to avoid losing coverage.',
+  },
+  {
+    q: 'How long do I have to pay COBRA premiums?',
+    a: 'COBRA continuation coverage typically lasts 18 months, but can extend to 29 or 36 months depending on the qualifying event. You pay monthly and can cancel at any time without penalty.',
+  },
+  {
+    q: 'Is COBRA cheaper than the ACA Marketplace?',
+    a: 'It depends on your income. If you qualify for premium tax credits, an ACA Marketplace plan is often much cheaper than COBRA. If your income is too high for subsidies, COBRA may be comparable — especially if you have ongoing medical needs and want to keep your current doctors.',
+  },
+];
 
 const costsJsonLd = {
   '@context': 'https://schema.org',
@@ -16,6 +40,56 @@ const costsJsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': `${site}/cobra-costs` },
   about: ['COBRA costs', 'health insurance premiums', 'COBRA savings'],
 };
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+    { '@type': 'ListItem', position: 2, name: 'COBRA Costs', item: `${site}/cobra-costs` },
+  ],
+};
+
+function FaqItem({ item }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b" style={{ borderColor: '#e0e0e0' }}>
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between py-4 text-left"
+      >
+        <span
+          className="text-base font-semibold pr-4"
+          style={{ color: '#2d3441', fontFamily: 'var(--font-sans)' }}
+        >
+          {item.q}
+        </span>
+        <ChevronDown
+          className={`w-5 h-5 flex-shrink-0 transition-transform ${open ? 'rotate-180' : ''}`}
+          style={{ color: '#e01f1f' }}
+        />
+      </button>
+      {open && (
+        <p
+          className="pb-4 text-sm leading-relaxed"
+          style={{ color: '#555555', fontFamily: 'var(--font-sans)' }}
+        >
+          {item.a}
+        </p>
+      )}
+    </div>
+  );
+}
 
 export default function CobraCostsPage() {
   return (
@@ -35,6 +109,8 @@ export default function CobraCostsPage() {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`${site}/cobra-costs`} />
         <script type="application/ld+json">{JSON.stringify(costsJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
       </Helmet>
 
       <main>
@@ -195,6 +271,71 @@ export default function CobraCostsPage() {
                 <Phone className="w-4 h-4" />
                 Call 844-569-1234
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ section */}
+        <section className="w-full py-12 lg:py-16" style={{ background: '#ffffff' }}>
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+              className="text-2xl lg:text-3xl font-bold mb-3 text-center"
+              style={{ color: '#2d3441', fontFamily: 'var(--font-heading)' }}
+            >
+              Frequently Asked Questions About COBRA Costs
+            </h2>
+            <p
+              className="text-sm mb-8 text-center max-w-xl mx-auto"
+              style={{ color: '#666666', fontFamily: 'var(--font-sans)' }}
+            >
+              Straight answers to the most common questions about COBRA premiums and payment.
+            </p>
+            <div className="border-t" style={{ borderColor: '#e0e0e0' }}>
+              {faqs.map((item) => (
+                <FaqItem key={item.q} item={item} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Internal links */}
+        <section className="w-full py-12" style={{ background: '#efefef' }}>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+              className="text-xl font-bold mb-6 text-center"
+              style={{ color: '#2d3441', fontFamily: 'var(--font-heading)' }}
+            >
+              Explore More COBRA Resources
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { to: '/cobra-eligibility', label: 'COBRA Eligibility Guide', desc: 'See if you qualify for continuation coverage.' },
+                { to: '/cobra-vs-aca', label: 'COBRA vs. ACA Marketplace', desc: 'Compare costs, coverage, and subsidies.' },
+                { to: '/calculator', label: 'COBRA Cost Calculator', desc: 'Estimate your monthly COBRA premium.' },
+                { to: '/blog', label: 'COBRA Blog', desc: 'In-depth articles on COBRA and alternatives.' },
+                { to: '/knowledge-base', label: 'Knowledge Base', desc: 'Everything you need to know about COBRA.' },
+                { to: '/alternatives', label: 'Affordable Alternatives', desc: 'Find cheaper health coverage options.' },
+              ].map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="block p-5 rounded-lg transition-shadow hover:shadow-md"
+                  style={{ background: '#ffffff', border: '1px solid #e0e0e0' }}
+                >
+                  <p
+                    className="text-sm font-bold mb-1"
+                    style={{ color: '#e01f1f', fontFamily: 'var(--font-sans)' }}
+                  >
+                    {link.label} →
+                  </p>
+                  <p
+                    className="text-xs leading-relaxed"
+                    style={{ color: '#666666', fontFamily: 'var(--font-sans)' }}
+                  >
+                    {link.desc}
+                  </p>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
