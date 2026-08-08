@@ -1,0 +1,48 @@
+{
+  "name": "GlossaryTerm",
+  "type": "object",
+  "properties": {
+    "term": {
+      "type": "string",
+      "title": "Term",
+      "description": "The glossary term or phrase being defined"
+    },
+    "slug": {
+      "type": "string",
+      "title": "URL Slug",
+      "description": "URL-friendly slug for this glossary term"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "A clear, plain-language definition of the term"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "enum": [
+        "COBRA Basics",
+        "Eligibility",
+        "Enrollment",
+        "Costs & Payments",
+        "Coverage Types",
+        "Legal & Compliance"
+      ],
+      "default": "COBRA Basics"
+    },
+    "related_terms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "Related Terms",
+      "description": "Other glossary terms related to this one"
+    }
+  },
+  "required": [
+    "term",
+    "slug",
+    "description",
+    "category"
+  ]
+}
