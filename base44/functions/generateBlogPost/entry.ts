@@ -158,6 +158,7 @@ export default async function(req) {
 
     return Response.json({ success: true, post });
   } catch (error) {
-    return Response.json({ error: error.message, stack: error.stack }, { status: 500 });
+    console.error('generateBlogPost error:', error);
+    return Response.json({ error: 'An unexpected error occurred while generating the blog post.' }, { status: 500 });
   }
 }
