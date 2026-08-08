@@ -34,9 +34,12 @@ const TIME_LABELS = {
 const EMAIL_RE = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 
 // --- In-memory rate limiting (best-effort, persists across warm invocations) ---
-const RATE_LIMIT_MAX = 5;          // max submissions per window per IP
-const RATE_LIMIT_WINDOW_MS = 600_000; // 10-minute window
-const ipHits = new Map(); // ip -> [timestamps]
+const RATE_LIMIT_MAX = 5;              // max submissions per window per IP
+const RATE_LIMIT_WINDOW_MS = 600_000;  // 10-minute window
+const EMAIL_RATE_LIMIT_MAX = 2;        // max submissions per 24h per email address
+const EMAIL_RATE_LIMIT_WINDOW_MS = 86_400_000; // 24-hour window
+const ipHits = new Map();     // ip -> [timestamps]
+const emailHits = new Map();  // normalized email -> [timestamps]
 
 function getClientIp(req) {
   const fwd = req.headers.get('x-forwarded-for');
@@ -46,21 +49,36 @@ function getClientIp(req) {
   return 'unknown';
 }
 
-function checkRateLimit(ip) {
+function checkRateLimit(store, key, max, windowMs) {
   const now = Date.now();
-  const hits = (ipHits.get(ip) || []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
-  if (hits.length >= RATE_LIMIT_MAX) {
+  const hits = (store.get(key) || []).filter((t) => now - t < windowMs);
+  if (hits.length >= max) {
     return false;
   }
   hits.push(now);
-  ipHits.set(ip, hits);
+  store.set(key, hits);
   // Opportunistic cleanup of stale entries to bound memory
-  if (ipHits.size > 5000) {
-    for (const [k, v] of ipHits) {
-      if (v.every((t) => now - t >= RATE_LIMIT_WINDOW_MS)) ipHits.delete(k);
+  if (store.size > 5000) {
+    for (const [k, v] of store) {
+      if (v.every((t) => now - t >= windowMs)) store.delete(k);
     }
   }
   return true;
+}
+
+// --- Disposable / throwaway email domain blocklist ---
+const DISPOSABLE_DOMAINS = new Set([
+  'mailinator.com', 'guerrillamail.com', '10minutemail.com', 'tempmail.com',
+  'throwaway.email', 'trashmail.com', 'fakeinbox.com', 'sharklasers.com',
+  'guerrillamailblock.com', 'tempmailo.com', 'yopmail.com', 'getnada.com',
+  'dispostable.com', 'maildrop.cc', 'temp-mail.org', 'emailondeck.com',
+  'spambog.com', 'trashmail.me', 'mintemail.com', 'mohmal.com',
+]);
+
+// Basic phone validation — digits, spaces, dashes, parentheses, plus sign; 7-15 digits
+const PHONE_DIGITS_RE = /^[+()\-\s\d]+$/;
+function countDigits(str) {
+  return (str.match(/\d/g) || []).length;
 }
 
 // Field length limits to bound payload size
@@ -114,7 +132,7 @@ export default async function(req: Request): Promise<Response> {
   try {
     // --- Rate limiting (mitigates abuse / resource exhaustion on public endpoint) ---
     const clientIp = getClientIp(req);
-    if (!checkRateLimit(clientIp)) {
+    if (!checkRateLimit(ipHits, clientIp, RATE_LIMIT_MAX, RATE_LIMIT_WINDOW_MS)) {
       return Response.json(
         { error: 'Too many requests. Please try again later.' },
         { status: 429 }
@@ -144,6 +162,25 @@ export default async function(req: Request): Promise<Response> {
 
     if (!EMAIL_RE.test(email)) {
       return Response.json({ error: 'Invalid email address.' }, { status: 400 });
+    }
+
+    // --- Block disposable / throwaway email domains ---
+    const emailDomain = email.split('@')[1]?.toLowerCase();
+    if (emailDomain && DISPOSABLE_DOMAINS.has(emailDomain)) {
+      return Response.json({ error: 'Please use a valid email address.' }, { status: 400 });
+    }
+
+    // --- Per-email rate limiting (prevents spamming a specific inbox from rotating IPs) ---
+    if (!checkRateLimit(emailHits, email.toLowerCase(), EMAIL_RATE_LIMIT_MAX, EMAIL_RATE_LIMIT_WINDOW_MS)) {
+      return Response.json(
+        { error: 'A request was already submitted for this email. Please try again tomorrow.' },
+        { status: 429 }
+      );
+    }
+
+    // --- Phone format validation ---
+    if (!PHONE_DIGITS_RE.test(phone) || countDigits(phone) < 7 || countDigits(phone) > 15) {
+      return Response.json({ error: 'Invalid phone number.' }, { status: 400 });
     }
 
     // Validate enum-like fields against allowlists; reject unknown values
