@@ -33,6 +33,36 @@ const TIME_LABELS = {
 // Strict email validation — RFC 5322 simplified
 const EMAIL_RE = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 
+// --- In-memory rate limiting (best-effort, persists across warm invocations) ---
+const RATE_LIMIT_MAX = 3;          // max submissions per window per IP
+const RATE_LIMIT_WINDOW_MS = 600_000; // 10-minute window
+const ipHits = new Map(); // ip -> [timestamps]
+
+function getClientIp(req) {
+  const fwd = req.headers.get('x-forwarded-for');
+  if (fwd) return fwd.split(',')[0].trim();
+  const real = req.headers.get('x-real-ip');
+  if (real) return real.trim();
+  return 'unknown';
+}
+
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const hits = (ipHits.get(ip) || []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  if (hits.length >= RATE_LIMIT_MAX) {
+    return false;
+  }
+  hits.push(now);
+  ipHits.set(ip, hits);
+  // Opportunistic cleanup of stale entries to bound memory
+  if (ipHits.size > 5000) {
+    for (const [k, v] of ipHits) {
+      if (v.every((t) => now - t >= RATE_LIMIT_WINDOW_MS)) ipHits.delete(k);
+    }
+  }
+  return true;
+}
+
 // Field length limits to bound payload size
 const LIMITS = {
   firstName: 60,
@@ -82,10 +112,24 @@ async function sendEmail(apiKey, payload) {
 
 export default async function(req: Request): Promise<Response> {
   try {
+    // --- Rate limiting (mitigates abuse / resource exhaustion on public endpoint) ---
+    const clientIp = getClientIp(req);
+    if (!checkRateLimit(clientIp)) {
+      return Response.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
     const body = await req.json();
 
     // --- Strict payload validation ---
     if (!body || typeof body !== 'object') {
+      return Response.json({ error: 'Invalid request.' }, { status: 400 });
+    }
+
+    // --- Honeypot: bots tend to fill hidden fields; humans never see them ---
+    if (body.website || body.company_url) {
       return Response.json({ error: 'Invalid request.' }, { status: 400 });
     }
 
