@@ -99,7 +99,7 @@ export default function ExitIntentModal() {
           <div className="flex flex-col gap-3">
             <Link
               to="/get-help"
-              onClick={close}
+              onClick={() => setTimeout(close, 0)}
               className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-lg font-bold text-sm text-white transition-opacity hover:opacity-90"
               style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
             >
@@ -108,7 +108,7 @@ export default function ExitIntentModal() {
             </Link>
             <a
               href="tel:8445691234"
-              onClick={close}
+              onClick={() => setTimeout(close, 0)}
               className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-lg font-bold text-sm transition-colors hover:bg-gray-50"
               style={{
                 background: '#ffffff',

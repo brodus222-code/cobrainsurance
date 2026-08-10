@@ -52,7 +52,7 @@ export default function AdvisorBubble() {
           />
           <div
             className="absolute bottom-full right-0 mb-3 w-72 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in"
-            style={{ background: '#ffffff', border: '1px solid #e5e5e5' }}
+            style={{ background: '#ffffff', border: '1px solid #e5e5e5', zIndex: 50 }}
           >
             {OPTIONS.map((opt, i) => {
               const Icon = opt.icon;
