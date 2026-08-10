@@ -11,6 +11,7 @@ const PRODUCT_LABELS = {
   'hospital-indemnity': 'Hospital Indemnity',
   accident: 'Accident-Only Plan',
   teladoc: 'Teladoc / Virtual Care',
+  schedule: 'Schedule a Call',
 };
 
 const INCOME_LABELS = {
