@@ -84,7 +84,9 @@ export default function SchedulePage() {
         email: form.email,
         phone: form.phone,
         product: 'schedule',
-        notes: `Scheduled call: ${formatDate(selectedDate)} at ${formatTime(selectedTime)}${form.message ? `\n\nTopic: ${form.message}` : ''}`,
+        scheduledDate: formatDate(selectedDate),
+        scheduledTime: formatTime(selectedTime),
+        notes: form.message ? `Topic: ${form.message}` : '',
       });
       setSubmitting(false);
       setStage('success');

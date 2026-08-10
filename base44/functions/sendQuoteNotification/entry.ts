@@ -205,6 +205,8 @@ export default async function(req: Request): Promise<Response> {
     const applicantAge = clampString(body.applicantAge, LIMITS.applicantAge).trim();
     const householdSize = clampString(body.householdSize, LIMITS.householdSize).trim();
     const notes = clampString(body.notes, LIMITS.notes).trim();
+    const scheduledDate = clampString(body.scheduledDate, 50).trim();
+    const scheduledTime = clampString(body.scheduledTime, 20).trim();
 
     const apiKey = secrets.get('RESEND_API_KEY');
     if (!apiKey) {
@@ -231,6 +233,8 @@ export default async function(req: Request): Promise<Response> {
       phone: escapeHtml(phone),
       timeLabel: escapeHtml(timeLabel),
       notes: escapeHtml(notes),
+      scheduledDate: escapeHtml(scheduledDate),
+      scheduledTime: escapeHtml(scheduledTime),
     };
 
     const submittedAt = new Date().toLocaleString('en-US', {
@@ -262,8 +266,59 @@ export default async function(req: Request): Promise<Response> {
       </div>
     `;
 
-    // 2. Confirmation email to the submitter
-    const customerHtml = `
+    // 2. Confirmation email to the submitter — schedule-specific or standard quote
+    const isSchedule = product === 'schedule' && scheduledDate && scheduledTime;
+
+    const scheduleCustomerHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+        <div style="background: #2d3441; padding: 24px; border-radius: 8px 8px 0 0; text-align: center;">
+          <h1 style="color: #ffffff; margin: 0; font-size: 22px;">Your Call is Scheduled!</h1>
+        </div>
+        <div style="background: #ffffff; padding: 28px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
+          <p style="font-size: 16px;">Hi ${e.firstName},</p>
+          <p style="font-size: 15px; line-height: 1.6; color: #555;">
+            Thank you for scheduling a call with CobraInsurance.Health! Your appointment is
+            confirmed and a licensed advisor will call you at the number you provided at the
+            scheduled time below.
+          </p>
+
+          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 20px; margin: 24px 0; text-align: center;">
+            <p style="margin: 0 0 4px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #16a34a; font-weight: bold;">Your Appointment</p>
+            <p style="margin: 0; font-size: 20px; color: #2d3441; font-weight: bold;">${e.scheduledDate}</p>
+            <p style="margin: 4px 0 0; font-size: 18px; color: #e01f1f; font-weight: bold;">${e.scheduledTime}</p>
+          </div>
+
+          <h3 style="color: #2d3441; font-size: 16px; margin-top: 28px;">What Happens Next?</h3>
+          <ol style="font-size: 15px; line-height: 1.8; color: #555; padding-left: 20px;">
+            <li><strong>A licensed advisor will call you</strong> at ${e.phone} at the scheduled time above — no need to call us.</li>
+            <li><strong>We'll compare your options</strong> — COBRA, ACA Marketplace, short-term, and other plans — to find the best fit and price.</li>
+            <li><strong>You choose what works</strong> — there's no obligation, and our help is completely free.</li>
+          </ol>
+
+          <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 14px 18px; margin: 24px 0; border-radius: 4px;">
+            <p style="margin: 0; font-size: 14px; color: #333;">
+              <strong>Need to reschedule or cancel?</strong> Reply to this email or call us at
+              <a href="tel:8445691234" style="color: #e01f1f; font-weight: bold;">844-569-1234</a>
+              and we'll be happy to find a better time.
+            </p>
+          </div>
+
+          <p style="font-size: 15px; line-height: 1.6; color: #555;">
+            We've added this appointment to our calendar. If you have any questions before the call,
+            just reply to this email or give us a call.
+          </p>
+
+          <p style="font-size: 15px; margin-top: 28px;">Best regards,<br />
+          <strong style="color: #2d3441;">The CobraInsurance.Health Team</strong><br />
+          <span style="font-size: 13px; color: #888;">Licensed in 22 states &amp; DC · 844-569-1234</span></p>
+        </div>
+        <p style="font-size: 12px; color: #aaa; text-align: center; margin-top: 16px;">
+          ©2026 HealthLink Insurance Agency LLC · Springfield, IL
+        </p>
+      </div>
+    `;
+
+    const quoteCustomerHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
         <div style="background: #2d3441; padding: 24px; border-radius: 8px 8px 0 0; text-align: center;">
           <h1 style="color: #ffffff; margin: 0; font-size: 22px;">We Received Your Request!</h1>
@@ -304,17 +359,23 @@ export default async function(req: Request): Promise<Response> {
       </div>
     `;
 
+    const customerHtml = isSchedule ? scheduleCustomerHtml : quoteCustomerHtml;
+
     const results = await Promise.allSettled([
       sendEmail(apiKey, {
         from: `CobraInsurance.Health <${FROM_EMAIL}>`,
         to: AGENCY_EMAIL,
-        subject: `New Quote Request — ${fullName} (${productLabel})`,
+        subject: isSchedule
+          ? `New Scheduled Call — ${fullName} (${scheduledDate} at ${scheduledTime})`
+          : `New Quote Request — ${fullName} (${productLabel})`,
         html: agencyHtml,
       }),
       sendEmail(apiKey, {
         from: `CobraInsurance.Health <${FROM_EMAIL}>`,
         to: email,
-        subject: `We received your request, ${firstName}! Here's what happens next.`,
+        subject: isSchedule
+          ? `Your call is scheduled, ${firstName} — ${scheduledDate} at ${scheduledTime}`
+          : `We received your request, ${firstName}! Here's what happens next.`,
         html: customerHtml,
       }),
     ]);
