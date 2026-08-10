@@ -316,7 +316,7 @@ export default function CustomerServicePage() {
                 </div>
                 <div>
                   <p className="font-bold text-base mb-0.5" style={{ color: '#3c4c63', fontFamily: 'var(--font-heading)' }}>Schedule a Call</p>
-                  <p className="text-sm font-semibold" style={{ color: '#e01f1f', fontFamily: 'var(--font-sans)' }}>Pick a time on Google Calendar</p>
+                  <p className="text-sm font-semibold" style={{ color: '#e01f1f', fontFamily: 'var(--font-sans)' }}>Pick a Time</p>
                   <p className="text-xs mt-1" style={{ color: '#888888', fontFamily: 'var(--font-sans)' }}>Free consultation · No obligation</p>
                 </div>
               </Link>
