@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ShieldCheck, MessageCircle } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 const HERO_IMG = 'https://vibe.filesafe.space/1782002280399174400/assets/b02292c8-ee20-4954-9142-054465dd9411.png';
 
@@ -142,15 +142,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Sticky Talk to an Advisor button */}
-      <Link
-        to="/get-help"
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-full font-bold text-sm text-white shadow-lg transition-opacity hover:opacity-90"
-        style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
-      >
-        <MessageCircle className="w-4 h-4" />
-        Talk to an Advisor
-      </Link>
     </section>
   );
 }
