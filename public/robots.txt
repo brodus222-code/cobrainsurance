@@ -4,4 +4,4 @@ Disallow: /check-options
 Disallow: /cobra-portal
 Disallow: /schedule
 
-Sitemap: https://cobrainsurance.health/sitemap.xml
+Sitemap: https://cobrainsurance.health/functions/sitemap
