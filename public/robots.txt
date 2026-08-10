@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /check-options
+Disallow: /cobra-portal
+Disallow: /schedule
+
+Sitemap: https://cobrainsurance.health/sitemap.xml
