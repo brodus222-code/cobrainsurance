@@ -9,6 +9,7 @@ export default function Footer() {
     { label: 'COBRA Account Portal', href: '/cobra-portal' },
     { label: 'State Continuation Laws', href: '/state-laws' },
     { label: 'About Us', href: '/about' },
+    { label: 'Contact Us', href: '/contact' },
     { label: 'COBRA Blog', href: '/blog' },
     { label: 'Where to File Unemployment', href: '/unemployment' },
     { label: 'Sitio web en español', href: '/es' },

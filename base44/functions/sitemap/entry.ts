@@ -15,6 +15,7 @@ const STATIC_PAGES = [
   { path: '/state-laws', priority: '0.7', changefreq: 'monthly' },
   { path: '/unemployment', priority: '0.7', changefreq: 'monthly' },
   { path: '/about', priority: '0.6', changefreq: 'monthly' },
+  { path: '/contact', priority: '0.6', changefreq: 'monthly' },
   { path: '/get-help', priority: '0.6', changefreq: 'monthly' },
   { path: '/blog', priority: '0.7', changefreq: 'daily' },
 ];
