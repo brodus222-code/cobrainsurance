@@ -5,7 +5,7 @@ import { useState, Fragment } from 'react';
 import {
   Phone,
   Mail,
-  MapPin,
+  CalendarDays,
   Clock,
   MessageSquare,
   FileText,
@@ -13,7 +13,6 @@ import {
   HelpCircle,
   ChevronDown,
   ChevronUp,
-  ExternalLink,
 } from 'lucide-react';
 
 const site = 'https://cobrainsurance.health';
@@ -300,29 +299,21 @@ export default function CustomerServicePage() {
                 </div>
               </a>
 
-              {/* Office */}
-              <div className="rounded-2xl p-6 flex flex-col items-center text-center gap-3" style={{ background: '#fbfbfb' }}>
+              {/* Schedule */}
+              <Link
+                to="/schedule"
+                className="group rounded-2xl p-6 flex flex-col items-center text-center gap-3 transition-transform hover:-translate-y-1 hover:shadow-lg"
+                style={{ background: '#fbfbfb' }}
+              >
                 <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#3c4c63' }}>
-                  <MapPin className="w-5 h-5 text-white" />
+                  <CalendarDays className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="font-bold text-base mb-0.5" style={{ color: '#3c4c63', fontFamily: 'var(--font-heading)' }}>Mailing Address</p>
-                  <p className="text-sm" style={{ color: '#555555', fontFamily: 'var(--font-sans)' }}>
-                    {customer_service.address.street}
-                    <br />
-                    {customer_service.address.city}
-                  </p>
-                  <a
-                    href="https://maps.google.com/?q=2501+Chatham+Rd+Suite+R+Springfield+IL+62704"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs mt-1 transition-opacity hover:opacity-75"
-                    style={{ color: '#e01f1f', fontFamily: 'var(--font-sans)' }}
-                  >
-                    View on map <ExternalLink className="w-3 h-3" />
-                  </a>
+                  <p className="font-bold text-base mb-0.5" style={{ color: '#3c4c63', fontFamily: 'var(--font-heading)' }}>Schedule a Call</p>
+                  <p className="text-sm font-semibold" style={{ color: '#e01f1f', fontFamily: 'var(--font-sans)' }}>Pick a time on Google Calendar</p>
+                  <p className="text-xs mt-1" style={{ color: '#888888', fontFamily: 'var(--font-sans)' }}>Free consultation · No obligation</p>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </section>

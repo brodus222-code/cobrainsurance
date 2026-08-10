@@ -1,5 +1,8 @@
 import { Helmet } from '@/lib/helmet';
-import { Phone, Clock, CalendarDays } from 'lucide-react';
+import { Phone, Clock, CalendarDays, ExternalLink } from 'lucide-react';
+
+// Replace with your Google Calendar Appointment Schedule link
+const GOOGLE_CALENDAR_LINK = 'https://calendar.google.com/calendar/appointments';
 
 const site = 'https://cobrainsurance.health';
 const canonicalUrl = `${site}/schedule`;
@@ -96,16 +99,38 @@ export default function SchedulePage() {
                 </p>
               </div>
               <div className="p-6">
-                <iframe
-                  src="https://links.healthlinkagency.com/widget/booking/Ho3h8SjTmJb87Zo8SJlp"
-                  allow="payment"
-                  title="Schedule a Call"
-                  className="w-full rounded-xl"
-                  style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '600px' }}
-                  scrolling="no"
-                  id="Ho3h8SjTmJb87Zo8SJlp_1786127792970"
-                  loading="lazy"
-                />
+                <div className="flex flex-col items-center text-center py-8">
+                  <div
+                    className="w-16 h-16 rounded-full flex items-center justify-center mb-5"
+                    style={{ background: '#efefef' }}
+                  >
+                    <CalendarDays className="w-8 h-8" style={{ color: '#e01f1f' }} />
+                  </div>
+                  <h3
+                    className="text-xl font-bold mb-2"
+                    style={{ color: '#3c4c63', fontFamily: 'var(--font-heading)' }}
+                  >
+                    Book on Google Calendar
+                  </h3>
+                  <p
+                    className="text-sm mb-6 max-w-md leading-relaxed"
+                    style={{ color: '#666666', fontFamily: 'var(--font-sans)' }}
+                  >
+                    Choose a date and time that works for you directly on Google Calendar.
+                    You'll receive an instant confirmation with a calendar invite.
+                  </p>
+                  <a
+                    href={GOOGLE_CALENDAR_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
+                    style={{ background: '#e01f1f', fontFamily: 'var(--font-sans)' }}
+                  >
+                    <CalendarDays className="w-4 h-4" />
+                    Open Google Calendar
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
                 <p
                   className="text-xs mt-4 text-center leading-relaxed"
                   style={{ color: '#999999', fontFamily: 'var(--font-sans)' }}
@@ -121,7 +146,6 @@ export default function SchedulePage() {
           </div>
         </section>
       </main>
-      <script src="https://links.healthlinkagency.com/js/form_embed.js" type="text/javascript" />
     </>
   );
 }

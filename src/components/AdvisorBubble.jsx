@@ -13,7 +13,7 @@ const OPTIONS = [
     icon: PhoneCall,
     label: 'Request Call Back',
     sub: "We'll call you shortly",
-    to: '/get-help',
+    to: '/schedule',
   },
   {
     icon: CalendarDays,
