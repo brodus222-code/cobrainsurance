@@ -1,4 +1,5 @@
 import customer_service from '@/content/pages/customer_service.json';
+import ScheduleSection from '@/components/schedule/ScheduleSection';
 import { Helmet } from '@/lib/helmet';
 import { Link } from 'react-router-dom';
 import { useState, Fragment } from 'react';
@@ -242,6 +243,11 @@ export default function CustomerServicePage() {
         {/* ── Hero ── */}
         <section className="w-full py-14 lg:py-20" style={{ background: '#3c4c63' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-xs mb-5" style={{ color: '#a0b4c8', fontFamily: 'var(--font-sans)' }}>
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <span className="mx-1.5">›</span>
+              <span>Get Help</span>
+            </p>
             <span
               className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white mb-5"
               style={{ background: '#e01f1f' }}
@@ -271,7 +277,7 @@ export default function CustomerServicePage() {
               <a
                 href="tel:8445691234"
                 className="group rounded-2xl p-6 flex flex-col items-center text-center gap-3 transition-transform hover:-translate-y-1 hover:shadow-lg"
-                style={{ background: '#fbfbfb' }}
+                style={{ background: '#fbfbfb', borderTop: '3px solid #e01f1f' }}
               >
                 <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#e01f1f' }}>
                   <Phone className="w-5 h-5 text-white" />
@@ -283,19 +289,19 @@ export default function CustomerServicePage() {
                 </div>
               </a>
 
-              {/* Email */}
+              {/* Request a Call */}
               <a
-                href={`mailto:${customer_service.email}`}
+                href="#send-message"
                 className="group rounded-2xl p-6 flex flex-col items-center text-center gap-3 transition-transform hover:-translate-y-1 hover:shadow-lg"
-                style={{ background: '#fbfbfb' }}
+                style={{ background: '#fbfbfb', borderTop: '3px solid #e01f1f' }}
               >
-                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#3c4c63' }}>
-                  <Mail className="w-5 h-5 text-white" />
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#e01f1f' }}>
+                  <MessageSquare className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="font-bold text-base mb-0.5" style={{ color: '#3c4c63', fontFamily: 'var(--font-heading)' }}>Email Us</p>
-                  <p className="text-sm font-semibold" style={{ color: '#3c4c63', fontFamily: 'var(--font-sans)' }}>{customer_service.email}</p>
-                  <p className="text-xs mt-1" style={{ color: '#888888', fontFamily: 'var(--font-sans)' }}>Response within 1 business day</p>
+                  <p className="font-bold text-base mb-0.5" style={{ color: '#3c4c63', fontFamily: 'var(--font-heading)' }}>Request a Call</p>
+                  <p className="text-sm font-semibold" style={{ color: '#e01f1f', fontFamily: 'var(--font-sans)' }}>Fill out our form</p>
+                  <p className="text-xs mt-1" style={{ color: '#888888', fontFamily: 'var(--font-sans)' }}>We'll call you back shortly</p>
                 </div>
               </a>
 
@@ -303,7 +309,7 @@ export default function CustomerServicePage() {
               <Link
                 to="/schedule"
                 className="group rounded-2xl p-6 flex flex-col items-center text-center gap-3 transition-transform hover:-translate-y-1 hover:shadow-lg"
-                style={{ background: '#fbfbfb' }}
+                style={{ background: '#fbfbfb', borderTop: '3px solid #e01f1f' }}
               >
                 <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#3c4c63' }}>
                   <CalendarDays className="w-5 h-5 text-white" />
@@ -337,6 +343,9 @@ export default function CustomerServicePage() {
             </div>
           </div>
         </section>
+
+        {/* ── Schedule a call ── */}
+        <ScheduleSection />
 
         {/* ── What can we help with + Contact form ── */}
         <section className="w-full py-14 lg:py-20" style={{ background: '#fbfbfb' }}>
@@ -397,7 +406,7 @@ export default function CustomerServicePage() {
               </div>
 
               {/* Right — form */}
-              <div>
+              <div id="send-message">
                 <h2 className="text-3xl font-bold mb-3" style={{ color: '#3c4c63', fontFamily: 'var(--font-heading)' }}>
                   Send Us a Message
                 </h2>
