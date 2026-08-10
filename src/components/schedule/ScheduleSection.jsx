@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { CalendarDays, Clock, ChevronRight } from 'lucide-react';
+import { CalendarDays, Clock, ChevronRight, Loader2 } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
 
 const TIME_SLOTS = [
   '09:00', '09:30', '10:00', '10:30',
@@ -20,6 +21,21 @@ function formatTime(time) {
 export default function ScheduleSection() {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
+  const [busySlots, setBusySlots] = useState([]);
+  const [loadingSlots, setLoadingSlots] = useState(false);
+
+  useEffect(() => {
+    if (!selectedDate) {
+      setBusySlots([]);
+      return;
+    }
+    setLoadingSlots(true);
+    base44.functions
+      .invoke('checkCalendarAvailability', { date: selectedDate })
+      .then((res) => setBusySlots(res.data.busySlots || []))
+      .catch(() => setBusySlots([]))
+      .finally(() => setLoadingSlots(false));
+  }, [selectedDate]);
 
   return (
     <section className="w-full py-14 lg:py-20" style={{ background: '#fbfbfb' }}>
@@ -103,26 +119,46 @@ export default function ScheduleSection() {
                   Available times
                 </span>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {TIME_SLOTS.map((time) => (
-                  <button
-                    key={time}
-                    onClick={() => setSelectedTime(time)}
-                    className="py-2.5 rounded-lg text-sm font-semibold transition-colors"
-                    style={{
-                      background: selectedTime === time ? '#e01f1f' : '#ffffff',
-                      border:
-                        selectedTime === time
-                          ? '1px solid #e01f1f'
-                          : '1px solid #dcdcdc',
-                      color: selectedTime === time ? '#ffffff' : '#2d3441',
-                      fontFamily: 'var(--font-sans)',
-                    }}
-                  >
-                    {formatTime(time)}
-                  </button>
-                ))}
-              </div>
+              {loadingSlots ? (
+                <div className="flex items-center gap-2 py-6">
+                  <Loader2 className="w-4 h-4 animate-spin" style={{ color: '#e01f1f' }} />
+                  <span className="text-sm" style={{ color: '#888888', fontFamily: 'var(--font-sans)' }}>
+                    Checking availability…
+                  </span>
+                </div>
+              ) : busySlots.length === TIME_SLOTS.length ? (
+                <p className="text-sm py-4" style={{ color: '#888888', fontFamily: 'var(--font-sans)' }}>
+                  All slots are booked on this day. Please pick another date.
+                </p>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  {TIME_SLOTS.map((time) => {
+                    const isBusy = busySlots.includes(time);
+                    return (
+                      <button
+                        key={time}
+                        disabled={isBusy}
+                        onClick={() => setSelectedTime(time)}
+                        className="py-2.5 rounded-lg text-sm font-semibold transition-colors"
+                        style={{
+                          background: selectedTime === time ? '#e01f1f' : isBusy ? '#f5f5f5' : '#ffffff',
+                          border:
+                            selectedTime === time
+                              ? '1px solid #e01f1f'
+                              : isBusy
+                                ? '1px solid #e5e5e5'
+                                : '1px solid #dcdcdc',
+                          color: selectedTime === time ? '#ffffff' : isBusy ? '#bbbbbb' : '#2d3441',
+                          cursor: isBusy ? 'not-allowed' : 'pointer',
+                          fontFamily: 'var(--font-sans)',
+                        }}
+                      >
+                        {formatTime(time)}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </>
           )}
 

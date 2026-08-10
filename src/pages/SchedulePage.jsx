@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from '@/lib/helmet';
 import { Link } from 'react-router-dom';
 import {
@@ -44,6 +44,21 @@ export default function SchedulePage() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [busySlots, setBusySlots] = useState([]);
+  const [loadingSlots, setLoadingSlots] = useState(false);
+
+  useEffect(() => {
+    if (!selectedDate) {
+      setBusySlots([]);
+      return;
+    }
+    setLoadingSlots(true);
+    base44.functions
+      .invoke('checkCalendarAvailability', { date: selectedDate })
+      .then((res) => setBusySlots(res.data.busySlots || []))
+      .catch(() => setBusySlots([]))
+      .finally(() => setLoadingSlots(false));
+  }, [selectedDate]);
 
   function handleTimeSelect(time) {
     setSelectedTime(time);
@@ -259,38 +274,52 @@ export default function SchedulePage() {
                               Available times
                             </span>
                           </div>
-                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                            {TIME_SLOTS.map((time) => (
-                              <button
-                                key={time}
-                                onClick={() => handleTimeSelect(time)}
-                                className="py-2.5 rounded-lg text-sm font-semibold transition-colors hover:bg-red-50"
-                                style={{
-                                  background: '#ffffff',
-                                  border: '1px solid #dcdcdc',
-                                  color: '#2d3441',
-                                  fontFamily: 'var(--font-sans)',
-                                }}
-                              >
-                                {formatTime(time)}
-                              </button>
-                            ))}
-                          </div>
+                          {loadingSlots ? (
+                            <div className="flex items-center gap-2 py-6">
+                              <Loader2 className="w-4 h-4 animate-spin" style={{ color: '#e01f1f' }} />
+                              <span className="text-sm" style={{ color: '#888888', fontFamily: 'var(--font-sans)' }}>
+                                Checking availability…
+                              </span>
+                            </div>
+                          ) : busySlots.length === TIME_SLOTS.length ? (
+                            <p className="text-sm py-4" style={{ color: '#888888', fontFamily: 'var(--font-sans)' }}>
+                              All slots are booked on this day. Please pick another date.
+                            </p>
+                          ) : (
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                              {TIME_SLOTS.map((time) => {
+                                const isBusy = busySlots.includes(time);
+                                return (
+                                  <button
+                                    key={time}
+                                    disabled={isBusy}
+                                    onClick={() => handleTimeSelect(time)}
+                                    className="py-2.5 rounded-lg text-sm font-semibold transition-colors"
+                                    style={{
+                                      background: isBusy ? '#f5f5f5' : '#ffffff',
+                                      border: isBusy ? '1px solid #e5e5e5' : '1px solid #dcdcdc',
+                                      color: isBusy ? '#bbbbbb' : '#2d3441',
+                                      cursor: isBusy ? 'not-allowed' : 'pointer',
+                                      fontFamily: 'var(--font-sans)',
+                                    }}
+                                  >
+                                    {formatTime(time)}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          )}
                         </>
                       )}
 
                       {stage === 'form' && (
                         <form onSubmit={handleConfirm} className="mt-2">
-                          <div
-                            className="text-sm mb-5 p-3 rounded-lg"
-                            style={{
-                              background: '#f0fdf4',
-                              border: '1px solid #bbf7d0',
-                              color: '#166534',
-                              fontFamily: 'var(--font-sans)',
-                            }}
-                          >
-                            <strong>Selected:</strong> {formatTime(selectedTime)} on {selectedDate}
+                          <div className="text-sm mb-5">
+                            <span style={{ color: '#333333', fontFamily: 'var(--font-sans)' }}>Selected: </span>
+                            <span style={{ color: '#e01f1f', fontWeight: 'bold', fontFamily: 'var(--font-sans)' }}>
+                              {formatTime(selectedTime)}
+                            </span>
+                            <span style={{ color: '#333333', fontFamily: 'var(--font-sans)' }}> on {selectedDate}</span>
                           </div>
                           <div className="flex flex-col gap-4">
                             <div className="flex flex-col gap-1.5">
