@@ -218,6 +218,8 @@ export default function Footer() {
               <Link to="/terms" className="hover:text-white transition-colors">Terms of Use</Link>
               {' · '}
               <Link to="/do-not-call" className="hover:text-white transition-colors">Do Not Call Policy</Link>
+              {' · '}
+              <Link to="/admin/leads" className="hover:text-white transition-colors">Admin Leads</Link>
             </p>
             <p
               className="text-xs leading-relaxed"

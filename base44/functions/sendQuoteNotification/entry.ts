@@ -1,4 +1,5 @@
 import { secrets } from 'base44:runtime';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.44';
 
 const RESEND_API_URL = 'https://api.resend.com/emails';
 const AGENCY_EMAIL = 'john@healthlinkagency.com';
@@ -208,16 +209,29 @@ export default async function(req: Request): Promise<Response> {
     const scheduledDate = clampString(body.scheduledDate, 50).trim();
     const scheduledTime = clampString(body.scheduledTime, 20).trim();
 
-    const apiKey = secrets.get('RESEND_API_KEY');
-    if (!apiKey) {
-      return Response.json({ error: 'Email service not configured.' }, { status: 500 });
-    }
-
     // --- Build email content with all user input HTML-escaped ---
     const fullName = `${firstName} ${lastName}`.trim();
     const productLabel = PRODUCT_LABELS[product] || 'Not specified';
     const incomeLabel = INCOME_LABELS[annualIncome] || 'Not specified';
     const timeLabel = TIME_LABELS[bestTime] || 'Not specified';
+
+    // Public intake intentionally uses the caller-scoped client, not service-role access.
+    // RLS allows new submissions only; all reads and changes require an administrator.
+    // Persist first so an email-service failure cannot lose the submitted lead.
+    const base44 = createClientFromRequest(req);
+    await base44.entities.Lead.create({
+      firstName, lastName, email, phone,
+      source: product === 'schedule' ? 'schedule' : 'quote',
+      product: product || '', productLabel, state, zipCode, applicantAge, householdSize,
+      annualIncome: annualIncome || '', incomeLabel, bestTime: bestTime || '', timeLabel,
+      notes, scheduledDate, scheduledTime,
+      status: 'new', followUpDate: '', followUpNotes: '',
+    });
+
+    const apiKey = secrets.get('RESEND_API_KEY');
+    if (!apiKey) {
+      return Response.json({ error: 'Your request was saved, but email notifications are unavailable. Please call us if you need immediate help.' }, { status: 500 });
+    }
 
     // Escape every user-provided value before insertion into HTML
     const e = {
@@ -386,7 +400,7 @@ export default async function(req: Request): Promise<Response> {
 
     if (errors.length) {
       console.error('Email send errors:', errors);
-      return Response.json({ error: 'Some emails failed to send.', details: errors }, { status: 500 });
+      return Response.json({ error: 'Your request was saved, but an email notification failed. There is no need to submit it again.' }, { status: 500 });
     }
 
     return Response.json({ success: true });

@@ -1,0 +1,115 @@
+{
+  "name": "Lead",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "lastName": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "email": {
+      "type": "string",
+      "maxLength": 254
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 30
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "quote",
+        "schedule"
+      ]
+    },
+    "product": {
+      "type": "string"
+    },
+    "productLabel": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "string"
+    },
+    "applicantAge": {
+      "type": "string"
+    },
+    "householdSize": {
+      "type": "string"
+    },
+    "annualIncome": {
+      "type": "string"
+    },
+    "incomeLabel": {
+      "type": "string"
+    },
+    "bestTime": {
+      "type": "string"
+    },
+    "timeLabel": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "scheduledDate": {
+      "type": "string"
+    },
+    "scheduledTime": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "follow_up",
+        "closed"
+      ],
+      "default": "new"
+    },
+    "followUpDate": {
+      "type": "string"
+    },
+    "followUpNotes": {
+      "type": "string",
+      "maxLength": 10000
+    }
+  },
+  "required": [
+    "firstName",
+    "email",
+    "phone",
+    "source",
+    "status"
+  ],
+  "rls": {
+    "create": {
+      "data.status": "new",
+      "data.followUpNotes": "",
+      "data.followUpDate": ""
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
