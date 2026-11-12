@@ -40,6 +40,15 @@ const RATE_LIMIT_MAX = 5;              // max submissions per window per IP
 const RATE_LIMIT_WINDOW_MS = 600_000;  // 10-minute window
 const EMAIL_RATE_LIMIT_MAX = 2;        // max submissions per 24h per email address
 const EMAIL_RATE_LIMIT_WINDOW_MS = 86_400_000; // 24-hour window
+const CONFIRM_GLOBAL_MAX = 30;            // max confirmation emails to submitters per hour
+const CONFIRM_GLOBAL_WINDOW_MS = 3_600_000;
+const confirmHits = new Map();
+// Appointment values must match the scheduler's own format, e.g. "Thursday, November 12" / "9:30 AM"
+const DATE_RE = /^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}$/;
+const TIME_RE = /^(1[0-2]|[1-9]):[0-5]\d (AM|PM)$/;
+function headerSafe(str) {
+  return String(str).replace(/[\u0000-\u001f\u007f]+/g, ' ').slice(0, 200);
+}
 const ipHits = new Map();     // ip -> [timestamps]
 const emailHits = new Map();  // normalized email -> [timestamps]
 
@@ -208,6 +217,9 @@ export default async function(req: Request): Promise<Response> {
     const notes = clampString(body.notes, LIMITS.notes).trim();
     const scheduledDate = clampString(body.scheduledDate, 50).trim();
     const scheduledTime = clampString(body.scheduledTime, 20).trim();
+    if ((scheduledDate && !DATE_RE.test(scheduledDate)) || (scheduledTime && !TIME_RE.test(scheduledTime))) {
+      return Response.json({ error: 'Invalid appointment time.' }, { status: 400 });
+    }
 
     // --- Build email content with all user input HTML-escaped ---
     const fullName = `${firstName} ${lastName}`.trim();
@@ -289,7 +301,7 @@ export default async function(req: Request): Promise<Response> {
           <h1 style="color: #ffffff; margin: 0; font-size: 22px;">Your Call is Scheduled!</h1>
         </div>
         <div style="background: #ffffff; padding: 28px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
-          <p style="font-size: 16px;">Hi ${e.firstName},</p>
+          <p style="font-size: 16px;">Hi there,</p>
           <p style="font-size: 15px; line-height: 1.6; color: #555;">
             Thank you for scheduling a call with CobraInsurance.Health! Your appointment is
             confirmed and a licensed advisor will call you at the number you provided at the
@@ -304,7 +316,7 @@ export default async function(req: Request): Promise<Response> {
 
           <h3 style="color: #2d3441; font-size: 16px; margin-top: 28px;">What Happens Next?</h3>
           <ol style="font-size: 15px; line-height: 1.8; color: #555; padding-left: 20px;">
-            <li><strong>A licensed advisor will call you</strong> at ${e.phone} at the scheduled time above — no need to call us.</li>
+            <li><strong>A licensed advisor will call you</strong> at the number you provided at the scheduled time above — no need to call us.</li>
             <li><strong>We'll compare your options</strong> — COBRA, ACA Marketplace, short-term, and other plans — to find the best fit and price.</li>
             <li><strong>You choose what works</strong> — there's no obligation, and our help is completely free.</li>
           </ol>
@@ -338,7 +350,7 @@ export default async function(req: Request): Promise<Response> {
           <h1 style="color: #ffffff; margin: 0; font-size: 22px;">We Received Your Request!</h1>
         </div>
         <div style="background: #ffffff; padding: 28px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
-          <p style="font-size: 16px;">Hi ${e.firstName},</p>
+          <p style="font-size: 16px;">Hi there,</p>
           <p style="font-size: 15px; line-height: 1.6; color: #555;">
             Thank you for reaching out to CobraInsurance.Health! We've received your request
             for <strong>${e.productLabel}</strong> and a licensed advisor will be in touch with you soon.
@@ -346,7 +358,7 @@ export default async function(req: Request): Promise<Response> {
 
           <h3 style="color: #2d3441; font-size: 16px; margin-top: 28px;">What Happens Next?</h3>
           <ol style="font-size: 15px; line-height: 1.8; color: #555; padding-left: 20px;">
-            <li><strong>A licensed advisor will call you</strong> within 1 business day at ${e.phone}${bestTime ? ` (best time: ${e.timeLabel})` : ''}.</li>
+            <li><strong>A licensed advisor will call you</strong> within 1 business day at the number you provided${bestTime ? ` (best time: ${e.timeLabel})` : ''}.</li>
             <li><strong>We'll compare your options</strong> — COBRA, ACA Marketplace, short-term, and other plans — to find the best fit and price.</li>
             <li><strong>You choose what works</strong> — there's no obligation, and our help is completely free.</li>
           </ol>
@@ -375,24 +387,31 @@ export default async function(req: Request): Promise<Response> {
 
     const customerHtml = isSchedule ? scheduleCustomerHtml : quoteCustomerHtml;
 
-    const results = await Promise.allSettled([
+    // Confirmation goes to a caller-supplied address, so it carries no free-text input
+    // and is capped globally (independent of any spoofable client IP).
+    const sends = [
       sendEmail(apiKey, {
         from: `CobraInsurance.Health <${FROM_EMAIL}>`,
         to: AGENCY_EMAIL,
-        subject: isSchedule
+        subject: headerSafe(isSchedule
           ? `New Scheduled Call — ${fullName} (${scheduledDate} at ${scheduledTime})`
-          : `New Quote Request — ${fullName} (${productLabel})`,
+          : `New Quote Request — ${fullName} (${productLabel})`),
         html: agencyHtml,
       }),
-      sendEmail(apiKey, {
+    ];
+    if (checkRateLimit(confirmHits, 'global', CONFIRM_GLOBAL_MAX, CONFIRM_GLOBAL_WINDOW_MS)) {
+      sends.push(sendEmail(apiKey, {
         from: `CobraInsurance.Health <${FROM_EMAIL}>`,
         to: email,
         subject: isSchedule
-          ? `Your call is scheduled, ${firstName} — ${scheduledDate} at ${scheduledTime}`
-          : `We received your request, ${firstName}! Here's what happens next.`,
+          ? `Your call is scheduled for ${scheduledDate} at ${scheduledTime}`
+          : `We received your request. Here's what happens next.`,
         html: customerHtml,
-      }),
-    ]);
+      }));
+    } else {
+      console.warn('Confirmation email cap reached; skipped customer confirmation.');
+    }
+    const results = await Promise.allSettled(sends);
 
     const errors = results
       .map((r, i) => (r.status === 'rejected' ? `${i === 0 ? 'Agency' : 'Customer'} email: ${r.reason.message}` : null))
